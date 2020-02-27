@@ -12,6 +12,7 @@
       <img src="@/assets/goldlonglogo.png" id="short-logo">-->
       <img src="@/assets/logo.svg" id="short-logo">
       <br>
+      <span class="goes-retro" style="transform: rotate(-5deg) translate(20%, -20%); display: none!important;">GOES RETRO</span>
     </div>
 
     <div id="landing-content-container">
@@ -121,6 +122,16 @@ export default {
 
 <style scoped lang="scss">
 @import '@/globalVars.scss';
+
+.goes-retro {
+  color: $gold;
+  display: inline-block;
+  font-family: Lazer84;
+  font-size: 5vmin;
+  transform: rotate(-5deg) translate(0%, -20%);
+  letter-spacing: 1vmin;
+  filter: drop-shadow(4px 4px $blue) drop-shadow(-1.5px -1.5px $blue)
+}
 
 #landing-container {
   min-height: 100vh;

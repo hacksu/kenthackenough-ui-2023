@@ -4,6 +4,9 @@
     <span style="font-size: 9vmin; margin-bottom: 0px;">KENT HACK ENOUGH</span><br>
     <span class="goes-retro" style="transform: rotate(-5deg) translate(90%, -0%)">GOES RETRO</span>
   </div>
+  <div class="image-box2 desktop-only">
+
+  </div>
   <div id="about-content-container">
     <img style="max-height: 40vh;" src="@/assets/keyboard.png">
     <div id="about-text-container" style="font-size: 5vmin; transform: scale(1);">
@@ -36,6 +39,25 @@ export default {
   filter: drop-shadow(4px 4px $blue) drop-shadow(-1.5px -1.5px $blue)
 }
 
+.image-box2 {
+  background-position: 0vw 0vh;
+  right: 5vw;
+  position: absolute;
+  background-image: url("../assets/SunglassesPink.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 25vh;
+  max-width: 35vmax;
+  height: 40vh;
+  max-height: 50vw;
+  z-index: 0;
+  margin-top: -15vh;
+  transform: rotate(-5deg);
+  @media only screen and (max-width: $lg-bp3) {
+    display: none;
+  }
+}
+
 #header-container {
   width: 70%;
   margin-top: 100px;
@@ -63,7 +85,7 @@ export default {
   margin: 60px 10vw;
   margin-top: 15px;
   display: flex;
-  @media only screen and (max-width: $lg-bp) {
+  @media only screen and (max-width: $lg-bp2) {
     flex-flow: column;
   }
   // height: 100%;

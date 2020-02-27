@@ -266,8 +266,8 @@ export default {
 }
 
   h1 {
-    font-family: nandaka;
-    color: $gold;
+    font-family: Commando;
+    color: $black-overwrite;
     font-size: 40px;
   }
 
@@ -402,13 +402,23 @@ export default {
   /* AUTH STYLING */
   /*  Putting this here so i don't need to duplicate in  two components*/
 
+  #register .gold-clear-button {
+    font-size: 2vmin!important;
+  }
+
   #auth-title {
-    font-family: nandaka;
+    font-family: Lazer84;
     font-size: 50px;
-    color: $brown;
     margin: 0px;
-    margin-bottom: -7px;
-    padding-top: 10vh;
+    /*margin-bottom: -70px;*/
+    padding-top: -10vh;
+    color: $gold;
+    font-size: 5vmin;
+    transform: rotate(-5deg) translate(0%, -80%);
+    letter-spacing: 1vmin;
+    display: inline-block;
+    filter: drop-shadow(4px 4px $blue) drop-shadow(-1.5px -1.5px $blue);
+    z-index: 5;
   }
 
   #auth-subtitle {
@@ -420,10 +430,11 @@ export default {
     position: relative;
     z-index: 15;
     padding-top: 10px;
-    background: $brown;
+    background: $sand2;
+    border-radius: 25px;
     width: 50vw;
     min-width: 300px;
-    color: white;
+    color: black;
     margin-left: 50%;
     transform: translatex(-50%);
   }
@@ -432,8 +443,8 @@ export default {
     font-family: abel;
     background: none;
     border: none;
-    border-bottom: 2px solid white;
-    color: white;
+    border-bottom: 2px solid black;
+    color: black;
     font-size: 16px;
     margin-bottom: 20px;
   }
