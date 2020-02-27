@@ -4,12 +4,12 @@
       <div id="bannerL" class="bannerContainer">
         <p class="banner-link khe-link" id="kheTitle"
            @click="scrollTo('/', '#mainContainer')">KENT HACK ENOUGH</p>
-        
+
         <div id="hamburgMenu">
           <img id="hamburgIcon" src="@/assets/Hamburger_icon.svg.png" width="50" @click="togMenu()">
         </div>
       </div>
-      
+
       <div id="bannerR" class="bannerContainer" :class="{'hidden': expandMenu}">
         <p class="banner-link" @click="scrollTo('/', 'landing-container')">Home</p>
         <!-- <p class="banner-link"@click="scrollTo('/', '#about-container')">About</p> -->
@@ -43,7 +43,7 @@ export default {
       showLogin: false,
       showRegister: true,
       showPasswordReset: false,
-      
+
       hasApp: false,
       hasCheckedForApp: false,
       expandMenu: false,
@@ -64,11 +64,11 @@ export default {
       this.user.email = user.email;
       this.user.role = user.role;
 
-      // Redirects to home if they're on register 
+      // Redirects to home if they're on register
       if (this.$route.fullPath == '/register' || this.$route.fullPath == '/login') {
         this.$router.push('/')
       }
-      
+
       // Checks if the user has an application
       this.wrapper.applicationManager.getApplication()
       .then((app) => {
@@ -236,14 +236,70 @@ export default {
     src: url("./assets/fonts/Athelas-Regular.ttf");
   }
 
+  @font-face {
+	font-family: Lazer84;
+	src: url("./assets/fonts/Lazer84.ttf");
+}
+
+@font-face {
+	font-family: abel;
+	src: url("./assets/fonts/abel-regular.ttf");
+}
+
+@font-face {
+	font-family: 'Dagger Square';
+	src: url("./assets/fonts/DAGGERSQUARE.otf");
+}
+
+@font-face {
+	font-family: 'Ropa Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local('Ropa Sans Regular'), local('RopaSans-Regular'), url(https://fonts.gstatic.com/s/ropasans/v9/EYqxmaNOzLlWtsZSScy6UzNpY5I.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+	font-family: Commando;
+	src: url("./assets/fonts/commando/commando.ttf");
+}
+
   h1 {
     font-family: nandaka;
     color: $gold;
     font-size: 40px;
   }
 
+  button {
+    /*filter: brightness(100%);*/
+    transition: transform 0.25s, filter 0.25s, background-color 0.05s, color 0.05s;
+  }
+  button:hover {
+    transform: scale(1.1);
+    /*filter: brightness(120%);*/
+  }
+
+  .banner-link {
+    /*filter: brightness(100%);*/
+    transition: transform 0.25s, filter 0.25s, background-color 0.05s, color 0.05s;
+  }
+  .banner-link:hover {
+    transform: scale(1.1);
+    /*filter: brightness(120%);*/
+  }
+
+  a {
+    /*filter:brightness(100%);*/
+    transition: transform 0.25s, filter 0.25s, text-decoration-color 0.25s;
+  }
+  a:hover {
+    transform: scale(1.1);
+    /*filter: brightness(120%);*/
+  }
+
   #app {
-    font-family: athelas;
+    font-family: abel;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -256,7 +312,7 @@ export default {
 
   #banner {
     /*position: fixed;*/
-    background-color: $dark-blue;
+    background-color: #39183e;
     display: flex;
     justify-content: space-between;
     z-index: 98;
@@ -297,15 +353,16 @@ export default {
   }
 
   .gold-clear-button {
-    font-family: athelas;
+    font-family: abel;
     background: none;
-    color: $gold;
-    border: solid $gold 1px;
+    color: $purple;
+    border: solid $purple 1px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 4vmin;
     padding: 10px 20px;
     transition-duration: .5s;
     margin-bottom: 15px;
+    border-radius: 5px;
     cursor: pointer;
     &:hover {
       color: $dark-blue;
@@ -314,15 +371,22 @@ export default {
   }
 
   .gold-link {
+    color: $purple;
+    font-size: 2.5vmin;
+    display: inline-block;
+    text-decoration-color: transparent;
+  }
+  .gold-link:hover {
+    text-decoration-style: underline!important;
     color: $gold;
-    font-size: 15px;
+    text-decoration-color: $blue;
   }
 
   .fancy-button {
     background: $gold;
     box-shadow: 5px 5px 0px $blue;
     cursor: pointer;
-    font-family: athelas;
+    font-family: abel;
     font-weight: bold;
     font-size: 20px;
     padding: 10px 20px;
@@ -365,7 +429,7 @@ export default {
   }
 
   .simple-text-input {
-    font-family: athelas;
+    font-family: abel;
     background: none;
     border: none;
     border-bottom: 2px solid white;

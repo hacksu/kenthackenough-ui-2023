@@ -3,11 +3,17 @@
     <div id="faq">
       <div class="info-container">
         <h2 id="faqTitle">
-          <img src="@/assets/goldflourish.png" class="flipped"> 
-          <img src="@/assets/faq_assets/faq_text.png">
-          <img src="@/assets/goldflourish.png" > 
+          FREQUENTLY ASKED QUESTIONS
         </h2>
-        
+
+        <div class="image-box1 desktop-only">
+
+        </div>
+
+        <div class="image-box2 desktop-only">
+
+        </div>
+
         <!--Outputs faq objects dynamically, as defined by the 'faqs' object in the data.-->
         <div class="faqModule" v-for="faq in faqs" @click="expandFAQ(faq.id)">
           <div class="question" >
@@ -21,11 +27,12 @@
         </div>
         <br>
         <p class="faqModule">
-          Still have questions? 
+          Still have questions?
           <router-link to="contact" id="contactLink">Let us know!</router-link>
         </p>
       </div>
-      
+
+      <div class="back"></div>
     </div>
   </div>
 </template>
@@ -91,23 +98,83 @@ export default {
 <style scoped lang="scss">
 @import '@/globalVars.scss';
 
+.image-box1 {
+  background-position: -0vh 0vh;
+  /*left: -25vh;
+  margin-left: 12vw;*/
+  left: 2vw;
+  position: absolute;
+  background-image: url("../assets/walkman2020.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 45vh;
+  max-width: 25vmax;
+  height: 40vh;
+  max-height: 50vw;
+  z-index: -1;
+  margin-top: 25vh;
+  transform: rotate(15deg);
+}
+
+.image-box2 {
+  background-position: 0vw 0vh;
+  right: 2vh;
+  position: absolute;
+  background-image: url("../assets/cassettes.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 45vh;
+  max-width: 45vmax;
+  height: 40vh;
+  max-height: 50vw;
+  z-index: -1;
+  margin-top: -20vh;
+  transform: rotate(180deg);
+}
+
 #faq-container {
   margin-top: 0px;
   padding-top: 20px;
-  background: $sand;
+  /*background: $sand2;*/
+  /*background: rgb(0,82,224);
+  background: linear-gradient(90deg, rgba(0,82,224,1) 0%, rgba(255,255,255,1) 100%);*/
   min-height: 100vh;
-  
+
 }
+
+#faq-container .back {
+  background: $sand2;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  position: absolute;
+}
+
 #faqTitle {
   text-align: center;
-  font-size: 50px;
-  height: 5vw;
+  /*font-size: 50px;*/
+  /*height: calc(8vw + 5vh);*/
   img {
     height: 100%;
   }
   @media only screen and (max-width: $md-bp) {
-    height: 13vw;
+    height: calc(13vw + 3vh);
+    font-size: 7.5vmin!important;
   }
+  color: black;
+  background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
+  display: inline-block;
+  font-family: Lazer84;
+  font-size: 6vmin;
+  transform: rotate(-2.5deg); /* translate(0%, -20%); */
+  line-height: 7.5vmin;
+  letter-spacing: 1vmin;
+  /*filter: drop-shadow(4px 4px $blue) drop-shadow(-1.5px -1.5px $blue)*/
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 #faq {
   background-color: var(--orange);

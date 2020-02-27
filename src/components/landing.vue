@@ -5,18 +5,18 @@
     </a>
 
     <div id="logo-container">
-      <img src="@/assets/goldflourish.png" class="flipped desktop-only"> 
-          <!-- Note we're flipping this with CSS so we don't have to load an extra asset! -->
+      <!--<img src="@/assets/goldflourish.png" class="flipped desktop-only">
       <img src="@/assets/goldshortlogo.png">
       <img src="@/assets/goldflourish.png" class="desktop-only">
       <br>
-      <img src="@/assets/goldlonglogo.png" id="short-logo">
+      <img src="@/assets/goldlonglogo.png" id="short-logo">-->
+      <img src="@/assets/logo.svg" id="short-logo">
+      <br>
     </div>
 
     <div id="landing-content-container">
-      <p><b>September 27<sup>th</sup>-29<sup>th</sup> 2019</b></p>
+      <p>OCTOBER 2020</p>
       <p>Kent State Library</p>
-      <br>
       <router-link tag="button" :to="{name: 'register'}" class="gold-clear-button"
         v-if="$parent.$parent.user._id == ''">
         Register Now!
@@ -34,7 +34,7 @@
     <!-- Art, absolutely positioned.
         The :style tags used on these assets make the assets shift slightly with the mouse motion
                                   & the scroll, for a nice parallax effects -->
-    <img src="@/assets/landing_assets/foreground_cliff.svg" id="foreground-cliff"
+    <!--<img src="@/assets/landing_assets/foreground_cliff.svg" id="foreground-cliff"
       :style="{
           'margin-bottom': -(scrollPos / 85) - (mouseY / 55) + 'px',
           'margin-left': (mouseX / 55) - 50 + 'px'
@@ -77,7 +77,7 @@
           'margin-bottom': -(scrollPos / 7) + (mouseY / 45) + 'px',
           'margin-right': (mouseX / 65) - 60 + 'px'
         }"
-      class="desert-asset">
+      class="desert-asset">-->
   </div>
 </template>
 
@@ -128,14 +128,15 @@ export default {
   padding: 0px;
   margin: 0px;
   padding-bottom: 20px;
-  background: url('../assets/nightsky.png');
+  background: url('../assets/weirdShapes.svg');
   background-size: cover;
-  background-color: black;
+  background-position: center;
+  background-color: #411743;
   position: relative;
 }
 
 #logo-container {
-  height: 130px;
+  /*height: 130px;*/
   margin-top: 100px;
   img {
     height: 70%;
@@ -155,14 +156,16 @@ export default {
 }
 
 #landing-content-container {
-  margin-top: 80px;
-  font-size: 2rem;
+  margin-top: 40px;
+  font-size: 4vmax;
   z-index: 11;
-  position: relative;
-  color: $gold;
-  font-family: athelas;
+  /*position: relative;*/
+  color: white;
+
   p {
+    @extend .outline;
     margin: 10px;
+    font-family: Commando;
   }
 }
 
@@ -185,7 +188,7 @@ export default {
   position: absolute;
 }
 
-/* Note that for all positioning, we need to use 'vw' as our unit 
+/* Note that for all positioning, we need to use 'vw' as our unit
           -- even vertical positioning!!
         This way the assets will scale with the screen width, for mobile phones. */
 #foreground-cliff {
@@ -241,7 +244,7 @@ export default {
   right: -170px;
   bottom: -16vw;
 }
-  
+
 @keyframes fadein {
   from {
     opacity: 0;
