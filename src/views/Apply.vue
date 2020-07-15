@@ -530,6 +530,11 @@ export default {
       let phone = this.$parent.user.application.phone.split(' ');
       this.$parent.user.application.phone = phone[1] + phone[2] + phone[3];
 
+      // Virtual Hackathon
+      this.$parent.user.application.shirt = "M";
+      this.$parent.user.application.travel = false;
+      // ---------------
+
       var vm = this;
       console.warn(this.$parent.user.application);
       this.$parent.wrapper.applicationManager.saveApplication(this.$parent.user.application)
