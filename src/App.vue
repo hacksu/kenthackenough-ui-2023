@@ -13,14 +13,14 @@
       <div id="bannerR" class="bannerContainer" :class="{'hidden': expandMenu}">
         <p class="banner-link" @click="scrollTo('/', 'landing-container')">Home</p>
         <!-- <p class="banner-link"@click="scrollTo('/', '#about-container')">About</p> -->
-        <p class="banner-link" @click="scrollTo('/', '#faq-container')">FAQ</p>
-        <p class="banner-link" @click="scrollTo('/sponsor', '#sponsors')">Sponsors</p>
+        <p class="banner-link" id="faq-scrollto" @click="scrollTo('/', '#faq-container')">FAQ</p>
+        <p v-if="$data.showSponsors" class="banner-link" @click="scrollTo('/sponsor', '#sponsors')">Sponsors</p>
         <p class="banner-link" @click="scrollTo('/contact', '#contact')">Contact</p>
-        <p class="banner-link" @click="scrollTo('/schedule')">Schedule</p>
-        <p class="banner-link" @click="scrollTo('/', '#map')">Map</p>
-        <p class="banner-link" @click="scrollTo('/live')">Live!</p>"
-        <p class="banner-link" @click="scrollTo('/register', '#register')" v-if="user._id == ''">Register/Login</p>
-        <p class="banner-link" @click='logout()' v-if="user._id != ''">Log out</p>
+        <p v-if="$data.showSchedule" class="banner-link" @click="scrollTo('/schedule')">Schedule</p>
+        <p class="banner-link" @click="scrollTo('/', '#map')">Virtual</p>
+        <p v-if="$data.showLive" class="banner-link" @click="scrollTo('/live')">Live!</p>"
+        <p class="banner-link" @click="scrollTo('/register', '#register')" v-if="user._id == '' && $data.showRegister">Register/Login</p>
+        <p class="banner-link" @click='logout()' v-if="user._id != '' && $data.showRegister">Log out</p>
         <div class="padding" style="width: 50px"></div>
       </div>
     </div>
@@ -41,8 +41,12 @@ export default {
   data() {
     return {
       showLogin: false,
-      showRegister: true,
+      showRegister: true, //false,
+      showSponsors: false,
+      showLive: false,
+      showSchedule: false,
       showPasswordReset: false,
+      showMLH: false,
 
       hasApp: false,
       hasCheckedForApp: false,
@@ -226,6 +230,7 @@ export default {
     display: none;
   }
 
+
   @font-face {
     font-family: nandaka;
     src: url("./assets/fonts/nandaka_western.ttf");
@@ -312,7 +317,8 @@ export default {
 
   #banner {
     /*position: fixed;*/
-    background-color: #39183e;
+    /*background-color: #39183e;*/
+    background-color: rgba(65,23,67,1);
     display: flex;
     justify-content: space-between;
     z-index: 98;
@@ -322,14 +328,16 @@ export default {
     padding: 15px;
     margin: 0px;
     font-size: 18px;
-    color: #fff;
+    color: white;
     cursor: pointer;
     -webkit-transition-duration: 0.2s;
     transition-duration: 0.2s;
+    border-radius: 0.25em;
   }
 
   .banner-link:hover {
     background-color: $blue;
+
   }
 
   .bannerContainer {

@@ -1,10 +1,10 @@
 <template>
   <div id="application" ref="application" @keyup.enter="next()">
     <router-link tag="div" to="/" id="app-header">
-      <img src="@/assets/goldflourish.png" class="flipped"> 
+      <!--<img src="@/assets/goldflourish.png" class="flipped">-->
           <!-- Note we're flipping this with CSS  so we don't have to load an extra asset! -->
       <img src="@/assets/goldshortlogo.png" class="logo">
-      <img src="@/assets/goldflourish.png" class="desktop-only">
+      <!--<img src="@/assets/goldflourish.png" class="desktop-only">-->
     </router-link>
 
     <div id="questionHolder"
@@ -12,10 +12,10 @@
          v-if="currentQuestion != appQuestions.length">
       <div class="question" v-for="(question, index) in appQuestions"
       :key="index">
-        
+
         <div id="displayedQuestion" v-if="currentQuestion == index">
-        
-          <p>{{index + 1}}. 
+
+          <p>{{index + 1}}.
             <span class="err"
                   v-if="question.required">*</span>
             <span v-html="question.label"></span></p>
@@ -24,30 +24,30 @@
                  @keyup.enter="next()"
                v-bind:placeholder="question.placeholder"
                v-model="$parent.user.application[question.appField]">
-        
+
           <div v-if="question.type == 'phone'">
-            <vue-tel-input v-model="$parent.user.application.phone" 
+            <vue-tel-input v-model="$parent.user.application.phone"
                   :defaultCountry="'US'"
                   @onInput="onInput"
                            placeholder="5551239876"
                   @keyup.enter="next()"
                   class="front">
                   </vue-tel-input>
-            
+
           </div>
-          
-          <div class="optHolder" 
+
+          <div class="optHolder"
                v-if="question.type == 'radio'">
-<!--            The following input is used to allow users to type their selection, 
+<!--            The following input is used to allow users to type their selection,
                 instead of clicking on the buttons.
-                
+
                 You can find it's handler in the watched functions.
 -->
-            <input class="hidden question" 
+            <input class="hidden question"
                    v-model="radioInput"
                    @keyup.enter="next()"
                    >
-            <div class="opt" 
+            <div class="opt"
                  v-for="(option, optIndex) in question.options"
                  :key="optIndex"
                  v-bind:class="{
@@ -57,26 +57,26 @@
                  @click="$parent.user.application[question.appField] = option[1]">
               [{{optIndex + 1}}.] &nbsp; {{option[0]}}
             </div>
-            <input class="stringOpt" 
+            <input class="stringOpt"
                    v-if="question.stringInputLabel != undefined"
-                   type="text" 
+                   type="text"
                    v-model="$parent.user.application[question.appField]"
                    @keyup.enter="next()"
                    v-bind:placeholder="question.stringInputLabel">
           </div>
-          
-          <div class="optHolder" 
+
+          <div class="optHolder"
                v-if="question.type == 'bool'">
             <span v-if="question.appField == 'conduct'"
                class="gray-subtitle">
-              TL;DR. Be respectful. Harassment and abuse are never tolerated. 
+              TL;DR. Be respectful. Harassment and abuse are never tolerated.
             </span>
 
             <span v-if="question.appField == 'demographic'" class="gray-subtitle">
               I authorize you to share my application/registration information for event administration, ranking, MLH administration, pre- and post-event informational e-mails, and occasional messages about hackathons in-line with the MLH Privacy Policy. I further agree to the terms of both the MLH Contest Terms and Conditions and the MLH Privacy Policy.
             </span>
 
-            <input class="hidden question" 
+            <input class="hidden question"
                    v-model="boolInput"
                    @keyup.enter="next()"
                    >
@@ -98,19 +98,19 @@
             </div>
             <div v-if="question.appField == 'travel' &&
                        $parent.user.application[question.appField]">
-              Where are you travelling from? 
+              Where are you travelling from?
               <input v-model="$parent.user.application.extra"
                      class="question"
                  @keyup.enter="next()"
                     placeholder="USA, Ohio, Kent">
             </div>
           </div>
-          
+
           <div v-if="question.type == 'number'">
             <input type="number" class="numInput"
                    v-model="$parent.user.application[question.appField]"
                    v-bind:placeholder="question.placeholder">
-            <p v-if="question.appField == 'age' && 
+            <p v-if="question.appField == 'age' &&
                      $parent.user.application[question.appField] != '' &&
                      $parent.user.application[question.appField] > 12 &&
                      $parent.user.application[question.appField] < 18"
@@ -118,9 +118,9 @@
               As a minor, make sure you bring a <a href="https://drive.google.com/file/d/1-AKs9LPvUtkPbgQwvr1o-nbHIxr5Ez_9/view?usp=sharing" target="_blank" class="orange-link">waiver</a>, signed by a parent or gaurdian.
             </p>
           </div>
-          
+
           <div v-if="question.type == 'upload'">
-            <input class="hidden question" 
+            <input class="hidden question"
                    v-model="boolInput"
                    @keyup.enter="next()"
                    >
@@ -131,7 +131,7 @@
 
           </div>
         </div>
-        
+
       </div>
       <div class="nav-buttons">
         <button @click="previous()" class="fancy-button"
@@ -144,7 +144,7 @@
                 :class="{
                         disabled: !valid(currentQuestion)
                         }">
-            
+
           Next →
           <p>or press Enter</p>
         </button>
@@ -168,8 +168,6 @@
         Back to Home!
       </router-link>
     </div>
-    <div id="apply-ground"></div>
-    <img src="@/assets/apply_assets/dark_cactus.png" id="apply-cactus">
   </div>
 </template>
 
@@ -178,88 +176,88 @@ import Vue from 'vue';
 //import phoneFilter from '../filters/phoneFilter';
 import VueTelInput from 'vue-tel-input';
 import 'vue-tel-input/dist/vue-tel-input.css';
-  
+
 import vue2Dropzone from 'vue2-dropzone';
 import 'vue2-dropzone/dist/vue2Dropzone.min.css';
-  
+
 import apiConfig from "@/config/config";
-  
+
 Vue.use(VueTelInput);
 export default {
   name: 'apply',
-  
+
   components: {
     vueDropzone: vue2Dropzone,
     VueTelInput
   },
-  
+
   data() {
     return {
-      
+
       currentQuestion: 0,
       radioInput: '', // Stores the user's input as a full string
       radioChoice: -1, // The calculated choice. See radioInput's watcher for more info
-      
+
       boolInput: '',
       boolChoice: -1,
-      
+
       goToNext: true, // Used to debounce next()
-      
+
       submissionErr: '', // automatically displays any text here
-      
+
       phone: {
         number: '',
         isValid: false,
         country: undefined,
       },
-      
+
       dropzoneOptions: {
         url: `${apiConfig.api_base}/users/application/resume`,
-        acceptedFiles: 'application/docx,application/pdf,text/plain', 
+        acceptedFiles: 'application/docx,application/pdf,text/plain',
         thumbnailWidth: 150,
         paramName: 'resume',
         success: this.uploadSuccess
       },
-      
+
       // All appQuestion objects should have:
       //    - type: one of: 'text', 'radio', 'phone', 'bool' 'number'
       //    - label (any string)
       //    - required (bool)
       //
-      // If you change these questions, make sure they still work with 
+      // If you change these questions, make sure they still work with
       // the requirements here:
       // https://github.com/hacksu/kenthackenough/blob/master/app/users/application/model.js
       appQuestions: [
         {
           appField: 'name',
-          
+
           type: 'text',
           label: 'Full Name: ',
           placeholder: 'Jane Doe',
-          
+
           required: true
         },
         {
           appField: 'school',
-          
+
           type: 'text',
           label: 'Your school\'s full name:',
           placeholder: 'Kent State University',
-          
+
           required: true
         },
         {
           appField: 'phone',
-          
+
           type: 'phone',
           label: 'Your phone number: ',
           placeholder: '555-555-5555',
-          
+
           required: true
         },
-        {
+        /*{
           appField: 'shirt',
-          
+
           type: 'radio',
           label: 'Your shirt size: ',
           options: [
@@ -272,23 +270,23 @@ export default {
             ['XX-Large', 'XXL'],
             ['XXX-Large', 'XXXL']
           ],
-          
+
           required: true
-        },
+        },*/
         {
           appField: 'first',
-          
+
           type: 'bool',
           label: 'Is this your first hackathon?',
-          
+
           required: true
         },
-        {
+        /*{
           appField: 'dietary',
-          
+
           type: 'radio',
           label: 'Do you have any dietary restrictions?',
-          
+
           options: [
             ['Vegetarian', 'vegetarian'],
             ['Vegan', 'vegan'],
@@ -297,13 +295,13 @@ export default {
           ],
           // stringInputLabel is optional
           stringInputLabel: 'Allergies/Other Dietary Restrictions '
-        },
+        },*/
         {
           appField: 'year',
-          
+
           type: 'radio',
           label: 'Where are you in school?',
-          
+
           options: [
             ['In high school', 'High School'],
             ['Freshman', 'Freshman'],
@@ -318,19 +316,19 @@ export default {
         },
         {
           appField: 'age',
-          
+
           type: 'number',
           placeholder: 'Age',
           label: 'How old are you?',
-          
+
           required: true,
         },
         {
           appField: 'gender',
-          
+
           type: 'radio',
           label: 'What\'s your gender?',
-          
+
           options: [
             ['Female', 'Female'],
             ['Male', 'Male'],
@@ -342,48 +340,48 @@ export default {
         },
         {
           appField: 'major',
-          
+
           type: 'text',
           label: 'What\'s your major?',
           placeholder: 'Computer Science',
-          
+
           required: true
         },
-        {
+        /*{
           appField: 'travel',
           type: 'bool',
-          label: 'Will you need travel reimbursment?',
-          
+          label: 'Will you need travel reimbursement?',
+
           required: true
-        },
+        },*/
         {
           appField: 'resume',
           type: 'upload',
           label: 'Upload your resume:',
-          
+
           required: false
         },
         {
           appField: 'link',
-          
+
           type: 'text',
           label: 'Link to your github, personal website, or anything else.',
           placeholder: 'github.com/you',
-          
+
           required: false
         },
         {
           appField: 'conduct',
           type: 'bool',
           label: 'Do you agree to the <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank" class="orange-link">MLH code of conduct</a>?',
-          
+
           required: true
         },
         {
           appField: 'demographic',
           type: 'bool',
           label: 'Can we send your demographic info to MLH\'s administration?',
-          
+
           required: true
         },
       ]
@@ -391,16 +389,16 @@ export default {
   },
   watch: {
     // This function takes the latest numeric input from the hidden input,
-    // & selects the corresponding radio value. 
+    // & selects the corresponding radio value.
     radioInput(newVal, oldVal) {
-      
+
       // The hidden input holds a string, so first we grab the last character
-      // of that string: 
+      // of that string:
       var newChar = newVal[newVal.length - 1];
-      
-      // Next we grab the question from the question array: 
+
+      // Next we grab the question from the question array:
       var question = this.appQuestions[this.currentQuestion];
-      
+
       // Checking if newChar is a number in the options:
       var number = Number(newChar);
       if (number && question.options[number - 1]) {
@@ -409,12 +407,12 @@ export default {
     },
     boolInput(newVal, oldVal) {
       // The hidden input holds a string, so first we grab the last character
-      // of that string: 
+      // of that string:
       var newChar = newVal[newVal.length - 1];
-      
-      // Next we grab the question from the question array: 
+
+      // Next we grab the question from the question array:
       var question = this.appQuestions[this.currentQuestion];
-      
+
       if (newChar === '1') {
         this.$parent.user.application[question.appField] = true;
       } else if (newChar === '2') {
@@ -425,67 +423,68 @@ export default {
   methods: {
     valid(q) {
       var app = this.$parent.user.application;
+      let x = 0;
       switch(q) {
-        case 0: // Name
+        case x++: // Name
           return (app.name.length > 2);
           break;
-        case 1: // School
+        case x++: // School
           return (app.school.length > 3);
           break;
-        case 2: // Phone
+        case x++: // Phone
           return (this.phone.isValid);
           break;
-        case 3: // shirt
-          return (app.shirt);
-        case 4: // first hackathon? Just needs to be yes/no
+        /*case x++: // shirt
+          return (app.shirt);*/
+        case x++: // first hackathon? Just needs to be yes/no
           return app.first != null;
           break;
-        case 5: // Dietary restrictions? Can be skipped
+        /*case x++: // Dietary restrictions? Can be skipped
           return true
-          break;
-        case 6: // Year of school
+          break;*/
+        case x++: // Year of school
           return app.year;
           break;
-        case 7: // Age
+        case x++: // Age
           return app.age > 12;
           break;
-        case 8: // gender
+        case x++: // gender
           return app.gender;
           break;
-        case 9: // Major
+        case x++: // Major
           return app.major;
           break;
-        case 10: // Travel
+        /*case x++: // Travel
           return (app.travel == true && app.extra.length > 5)
                   || (app.travel == false);
-          break;
-        case 11:
+          break;*/
+        case x++:
           return true;
           break;
-        case 12: // resume
+        case x++: // resume
           return true;
           break;
-        case 13: // MLH code of conduct
+        case x++: // MLH code of conduct
           return app.conduct;
           break;
-        case 14: // demographic info
+        case x++: // demographic info
           return app.demographic
           break;
         default:
           return true;
       }
     },
-    
+
     next() {
-      
+
       if (this.goToNext && this.valid(this.currentQuestion)) {
-        
+
         // Handling the last question
         if (this.currentQuestion == this.appQuestions.length - 1) {
           this.submit();
           return;
         }
-        
+
         this.currentQuestion++;
         this.focusElement();
         this.goToNext = false;
@@ -516,14 +515,14 @@ export default {
       this.phone.isValid = isValid;
       this.phone.country = country && country.name;
     },
-    
+
     uploadSuccess() {
       console.log("Success!");
     },
     uploadError(errorMessage) {
       console.error("Error uploading resume! ", errorMessage);
     },
-    
+
     submit() {
       if (!this.valid(this.appQuestions.length - 1)) {
         return;
@@ -545,7 +544,7 @@ export default {
       });
     }
   },
-  
+
   mounted() {
     this.focusElement();
   }
@@ -556,7 +555,7 @@ export default {
 //    }
 //  }
 };
-  
+
 </script>
 
 <style scoped lang="scss">
@@ -566,10 +565,11 @@ export default {
     color: white;
     display: flex;
     flex-direction: column;
-    background: $dark-blue;
+    //background: $dark-blue;
+    background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
     height: 100vh;
   }
-  
+
   #app-header {
     text-align: left;
     margin-top: 0px;
@@ -578,7 +578,7 @@ export default {
     min-height: 100px;
     color: black;
     font-size: 20px;
-    
+
     padding-bottom: 20px;
     display: flex;
     justify-content: space-around;
@@ -611,9 +611,10 @@ export default {
     font-size: 20px;
     padding: 5px;
     border: none;
-    border-bottom: solid black 3px;
+    //border-bottom: solid black 3px;
     width: 100%;
     outline: none;
+    border-radius: 0.25em;
   }
   input:focus {
     opacity: 1;
@@ -629,12 +630,17 @@ export default {
     display: flex;
     flex-flow: row wrap;
   }
-  
+
   .nav-buttons {
     display: flex;
     justify-content: space-between;
+
   }
-  
+
+  .fancy-button {
+    border-radius: 0.25em;
+  }
+
 /*  Used to facilitate the option chosen in the radio questions*/
   .hidden {
     max-height: 2px;
@@ -643,7 +649,7 @@ export default {
   .hidden:focus {
     opacity: 0;
   }
-  
+
   .opt {
     background: #eeeeee;
     padding: 5px 10px 5px 10px;
@@ -671,7 +677,7 @@ export default {
     width: 42%;
     min-width: 200px;
   }
-  
+
   .err {
     color: lightcoral;
     font-weight: bold;
@@ -679,16 +685,16 @@ export default {
   .is-danger {
     border-bottom: solid 3px lightcoral;
   }
-  
+
   .numInput {
     width: 100px;
-    
+
   }
-  
+
   .disabled {
     opacity: .5;
   }
-  
+
   .gray-subtitle {
     opacity: .5;
     font-style: italic;

@@ -8,14 +8,16 @@
 
   </div>
   <div id="about-content-container">
-    <img style="max-height: 40vh;" src="@/assets/keyboard.png">
+    <img style="max-width: 80vh;" src="@/assets/keyboard.png">
     <div id="about-text-container" style="font-size: 5vmin; transform: scale(1);">
-       Kent Hack Enough is ready to blast to the past! Come join us at this totally tubular event as we work together to make outstanding projects!<br><br>
+       <!--Kent Hack Enough is ready to blast to the past! Come join us at this totally tubular event as we work together to make outstanding projects!<br><br>-->
+       Kent Hack Enough is ready to <span class="highlight">blast to the past</span>! Come log in to to the simulations as we work together <span class="highlight">online</span> and make some amazing projects!<br><br>
     </div>
   </div>
   <div id="colored-text-container">
     This is our 9th KHE! Whether you're <b>totally new</b> to tech & design or a <b>seasoned pro</b>, come spend a weekend making something great with us!
   </div>
+  <div class="back"></div>
 </div>
 
 </template>
@@ -81,6 +83,20 @@ export default {
   color: $black-overwrite;
   font-family: Commando;
 }
+
+
+#about-container .back {
+  /*background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);*/
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  position: absolute;
+}
+
+
 #about-content-container {
   margin: 60px 10vw;
   margin-top: 15px;
@@ -104,6 +120,9 @@ export default {
   line-height: 50px;
   margin-left: 5vw;
   color: $light-blue;
+  .highlight {
+    color: $gold;
+  }
   @media only screen and (max-width: $lg-bp) {
     margin-left: 0vw;
     font-size: 20px;
