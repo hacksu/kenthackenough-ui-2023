@@ -48,7 +48,7 @@ export default {
           id: 0,
           question: "What is a hackathon?",
           answer:
-            "A hackathon is a weekend long event to meet smart creative people, make connections, learn, and build something awesome! <br><br> Attendes meet on Friday, make a team, and have 36 hours to build a tech-related project. There will be optional lessons and talks, sponsors looking to hire smart, motivated people, and tons of free stuff!"
+            "A hackathon is a weekend long event to meet smart creative people, make connections, learn, and build something awesome! <br><br> Attendes meet on Friday, make a team, and have 24 hours to build a tech-related project. There will be optional lessons and talks, sponsors looking to hire smart, motivated people, and tons of free stuff!"
         },
         {
           id: 1,
@@ -60,13 +60,13 @@ export default {
           id: 2, // swapped with one above it
           question: "How do I attend?",
           answer:
-            "After <span style='background: none; border: none; color: #92D4E7; cursor: pointer;' onclick='document.getElementById(\"apply-btn\").click()'>registering</span>, a link to join the event will be send to you  on October 24th. Looking forward to seeing you then!"
+            "After <span style='background: none; border: none; color: #92D4E7; cursor: pointer;' onclick='document.getElementById(\"apply-btn\").click()'>registering</span>, a link to join the event will be emailed to you  on October 24th. Looking forward to seeing you then!"
         },
         {
           id: 3,
           question: "Sounds cool, but how much does it cost?",
           answer:
-            "$0.00!<br><br>Thanks to the generosity of our sponsors, we're able to put on events like this for <i>free</i>.  We even pay for your meals for the weekend, and can reimburse you for travel costs.  Make sure to thank our sponsors - we couldn't do it without them!"
+            "$0.00!<br><br>Thanks to the generosity of our sponsors, we're able to put on events like this for <i>free</i>. Make sure to thank our sponsors - we couldn't do it without them!"
         },
         {
           id: 4,

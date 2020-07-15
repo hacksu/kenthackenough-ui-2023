@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div id="banner">
-      <div id="bannerL" class="bannerContainer">
+    <div id="banner" style="z-index: 100;">
+      <div id="bannerL" class="bannerContainer" style="z-index: 100;">
         <p class="banner-link khe-link" id="kheTitle"
            @click="scrollTo('/', '#mainContainer')">KENT HACK ENOUGH</p>
 
@@ -10,14 +10,14 @@
         </div>
       </div>
 
-      <div id="bannerR" class="bannerContainer" :class="{'hidden': expandMenu}">
+      <div id="bannerR" class="bannerContainer" :class="{'hidden': expandMenu}" style="z-index: 100;">
         <p class="banner-link" @click="scrollTo('/', 'landing-container')">Home</p>
         <!-- <p class="banner-link"@click="scrollTo('/', '#about-container')">About</p> -->
         <p class="banner-link" id="faq-scrollto" @click="scrollTo('/', '#faq-container')">FAQ</p>
         <p v-if="$data.showSponsors" class="banner-link" @click="scrollTo('/sponsor', '#sponsors')">Sponsors</p>
         <p class="banner-link" @click="scrollTo('/contact', '#contact')">Contact</p>
         <p v-if="$data.showSchedule" class="banner-link" @click="scrollTo('/schedule')">Schedule</p>
-        <p class="banner-link" @click="scrollTo('/', '#map')">Virtual</p>
+        <p class="banner-link" @click="scrollTo('/', '#map')" hidden>Virtual</p>
         <p v-if="$data.showLive" class="banner-link" @click="scrollTo('/live')">Live!</p>"
         <p class="banner-link" @click="scrollTo('/register', '#register')" v-if="user._id == '' && $data.showRegister">Register/Login</p>
         <p class="banner-link" @click='logout()' v-if="user._id != '' && $data.showRegister">Log out</p>
@@ -41,8 +41,9 @@ export default {
   data() {
     return {
       showLogin: false,
-      showRegister: true, //false,
-      showSponsors: false,
+      //showRegister: true, //false,
+      showRegister: (window.location.href.indexOf("khe.io") >= 0) ? false : true, // Temporary disable
+      showSponsors: true, //false,
       showLive: false,
       showSchedule: false,
       showPasswordReset: false,

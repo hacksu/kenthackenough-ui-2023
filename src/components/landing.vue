@@ -1,5 +1,5 @@
 <template>
-  <div id="landing-container">
+  <div id="landing-container" style="margin-top: -53px;">
 
     <div class="back"></div>
 
@@ -36,8 +36,8 @@
         </router-link>
         <br>
       </span>
-      <a v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '5vh!important' : '2.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '-50px' : '0px') }" class="gold-link" href="https://sponsor.khe.io" target="_blank">
-        Interested in Sponsoring?
+      <a v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '5vh!important' : '2.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '-100px' : '0px') }" class="gold-link" href="/sponsor" target="_blank">
+        <span style="font-family: 'Dagger Square'!important; color: white;">Interested in Sponsoring?</span>
       </a>
     </div>
 
