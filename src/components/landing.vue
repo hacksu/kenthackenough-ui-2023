@@ -23,7 +23,8 @@
     </div>
 
     <div id="landing-content-container">
-      <p class="woah" style="font-size: 7vh;">OCTOBER 24<sup style="font-size: 4vh">th</sup>-25<sup style="font-size: 4vh">th</sup></p>
+      <p class="woah desktop-only" style="font-size: 7vh;">OCTOBER 24<sup style="font-size: 4vh">th</sup>-25<sup style="font-size: 4vh">th</sup></p>
+      <p class="woah mobile-only" style="font-size: 5vh;">OCTOBER 24<sup style="font-size: 4vh">th</sup>-25<sup style="font-size: 4vh">th</sup></p>
       <p class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><span style="display: inline-block; cursor: pointer;" onclick="document.getElementById('faq-scrollto').click(); setTimeout(function() { let a = document.getElementsByClassName('faqModule')[2]; if (a.lastChild.nodeType != 1) { a.click(); } }, 250)">HOSTED VIRTUALLY</span></p>
       <span v-if="$parent.$parent.showRegister">
         <router-link tag="button" :to="{name: 'register'}" id="apply-btn" class="gold-clear-button"
@@ -36,7 +37,10 @@
         </router-link>
         <br>
       </span>
-      <a v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '5vh!important' : '2.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '-100px' : '0px') }" class="gold-link" href="/sponsor" target="_blank">
+      <a class="desktop-only gold-link" v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '3vh!important' : '2.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '0px' : '0px') }" href="/sponsor" target="_blank">
+        <span style="font-family: 'Dagger Square'!important; color: white;">Interested in Sponsoring?</span>
+      </a>
+      <a class="mobile-only gold-link" v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '6vmin!important' : '5.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '0px' : '0px') }" href="/sponsor" target="_blank">
         <span style="font-family: 'Dagger Square'!important; color: white;">Interested in Sponsoring?</span>
       </a>
     </div>
@@ -220,6 +224,15 @@ export default {
 
 }
 
+#apply-btn {
+  font-size: 3vh;
+  width: 300px;
+  max-width: 80vw;
+  @media only screen and (min-width: 560px) {
+    font-size: 4vh;
+  }
+}
+
 #landing-container {
   min-height: 100vh;
   overflow: hidden;
@@ -249,7 +262,7 @@ export default {
   //background: rgb(215,93,222);
   //background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
 
-  background: linear-gradient(0deg, rgba(0,84,224,1) 0%, rgba(65,23,67,1) 100%); /* blue */
+  background: linear-gradient(0deg, rgba(0,84,224,1) 0%, rgba(65,23,67,1) 95%); /* blue */
 
 }
 

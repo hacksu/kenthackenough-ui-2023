@@ -18,7 +18,7 @@
         <p class="banner-link" @click="scrollTo('/contact', '#contact')">Contact</p>
         <p v-if="$data.showSchedule" class="banner-link" @click="scrollTo('/schedule')">Schedule</p>
         <p class="banner-link" @click="scrollTo('/', '#map')" hidden>Virtual</p>
-        <p v-if="$data.showLive" class="banner-link" @click="scrollTo('/live')">Live!</p>"
+        <p v-if="$data.showLive" class="banner-link" @click="scrollTo('/live')">Live!</p>
         <p class="banner-link" @click="scrollTo('/register', '#register')" v-if="user._id == '' && $data.showRegister">Register/Login</p>
         <p class="banner-link" @click='logout()' v-if="user._id != '' && $data.showRegister">Log out</p>
         <div class="padding" style="width: 50px"></div>
@@ -357,7 +357,13 @@ export default {
 
   .desktop-only {
     @media only screen and (max-width: 560px) {
-      display: none;
+      display: none!important;
+    }
+  }
+
+  .mobile-only {
+    @media only screen and (min-width: 560px) {
+      display: none!important;
     }
   }
 

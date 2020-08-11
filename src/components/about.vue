@@ -11,7 +11,7 @@
     <img style="max-width: 80vh;" src="@/assets/keyboard.png">
     <div id="about-text-container" style="font-size: 5vmin; transform: scale(1);">
        <!--Kent Hack Enough is ready to blast to the past! Come join us at this totally tubular event as we work together to make outstanding projects!<br><br>-->
-       Kent Hack Enough is ready to <span class="highlight">blast to the past</span>! Come log in to to the simulations as we work together <span class="highlight">online</span> and make some amazing projects!<br><br>
+       Kent Hack Enough is ready to <span class="highlight">blast to the past</span>! Come login to the simulations as we work together <span class="highlight">online</span> and make some amazing projects!<br><br>
     </div>
   </div>
   <div id="colored-text-container">

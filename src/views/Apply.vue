@@ -212,7 +212,7 @@ export default {
       },
 
       dropzoneOptions: {
-        url: `${apiConfig.api_base}/users/application/resume`,
+        url: `${apiConfig.api_base}/users/application/resume?email=${this.$parent.email}`,
         acceptedFiles: 'application/docx,application/pdf,text/plain',
         thumbnailWidth: 150,
         paramName: 'resume',
@@ -516,8 +516,16 @@ export default {
       this.phone.country = country && country.name;
     },
 
-    uploadSuccess() {
+    uploadSuccess(resp) {
       console.log("Success!");
+      let filename = JSON.parse(resp.xhr.responseText).filename;
+      this.$parent.user.application["resume"] = `${filename}`;
+      /*fetch(`${apiConfig.api_base}/users/application/resume-email/${
+        this.$parent.email
+      }/${
+        filename
+      }`).then(() => {}).catch(() => {});*/
+
     },
     uploadError(errorMessage) {
       console.error("Error uploading resume! ", errorMessage);
@@ -662,7 +670,9 @@ export default {
     width: 40%;
     color: black;
     min-width: 200px;
-    margin-right: 3%;
+    //margin-right: 3%;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 5px;
     margin-bottom: 10px;
     cursor: pointer;
