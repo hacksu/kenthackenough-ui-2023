@@ -9,7 +9,10 @@
         <button class="contact" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="mailto:trentan@khe.io?subject=KHE Sponsorship Interest">Contact Us</a></button>
     </div>
     <span style="display: block; margin-top: -4%; color: white;">trentan@khe.io, kaushik@khe.io</span>
-
+    
+    <div class="center">
+        <button class="paypal" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="paypal.com">Pay via PayPal</a></button>
+    </div>
 
     <div id="container">
         <div id="tier1" class="tier" v-on:click="tier1()">
@@ -435,6 +438,16 @@ button:hover{
 
 .contact {
     color: rgb(255, 255, 255);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 3vh;
+}
+
+.paypal {
+    color: rgb(255, 255, 255);
+    background-color: rgb(1,140,219);
+    border: 2px solid rgb(1,140,219);
     float: right;
     font-size: 28px;
     font-weight: bold;
