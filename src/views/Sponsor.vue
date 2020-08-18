@@ -3,21 +3,21 @@
     <img src="@/assets/KHE_AI_Square1.svg">
     <h1 style="font-size: 7.5vmin!important; margin-top: -6vh; font-family: 'Dagger Square'!important; color: white">SPONSORSHIP</h1>
 
-    <p style="font-family:'Dagger Square'; color:#f3ea5f; font-size: 3vmin; max-width: 1200px; margin-left: auto; margin-right: auto;"> We look forward to working with you for the 9th year of KHE!
+    <p style="font-family:'Dagger Square'; color:#f3ea5f; font-size: 3vmin; max-width: 1200px; margin-left: auto; margin-right: auto;"> We look forward to working with you for the 9th year of KHE! 
     Below are the following three tiers for Kent Hack Enough 2020! We will issue an itemized invoice once tier is confirmed.
     Please reach out to us if you are interested in sponsoring with an amount that is not posted below. </p>
     <div class="center">
         <button class="contact" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="mailto:trentan@khe.io?subject=KHE Sponsorship Interest">Contact Us</a></button>
     </div>
     <span style="display: block; margin-top: -4%; color: white;">trentan@khe.io, kaushik@khe.io</span>
-
+    
     <div class="center">
-        <button class="paypal" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="https://paypal.me/kenthackenough">Pay via PayPal</a></button>
+        <button class="paypal" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="https://www.paypal.com/myaccount/transfer/homepage">Pay via PayPal</a></button>
     </div>
 
-    <span style="display: block; margin-top: -4%; color: white;"> If campus closes during the fall due to COVID-19, access to our campus organization mailbox is not guaranteed.
+    <span style="display: block; margin-top: -4%; color: white;"> If campus closes during the fall due to COVID-19, access to our campus organization mailbox is not guaranteed. 
         Due to this, we are moving to paperless payment. If there are issues, please reach out via the "Contact Us" button. </span>
-    <span style="display: block; margin-top: 0%; color: white;"> PayPal Instructions: Payment should be addressed to "staff@khe.io".
+    <span style="display: block; margin-top: 0%; color: white;"> PayPal Instructions: Payment should be addressed to "staff@khe.io". 
         Selecting "Sending to a friend" keeps your contribution free of PayPal service fees.</span>
 
 
