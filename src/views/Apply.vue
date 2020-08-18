@@ -98,8 +98,8 @@
             </div>
             <div v-if="question.appField == 'travel' &&
                        $parent.user.application[question.appField]">
-              Where are you travelling from?
-              <input v-model="$parent.user.application.extra"
+              What is your address? (So we can mail you some KHE swag!)
+              <input v-model="$parent.user.application['dietary']" data-old-v-model="$parent.user.application.extra"
                      class="question"
                  @keyup.enter="next()"
                     placeholder="USA, Ohio, Kent">
@@ -347,13 +347,13 @@ export default {
 
           required: true
         },
-        /*{
+        {
           appField: 'travel',
           type: 'bool',
-          label: 'Will you need travel reimbursement?',
+          label: 'Do you reside in the United States?', //'Will you need travel reimbursement?',
 
           required: true
-        },*/
+        },
         {
           appField: 'resume',
           type: 'upload',
@@ -454,10 +454,10 @@ export default {
         case x++: // Major
           return app.major;
           break;
-        /*case x++: // Travel
-          return (app.travel == true && app.extra.length > 5)
+        case x++: // Travel
+          return (app.travel == true && (true || app.extra.length > 5))
                   || (app.travel == false);
-          break;*/
+          break;
         case x++:
           return true;
           break;
