@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "core-js": "^3.6.5",
     "khe-frontend-lib": "git+https://github.com/hacksu/khe-frontend-lib.git",
     "qrcode.vue": "^1.6.2",
     "vue": "^2.6.6",
