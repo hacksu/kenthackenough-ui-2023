@@ -26,7 +26,7 @@
       <p class="woah desktop-only" style="font-size: 7vh;">OCTOBER 24<sup style="font-size: 4vh">th</sup>-25<sup style="font-size: 4vh">th</sup></p>
       <p class="woah mobile-only" style="font-size: 5vh;">OCTOBER 24<sup style="font-size: 4vh">th</sup>-25<sup style="font-size: 4vh">th</sup></p>
       <p class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><span style="display: inline-block; cursor: pointer;" onclick="document.getElementById('faq-scrollto').click(); setTimeout(function() { let a = document.getElementsByClassName('faqModule')[2]; if (a.lastChild.nodeType != 1) { a.click(); } }, 250)">HOSTED VIRTUALLY</span></p>
-      <span v-if="$parent.$parent.showRegister">
+      <!-- <span v-if="$parent.$parent.showRegister">
         <router-link tag="button" :to="{name: 'register'}" id="apply-btn" class="gold-clear-button"
           v-if="$parent.$parent.user._id == ''">
           Register Now!
@@ -36,7 +36,7 @@
           Apply now!
         </router-link>
         <br>
-      </span>
+      </span> -->
       <a class="desktop-only gold-link" v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '3vh!important' : '2.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '0px' : '0px') }" href="/sponsor" target="_blank">
         <span style="font-family: 'Dagger Square'!important; color: white;">Interested in Sponsoring?</span>
       </a>
