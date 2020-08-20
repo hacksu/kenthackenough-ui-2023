@@ -96,14 +96,14 @@
                  @click="$parent.user.application[question.appField] = false">
               2. Nope!
             </div>
-            <div v-if="question.appField == 'travel' &&
+            <!-- <div v-if="question.appField == 'travel' &&
                        $parent.user.application[question.appField]">
               What is your address? (So we can mail you some KHE swag!)
               <input v-model="$parent.user.application['dietary']" data-old-v-model="$parent.user.application.extra"
                      class="question"
                  @keyup.enter="next()"
                     placeholder="USA, Ohio, Kent">
-            </div>
+            </div> -->
           </div>
 
           <div v-if="question.type == 'number'">
@@ -347,13 +347,13 @@ export default {
 
           required: true
         },
-        {
-          appField: 'travel',
-          type: 'bool',
-          label: 'Do you reside in the United States?', //'Will you need travel reimbursement?',
+        // {
+        //   appField: 'travel',
+        //   type: 'bool',
+        //   label: 'Do you reside in the United States?', //'Will you need travel reimbursement?',
 
-          required: true
-        },
+        //   required: true
+        // },
         {
           appField: 'resume',
           type: 'upload',
@@ -454,10 +454,10 @@ export default {
         case x++: // Major
           return app.major;
           break;
-        case x++: // Travel
-          return (app.travel == true && (true || app.extra.length > 5))
-                  || (app.travel == false);
-          break;
+        // case x++: // Travel
+        //   return (app.travel == true && (true || app.extra.length > 5))
+        //           || (app.travel == false);
+        //   break;
         case x++:
           return true;
           break;
@@ -540,7 +540,7 @@ export default {
 
       // Virtual Hackathon
       this.$parent.user.application.shirt = "M";
-      this.$parent.user.application.travel = false;
+      // this.$parent.user.application.travel = false;
       // ---------------
 
       var vm = this;
