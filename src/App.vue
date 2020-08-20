@@ -40,9 +40,9 @@ export default {
   },
   data() {
     return {
-      showLogin: false,
-      //showRegister: true, //false,
-      showRegister: (window.location.href.indexOf("khe.io") >= 0) ? false : true, // Temporary disable
+      showLogin: true,
+      showRegister: true, //false,
+      //showRegister: (window.location.href.indexOf("khe.io") >= 0) ? false : true, // Temporary disable
       showSponsors: true, //false,
       showLive: false,
       showSchedule: false,
