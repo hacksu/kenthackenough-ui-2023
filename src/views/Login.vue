@@ -1,9 +1,11 @@
 <template>
   <div id="login">
 
-    <h4 id="auth-title">Login</h4>
+    <div style="display: block; height: 100px; margin: 0px; margin-bottom: -70px; padding-top: 10vh;"></div>
     <div class="auth-container">
-      <h6 id="auth-subtitle">I've seen you 'round these parts.</h6>
+      <span id="auth-title">Login</span>
+      <!--<h6 id="auth-subtitle">I've seen you 'round these parts.</h6>-->
+      <h6 id="auth-subtitle"><img style="height: 5vh;" src="../assets/SunglassesPink.svg"/></h6>
       <div id="error-message"> {{ error }}</div>
       Email:<br>
       <input id="login-username"
@@ -23,7 +25,7 @@
       <br>
       <br>
 
-      <button class="gold-clear-button" @click="login()">
+      <button class="gold-clear-button" style="font-size: 2vmin !important;" @click="login()">
         Login!
       </button>
       <br>
@@ -71,7 +73,7 @@ export default {
 <style scoped lang="scss">
   @import '@/globalVars.scss';
 
-  #login {
+  /*#login {
     background: $light-blue;
     height: 100vh;
     width: 100vw;
@@ -86,11 +88,11 @@ export default {
     border-image-outset: .4;
   }
 
-  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  ::placeholder {
     opacity: .8;
   }
 
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+  :-ms-input-placeholder {
     opacity: .8
   }
 
@@ -106,11 +108,40 @@ export default {
 
   #dialog {
     padding-bottom: 25px;
-  }
+  }*/
 
   #error-message{
     font-size: 15px;
     color: red;
     padding-bottom: 15px;
   }
+
+  #login {
+    background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
+    height: calc(100vh - 53px);
+    width: 100vw;
+  }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      opacity: .8;
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+      opacity: .8
+    }
+
+    .buttonInput {
+      transition-duration: .5s;
+      height: 30px;
+
+      padding-right: 10px;
+      padding-left: 10px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+    #dialog {
+      padding-bottom: 25px;
+    }
+
 </style>
