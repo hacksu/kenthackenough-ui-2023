@@ -300,7 +300,7 @@ export default {
           appField: 'year',
 
           type: 'radio',
-          label: 'Where are you in school?',
+          label: 'Where are you in school? If you are a recent graduate (spring 2019 to now), please type "recent grad" in the box. If none of these options apply, you are not eligible to participate. Please exit registration. ',
 
           options: [
             ['In high school', 'High School'],
