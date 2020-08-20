@@ -1,28 +1,28 @@
 <template>
   <div id="login">
-    
+
     <h4 id="auth-title">Login</h4>
     <div class="auth-container">
       <h6 id="auth-subtitle">I've seen you 'round these parts.</h6>
       <div id="error-message"> {{ error }}</div>
       Email:<br>
-      <input id="login-username" 
+      <input id="login-username"
             class="simple-text-input"
-            type="text" 
+            type="text"
             placeholder="jane@doe.com"
             v-model="email"
             />
       <br>
       Password:<br>
-      <input id="login-password" 
-            class="simple-text-input" 
-            type="password" 
+      <input id="login-password"
+            class="simple-text-input"
+            type="password"
             placeholder=""
             v-model="password"
             />
       <br>
       <br>
-        
+
       <button class="gold-clear-button" @click="login()">
         Login!
       </button>
@@ -35,9 +35,6 @@
       <br>
       <br>
     </div>
-    <div id="auth-ground"></div>
-    <img src="@/assets/auth_assets/cactus.png" id="auth-cactus">
-    <img src="@/assets/auth_assets/rocks.png" id="auth-rocks">
   </div>
 </template>
 
@@ -53,7 +50,7 @@ export default {
   },
   methods: {
     login() {
-    // Verify that both 
+    // Verify that both
       this.err = '';
       this.$parent.wrapper.userManager.login(this.email, this.password)
       .then((data) => {
@@ -71,7 +68,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">  
+<style scoped lang="scss">
   @import '@/globalVars.scss';
 
   #login {
@@ -88,15 +85,15 @@ export default {
     border-image-width: 1;
     border-image-outset: .4;
   }
-  
+
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    opacity: .8; 
+    opacity: .8;
   }
-  
+
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
     opacity: .8
   }
-  
+
   .buttonInput {
     transition-duration: .5s;
     height: 30px;
@@ -114,6 +111,6 @@ export default {
   #error-message{
     font-size: 15px;
     color: red;
-    padding-bottom: 15px; 
+    padding-bottom: 15px;
   }
 </style>
