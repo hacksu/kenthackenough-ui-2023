@@ -23,9 +23,9 @@
         <img style="opacity: 0.5;" id="powered-by-hacksu" src="@/assets/2019-hacksu-color.svg">
       </a>
 
-      <!--<a id="small-mlh-logo" href="https://mlh.io">
+      <a id="small-mlh-logo" href="https://mlh.io">
         <img style="opacity: 0.5;" id="powered-by-mlh" src="@/assets/mlh-logo.svg">
-      </a>-->
+      </a>
     </div>
   </div>
 </template>

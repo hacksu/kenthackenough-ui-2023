@@ -6,9 +6,9 @@
     <div class="img-box cassettes" style="background-position-y: 5vh; background-position-x: -10vh; left: 0px; bottom: 0px;"></div>
     <div class="img-box headphones-orange" style="background-position-y: 5vh; background-position-x: -12vh; right: 0px; top: 0px; transform: rotate(-5deg) scaleX(-1);"></div>
 
-    <!--<a v-if="$parent.$parent.showMLH" id="mlh-trust-badge" href="https://mlh.io/seasons/na-2020/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2020-season&utm_content=white" target="_blank">
-      <img id="mlh-banner" src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-white.svg" alt="Major League Hacking 2020 Hackathon Season">
-    </a>-->
+    <a v-if="$parent.$parent.showMLH" id="mlh-trust-badge" href="https://mlh.io/seasons/na-2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=white" target="_blank">
+      <img id="mlh-banner" src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-white.svg" alt="Major League Hacking 2020 Hackathon Season">
+    </a>
 
     <div id="logo-container">
       <!--<img src="@/assets/goldflourish.png" class="flipped desktop-only">
@@ -304,12 +304,13 @@ export default {
   }
 }
 
-/*#mlh-trust-badge {
+#mlh-trust-badge {
   display: block;
   max-width: 100px;
   min-width: 60px;
   position: absolute;
-  left: 5px;
+  //left: 5px;
+  left: 200px;
   top: 0;
   width: 10%;
   z-index: 10000;
@@ -317,7 +318,7 @@ export default {
 
 #mlh-banner {
   width: 100%
-}*/
+}
 
 .desert-asset {
   position: absolute;
@@ -493,7 +494,7 @@ sup {
 
 @media screen and (min-width: 768px) {
   #mlh-trust-badge {
-    left: 50px;
+    //left: 50px;
   }
 }
 </style>
