@@ -35,7 +35,10 @@
           v-else>
           Apply now!
         </router-link>
-        <br>
+        <div style="font-size: initial!important;">
+          <a href="https://mlh.io/code-of-conduct/" target="_blank" style="opacity: 0.75; color: white; font-size: 2vh; text-decoration: none;">MLH Code of Conduct</a>
+        </div>
+
       </span>
       <a class="desktop-only gold-link" v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '3vh!important' : '2.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '0px' : '0px') }" href="/sponsor" target="_blank">
         <span style="font-family: 'Dagger Square'!important; color: white;">Interested in Sponsoring?</span>
