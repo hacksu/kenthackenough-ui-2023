@@ -1,147 +1,170 @@
 <template>
-  <div id="sponsors" style="margin-top: -53px">
+  <div id="sponsors" style="margin-top: -53px; min-height: calc(100vh - 80px - 50px);">
     <img src="@/assets/KHE_AI_Square1.svg">
     <h1 style="font-size: 7.5vmin!important; margin-top: -6vh; font-family: 'Dagger Square'!important; color: white">SPONSORSHIP</h1>
 
-    <p style="font-family:'Dagger Square'; color:#f3ea5f; font-size: 3vmin; max-width: 1200px; margin-left: auto; margin-right: auto;"> We look forward to working with you for the 9th year of KHE! 
-    Below are the following three tiers for Kent Hack Enough 2020! We will issue an itemized invoice once tier is confirmed.
-    Please reach out to us if you are interested in sponsoring with an amount that is not posted below. </p>
-    <div class="center">
-        <button class="contact" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="mailto:trentan@khe.io?subject=KHE Sponsorship Interest">Contact Us</a></button>
+    <div v-if="sponsors.length > 0">
+      <p style="font-family:'Dagger Square'; color: white; font-size: 3vmin; max-width: 1200px; margin-left: auto; margin-right: auto;">
+        Thanks to these amazing companies for sponsoring Kent Hack Enough 2020!
+      </p>
+      <div style="max-width: 80vw; text-align: center; margin-left: auto; margin-right: auto;">
+        <a class="sponsor" v-for="sponsor in sponsors" v-bind:href="sponsor.link">
+          <img class="logo" v-bind:src="sponsor.logo" v-bind:alt="sponsor.name">
+        </a>
+      </div>
+
+
+
+      <br><br>
     </div>
-    <span style="display: block; margin-top: -4%; color: white;">trentan@khe.io, kaushik@khe.io</span>
-    
-    <div class="center">
-        <button class="paypal" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="https://www.paypal.com/myaccount/transfer/homepage">Pay via PayPal</a></button>
-    </div>
 
-    <span style="display: block; margin-top: -4%; color: white;"> If campus closes during the fall due to COVID-19, access to our campus organization mailbox is not guaranteed. 
-        Due to this, we are moving to paperless payment. If there are issues, please reach out via the "Contact Us" button. </span>
-    <span style="display: block; margin-top: 0%; color: white;"> PayPal Instructions: Payment should be addressed to "staff@khe.io". 
-        Selecting "Sending to a friend" keeps your contribution free of PayPal service fees.</span>
+    <div v-if="$parent.allowSponsorship">
+      <p style="font-family:'Dagger Square'; color: white; font-size: 5vmin; max-width: 1200px; margin-left: auto; margin-right: auto;">
+        Looking to sponsor Kent Hack Enough?
+      </p>
+      <br>
+      <p style="font-family:'Dagger Square'; color:#f3ea5f; font-size: 3vmin; max-width: 1200px; margin-left: auto; margin-right: auto;"> We look forward to working with you for the 9th year of KHE!
+      Below are the following three tiers for Kent Hack Enough 2020! We will issue an itemized invoice once tier is confirmed.
+      Please reach out to us if you are interested in sponsoring with an amount that is not posted below. </p>
+      <div class="center">
+          <button class="contact" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="mailto:trentan@khe.io?subject=KHE Sponsorship Interest">Contact Us</a></button>
+      </div>
+      <span style="display: block; margin-top: -4%; color: white;">trentan@khe.io, kaushik@khe.io</span>
+
+      <div class="center">
+          <button class="paypal" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="https://www.paypal.com/myaccount/transfer/homepage">Pay via PayPal</a></button>
+      </div>
+
+      <span style="display: block; margin-top: -4%; color: white;"> If campus closes during the fall due to COVID-19, access to our campus organization mailbox is not guaranteed.
+          Due to this, we are moving to paperless payment. If there are issues, please reach out via the "Contact Us" button. </span>
+      <span style="display: block; margin-top: 0%; color: white;"> PayPal Instructions: Payment should be addressed to "staff@khe.io".
+          Selecting "Sending to a friend" keeps your contribution free of PayPal service fees.</span>
 
 
-    <div id="container">
-        <div id="tier1" class="tier" v-on:click="tier1()">
+      <div id="container">
+          <div id="tier1" class="tier" v-on:click="tier1()">
 
-          <div id="colorTier1">
-              <!--<img src="@/assets/images/cassetteTape.png">-->
-              <div style="transform: scale(0.5); height: 160px; width: calc(100% - 40px); padding: 20px; background-size: contain; background-position: center; background-repeat: no-repeat;" id="cassette-img">
+            <div id="colorTier1">
+                <!--<img src="@/assets/images/cassetteTape.png">-->
+                <div style="transform: scale(0.5); height: 160px; width: calc(100% - 40px); padding: 20px; background-size: contain; background-position: center; background-repeat: no-repeat;" id="cassette-img">
 
+                </div>
+           </div>
+              <h2> Cassette Tape</h2>
+              <p class="specialText2"> $250 </p>
+              <div class="center">
+                  <button class="open">Learn more!</button>
               </div>
-         </div>
-            <h2> Cassette Tape</h2>
-            <p class="specialText2"> $250 </p>
-            <div class="center">
-                <button class="open">Learn more!</button>
-            </div>
 
 
-        </div>
+          </div>
 
-        <div id="tier2" class="tier" v-on:click="tier2()">
-          <div id="colorTier2">
-              <!--<img src="@/assets/images/sunglasses.png">-->
-              <div style="transform: scale(0.6); height: 160px; width: calc(100% - 40px); padding: 20px; background-size: contain; background-position: center; background-repeat: no-repeat;" id="sunglasses-img">
-
-              </div>
-         </div>
-
-            <h2> Sunglasses </h2>
-            <p class="specialText2"> $500 </p>
-            <div class="center">
-                <button class="open">Learn more!</button>
-            </div>
-
-        </div>
-
-        <div id="tier3" class="tier" v-on:click="tier3()">
-            <div id="colorTier3">
-                <!--<img src="@/assets/images/keyboard.png">-->
-                <div style="transform: scale(0.85); height: 160px; width: calc(100% - 40px); padding: 20px; background-size: contain; background-position: center; background-repeat: no-repeat;" id="keyboard-img">
+          <div id="tier2" class="tier" v-on:click="tier2()">
+            <div id="colorTier2">
+                <!--<img src="@/assets/images/sunglasses.png">-->
+                <div style="transform: scale(0.6); height: 160px; width: calc(100% - 40px); padding: 20px; background-size: contain; background-position: center; background-repeat: no-repeat;" id="sunglasses-img">
 
                 </div>
            </div>
 
-            <h2> Keyboard </h2>
-            <p class="specialText2"> $1000 </p>
-            <div class="center">
-                <button class="open">Learn more!</button>
-            </div>
+              <h2> Sunglasses </h2>
+              <p class="specialText2"> $500 </p>
+              <div class="center">
+                  <button class="open">Learn more!</button>
+              </div>
 
+          </div>
+
+          <div id="tier3" class="tier" v-on:click="tier3()">
+              <div id="colorTier3">
+                  <!--<img src="@/assets/images/keyboard.png">-->
+                  <div style="transform: scale(0.85); height: 160px; width: calc(100% - 40px); padding: 20px; background-size: contain; background-position: center; background-repeat: no-repeat;" id="keyboard-img">
+
+                  </div>
+             </div>
+
+              <h2> Keyboard </h2>
+              <p class="specialText2"> $1000 </p>
+              <div class="center">
+                  <button class="open">Learn more!</button>
+              </div>
+
+          </div>
+
+          <div id="detailsTier1" style="display:none" v-on:click="buttonClose1($event)">
+              <div id="contextTier1" class="contextTier">
+                  <div class="center">
+                      <h2> Cassette Tape </h2>
+                  </div>
+                  <p class="specialText">Logo on website</p>
+                  <p> Plus the following perks! </p>
+                  <ul>
+                      <li>Ability to send virtual mentors </li>
+                      <li>Thanked at opening ceremonies</li>
+                      <li>Judge at final hacks</li>
+                      <li>Resume book after event</li>
+                  </ul>
+                  <div class="center">
+                      <button class="close" v-on:click="buttonClose1()"> Close</button>
+                  </div>
+              </div>
+
+          </div>
+
+          <div id="detailsTier2" style="display:none" v-on:click="buttonClose2($event)">
+              <div id="contextTier2" class="contextTier">
+                  <div class="center">
+                      <h2> Sunglasses </h2>
+                  </div>
+                  <p class="specialText">Run a workshop</p>
+                  <p> Plus the following perks! </p>
+                  <ul>
+                      <li>Ability to send virtual mentors </li>
+                      <li>Thanked at opening ceremonies</li>
+                      <li>Judge at final hacks</li>
+                      <li>Logo on website</li>
+                      <li>Resume book after event</li>
+                      <li>Resume book before event </li>
+                      <li>Brand mention in post before the event</li>
+                      <li>Company dedicated chat room</li>
+                  </ul>
+                  <div class="center">
+                      <button class="close" v-on:click="buttonClose2()"> Close</button>
+                  </div>
+              </div>
+
+          </div>
+
+          <div id="detailsTier3" style="display:none" v-on:click="buttonClose3($event)">
+              <div id="contextTier3" class="contextTier">
+                  <div class="center">
+                      <h2> Keyboard </h2>
+                  </div>
+                  <p class="specialText">Keynote speaker & One-on-one recruitment</p>
+                  <p> Plus the following perks! </p>
+                  <ul>
+                      <li>Ability to send virtual mentors </li>
+                      <li>Thanked at opening ceremonies</li>
+                      <li>Judge at final hacks</li>
+                      <li>Logo on website</li>
+                      <li>Run a workshop</li>
+                      <li>Resume book after event</li>
+                      <li>Resume book before event </li>
+                      <li>Brand mention in post before the event</li>
+                      <li>Company dedicated chat room</li>
+                      <li>Brand promo video during opening ceremonies provided by company</li>
+                      <li>Brand challenge</li>
+                  </ul>
+                  <div class="center">
+                      <button class="close" v-on:click="buttonClose3()"> Close</button>
+                  </div>
+
+              </div>
+
+          </div>
         </div>
-
-        <div id="detailsTier1" style="display:none" v-on:click="buttonClose1($event)">
-            <div id="contextTier1" class="contextTier">
-                <div class="center">
-                    <h2> Cassette Tape </h2>
-                </div>
-                <p class="specialText">Logo on website</p>
-                <p> Plus the following perks! </p>
-                <ul>
-                    <li>Ability to send virtual mentors </li>
-                    <li>Thanked at opening ceremonies</li>
-                    <li>Judge at final hacks</li>
-                    <li>Resume book after event</li>
-                </ul>
-                <div class="center">
-                    <button class="close" v-on:click="buttonClose1()"> Close</button>
-                </div>
-            </div>
-
-        </div>
-
-        <div id="detailsTier2" style="display:none" v-on:click="buttonClose2($event)">
-            <div id="contextTier2" class="contextTier">
-                <div class="center">
-                    <h2> Sunglasses </h2>
-                </div>
-                <p class="specialText">Run a workshop</p>
-                <p> Plus the following perks! </p>
-                <ul>
-                    <li>Ability to send virtual mentors </li>
-                    <li>Thanked at opening ceremonies</li>
-                    <li>Judge at final hacks</li>
-                    <li>Logo on website</li>
-                    <li>Resume book after event</li>
-                    <li>Resume book before event </li>
-                    <li>Brand mention in post before the event</li>
-                    <li>Company dedicated chat room</li>
-                </ul>
-                <div class="center">
-                    <button class="close" v-on:click="buttonClose2()"> Close</button>
-                </div>
-            </div>
-
-        </div>
-
-        <div id="detailsTier3" style="display:none" v-on:click="buttonClose3($event)">
-            <div id="contextTier3" class="contextTier">
-                <div class="center">
-                    <h2> Keyboard </h2>
-                </div>
-                <p class="specialText">Keynote speaker & One-on-one recruitment</p>
-                <p> Plus the following perks! </p>
-                <ul>
-                    <li>Ability to send virtual mentors </li>
-                    <li>Thanked at opening ceremonies</li>
-                    <li>Judge at final hacks</li>
-                    <li>Logo on website</li>
-                    <li>Run a workshop</li>
-                    <li>Resume book after event</li>
-                    <li>Resume book before event </li>
-                    <li>Brand mention in post before the event</li>
-                    <li>Company dedicated chat room</li>
-                    <li>Brand promo video during opening ceremonies provided by company</li>
-                    <li>Brand challenge</li>
-                </ul>
-                <div class="center">
-                    <button class="close" v-on:click="buttonClose3()"> Close</button>
-                </div>
-
-            </div>
-
-        </div>
+        <br>
+        <br>
     </div>
 
   </div>
@@ -151,6 +174,7 @@
   import cassette from '../assets/cassette2020.png';
   import sunglasses from '../assets/SunglassesPink.svg';
   import keyboard from '../assets/keyboard.png';
+  import Sponsors from '@/sponsors.js';
   export default {
     name: 'Map',
     computed: {
@@ -210,19 +234,21 @@
       },
     },
     mounted() {
+      //this.sponsors = Sponsors;
+      //console.log(this.sponsors);
       document.getElementById("cassette-img").style.backgroundImage = `url(${cassette})`;
       document.getElementById("sunglasses-img").style.backgroundImage = `url(${sunglasses})`;
       document.getElementById("keyboard-img").style.backgroundImage = `url(${keyboard})`;
       this.$parent.wrapper.sponsorSource.getSponsors()
         .then((data) => {
-          this.sponsors = data;
+          //this.sponsors = data;
           console.log("SPONSORS", this.sponsors)
         })
         .catch(console.error);
     },
     data() {
       return {
-        sponsors: []
+        sponsors: Sponsors
       };
     },
   };
@@ -465,6 +491,19 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.sponsor {
+  padding: 20px;
+  text-decoration: none;
+  .logo {
+    transition: transform 0.25s;
+    height: 20vh;
+  }
+
+  :hover {
+    transform: scale(1.1);
+  }
 }
 
 /*
