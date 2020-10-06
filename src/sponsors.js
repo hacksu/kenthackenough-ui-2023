@@ -1,6 +1,12 @@
 
 class Sponsor {
   constructor(cfg) {
+    Object.assign(this, {
+      logo: false,
+      name: false,
+      link: false,
+      style: {},
+    });
     Object.assign(this, cfg);
   }
 }
@@ -13,9 +19,20 @@ let Hacksu = new Sponsor({
   link: 'https://hacksu.com',
 });
 
+import StickerMuleLogo from '@/assets/sponsors/StickerMule.svg'
+let StickerMule = new Sponsor({
+  logo: StickerMuleLogo,
+  name: 'Sticker Mule',
+  link: 'https://www.stickermule.com/',
+  style: {
+    'border-radius': '2vh',
+    'background-color': '#FFFFFF',
+  },
+});
+
 
 export default [
   //Hacksu,
-  
+  StickerMule,
 
 ]
