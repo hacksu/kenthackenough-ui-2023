@@ -8,6 +8,10 @@ class Sponsor {
       style: {},
     });
     Object.assign(this, cfg);
+    this.style = Object.assign(this.style || {}, {
+      'background': 'center / contain no-repeat url(' + this.logo + ')',
+      'display': 'inline-block',
+    })
   }
 }
 
@@ -19,7 +23,7 @@ let Hacksu = new Sponsor({
   link: 'https://hacksu.com',
 });
 
-import StickerMuleLogo from '@/assets/sponsors/StickerMule.svg'
+import StickerMuleLogo from '@/assets/sponsors/StickerMule-Wide.svg'
 let StickerMule = new Sponsor({
   logo: StickerMuleLogo,
   name: 'Sticker Mule',
@@ -30,9 +34,17 @@ let StickerMule = new Sponsor({
   },
 });
 
+import GoogleCloudLogo from '@/assets/sponsors/GoogleCloud-Wide.png'
+let GoogleCloud = new Sponsor({
+  logo: GoogleCloudLogo,
+  name: 'Google Cloud',
+  link: 'https://cloud.google.com/',
+});
+
 
 export default [
   //Hacksu,
   StickerMule,
+  GoogleCloud,
 
 ]
