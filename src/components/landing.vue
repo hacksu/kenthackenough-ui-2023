@@ -32,8 +32,7 @@
           Register Now!
         </router-link>
         <router-link tag="button" :to="{name: 'apply'}" id="apply-btn" class="gold-clear-button"
-          v-if="$parent.$parent.user._id == ''"
-          v-else>
+          v-else-if="$parent.$parent.user._id == ''">
           Apply now!
         </router-link>
         <div style="font-size: initial!important;">
