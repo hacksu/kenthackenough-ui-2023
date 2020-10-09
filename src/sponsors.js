@@ -27,7 +27,7 @@ import StickerMuleLogo from '@/assets/sponsors/StickerMule-Wide.svg'
 let StickerMule = new Sponsor({
   logo: StickerMuleLogo,
   name: 'Sticker Mule',
-  link: 'https://www.stickermule.com/',
+  link: 'http://hackp.ac/mlh-stickermule-hackathons', //'https://www.stickermule.com/',
   style: {
     'border-radius': '2vh',
     'background-color': '#FFFFFF',
@@ -41,10 +41,20 @@ let GoogleCloud = new Sponsor({
   link: 'https://cloud.google.com/',
 });
 
+import CSLogo from '@/assets/sponsors/CSDepartment.svg'
+let CSDepartment= new Sponsor({
+  logo: CSLogo,
+  name: 'Kent State Computer Science',
+  link: 'https://www.kent.edu/cs',
+});
+
 
 export default [
   //Hacksu,
-  StickerMule,
-  GoogleCloud,
+  [
+    StickerMule,
+    GoogleCloud,
+  ],
+  CSDepartment,
 
 ]

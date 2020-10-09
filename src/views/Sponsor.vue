@@ -9,10 +9,12 @@
       </p>
       <br>
       <div style="max-width: 80vw; text-align: center; margin-left: auto; margin-right: auto; background-color: white; border-radius: 2vh; padding: 2vh;">
-        <a class="sponsor" v-for="sponsor in sponsors" v-bind:href="sponsor.link">
-          <!-- <img class="logo" v-bind:src="sponsor.logo" v-bind:alt="sponsor.name" v-bind:style="sponsor.style"> -->
-          <span class="logo" v-bind:src="sponsor.logo" v-bind:alt="sponsor.name" v-bind:style="sponsor.style"></span>
-        </a>
+        <div v-for="sponsorGroup in sponsors">
+          <a class="sponsor" v-for="sponsor in (sponsorGroup instanceof Array ? sponsorGroup : [sponsorGroup])" v-bind:href="sponsor.link">
+            <!-- <img class="logo" v-bind:src="sponsor.logo" v-bind:alt="sponsor.name" v-bind:style="sponsor.style"> -->
+            <span class="logo" v-bind:src="sponsor.logo" v-bind:alt="sponsor.name" v-bind:style="sponsor.style"></span>
+          </a>
+        </div>
       </div>
 
 
