@@ -8,15 +8,21 @@
        <h3>{{ day.humanDate }}</h3>
        <div class="event" v-for="event in day.events" v-bind:key="event.id">
          <div v-if="event.nextEvent" class="next holder">
-
-           <span class="name">{{ event.title }}</span><br>
-           <span class="time">{{ event.start }}</span>
-           <span v-if="event.location != ''"> | </span>
-           <span class="location">{{ event.location }}</span>
-           <span class="description">{{ event.description }}</span>
+           <h2 style="margin-bottom: 10px; transform: scale(0.9)">{{ event.title }}</h2>
+           <h3 class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}  {{ (event.end) ? ('- ' + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : '' }}</h3>
+           <span class="description" style="font-size: 20px; opacity: 0.9;" v-if="event.description && event.description.length > 0">{{ event.description }}</span>
          </div>
          <div v-else class="holder">
-           <span class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }} - {{ event.end.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}</span>
+           <div style="min-height: 24px">
+             <!--<span class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }} - {{ event.end.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}</span>
+             -->
+             <span class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}  {{ (event.end) ? ('- ' + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : '' }}</span>
+
+             <span class="type" v-bind:style="{'opacity': (event.type ? 1 : 0), }">{{ event.type || '_' }}</span>
+             <h3 class="name">{{ event.title }}</h3>
+           </div>
+           <br>
+           <p class="description" v-if="event.description" style="text-align: center;">{{ event.description }}</p>
            <!--<span class="name">{{ event.title }}</span><br>
            <span class="time">{{ event.start }}</span>
            <span v-if="event.location != ''"> | </span>
@@ -104,12 +110,21 @@ function getOrdinalNum(n) {
   return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
 }
 
+function getNow() {
+  let now = new Date();
+  if (window.thingy && window.thingy.$route.query.add) {
+    now = new Date(now.getTime() + Number(window.thingy.$route.query.add) * 1000);
+  }
+  //console.log(now);
+  return now;
+}
+
 function getDayOfYear(dateObject=false) {
-  var now = dateObject || new Date();
+  var now = dateObject || getNow();
   var start = new Date(now.getFullYear(), 0, 0);
-  var diff = now - start;
   var oneDay = 1000 * 60 * 60 * 24;
-  var day = Math.floor(diff / oneDay);
+  var diff = now - (now % oneDay) - start;
+  var day = Math.ceil(diff / oneDay);
   return day;
 }
 
@@ -148,7 +163,8 @@ export default {
       if (!this.data.events) {
         return;
       }
-      let now = new Date();
+      window.thingy = this;
+      let now = getNow();
       let dayOfYear = getDayOfYear();
       let showPast = this.showPast || false;
       let days = this._days || {};
@@ -160,8 +176,9 @@ export default {
           let indx = x.dayIndex
           let day2 = dayTemplate(x.dayDate);
           day2.ofYear = getDayOfYear(day2.date);
+          //console.log(day2);
           let diff = day2.ofYear - dayOfYear;
-          if (diff > relativeDays.length) {
+          if (diff >= relativeDays.length || diff < 0) {
             day2.relative = day2.name;
           } else {
             day2.relative = relativeDays[diff];
@@ -188,7 +205,7 @@ export default {
         }
       }
       this._days = days;
-      console.log(this._days);
+      //console.log(this._days);
       return this._days;
     },
     async fetchEvents() {
@@ -200,7 +217,9 @@ export default {
       let data = await (await fetch('https://api.khe.io/v1.0/events')).json();
       for (let x of data.events) {
         x.start = new Date(x.start);
-        x.end = new Date(x.end);
+        if (x.end) {
+          x.end = new Date(x.end);
+        }
         let day = x.start;
         let indx = ([day.getMonth()+1, day.getDate(), day.getFullYear()]).join('-');
         x.dayDate = day;
@@ -223,7 +242,7 @@ export default {
       }
       let days = {};
       let data = this._data;
-      console.log(data);
+      //console.log(data);
       let dayTemplate = function(day) {
         let name = weekday[day.getDay()];
         let humanDate = `${month[day.getMonth()]} ${getOrdinalNum(day.getDate())}`;
@@ -235,7 +254,7 @@ export default {
           events: [],
         }
       }
-      let now = new Date().getTime();
+      let now = getNow().getTime(); //new Date().getTime();
       let dayOfYear = getDayOfYear();
       let first = true;
       for (let x of data.events.filter(o =>
@@ -254,7 +273,8 @@ export default {
           let day2 = dayTemplate(day);
           day2.ofYear = getDayOfYear(day2.date);
           let diff = day2.ofYear - dayOfYear;
-          if (diff > relativeDays.length) {
+          //console.log("diff =", diff)
+          if (diff > relativeDays.length || diff < 0) {
             day2.relative = day2.name;
           } else {
             day2.relative = relativeDays[diff];
@@ -264,19 +284,19 @@ export default {
         days[indx].events.push(x);
         //if (!days[day.get])
       }
-      console.log(days);
+      //console.log(days);
       //this.days = Object.values(days);
       //this.loop();
-      console.log(this);
-      console.log(this.days);
+      //console.log(this);
+      //console.log(this.days);
       this.$forceUpdate();
     },
     getNextMessage() {
       if (this.nextEvent) {
         let evt = this.nextEvent;
-        let now = new Date();
+        let now = getNow(); //new Date();
         let remainingStart = now - evt.start;
-        let remainingEnd = now - evt.end;
+        let remainingEnd = now - (evt.end | evt.start);
         //console.log(evt);
         //console.log(remainingStart);
         //evt.nextMessage = String(remainingStart);
@@ -318,6 +338,8 @@ export default {
 <style scoped lang="scss">
   @import '@/globalVars.scss';
 
+  $small: 500px;
+
   #schedule {
     padding: 100px 5vw 80px 5vw;
     padding-top: 50px;
@@ -346,34 +368,72 @@ export default {
   }
 
   .day {
-    max-width: 80vw;
+    max-width: 1000px;
+    width: calc(98vw - 8vh);
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+
+    background-color: white;
+    border-radius: 2vh;
 
     padding: 2vh;
     margin-bottom: 4vh;
     h2 {
       margin-bottom: 0px;
-      color: white;
+      color: black;
     }
     h3 {
       margin-top: 0px;
-      color: white;
+      color: black;
     }
     .event {
       .holder {
-        background-color: white;
-        border-radius: 2vh;
+        //background-color: white;
+        //border-radius: 2vh;
         padding: 2vh;
         margin-bottom: 1vh;
       }
       .next {
         display: inline-block;
-        background-color: red;
         border-radius: 2vh;
         padding: 2vh;
         margin-bottom: 2vh;
+      }
+      .holder:not(.next) {
+        div {
+          @media screen and (max-width: $small) {
+            margin-bottom: -30px;
+          }
+        }
+        .time {
+          float: left;
+          padding-left: 1vh;
+          padding-right: 1vh;
+          width: 136px;
+        }
+        .type {
+          font-weight: bold;
+          float: left;
+          //padding-right: 2vh;
+          width: 120px;
+
+        }
+        .name {
+          text-align: left;
+          float: left;
+          color: black;
+          font-size: 18px;
+          @media screen and (max-width: $small) {
+            display: block;
+            text-align: center;
+            float: none;
+          }
+        }
+        .description {
+          opacity: 0.9;
+          display: block;
+        }
       }
     }
   }

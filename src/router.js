@@ -57,11 +57,11 @@ export default new Router({
       name: 'scan',
       component: Scan
     },
-    /*{
+    {
       path: '/schedule',
       name: 'schedule',
       component: Schedule
-    },*/
+    },
     {
       path: '/live',
       name: 'live',
