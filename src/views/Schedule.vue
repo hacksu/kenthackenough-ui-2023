@@ -8,7 +8,7 @@
        <h3>{{ day.humanDate }}</h3>
        <div class="event" v-for="event in day.events" v-bind:key="event.id">
          <div v-if="event.nextEvent" class="next holder">
-           <h2 style="margin-bottom: 10px; transform: scale(0.9)">{{ event.title }}</h2>
+           <h2 style="margin-bottom: 10px; transform: scale(0.8); font-weight: normal"><b>{{ (event.type ? event.type : '') }}</b>{{ (event.type ? ' - ' : '') + event.title }}</h2>
            <h3 class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}  {{ (event.end) ? ('- ' + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : '' }}</h3>
            <span class="description" style="font-size: 20px; opacity: 0.9;" v-if="event.description && event.description.length > 0">{{ event.description }}</span>
          </div>
