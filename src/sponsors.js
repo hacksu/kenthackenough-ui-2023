@@ -61,8 +61,10 @@ export default [
   [
     StickerMule,
     GoogleCloud,
+  ],
+  [
+    CSDepartment,
     RSM,
   ],
-  CSDepartment,
 
 ]
