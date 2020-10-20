@@ -48,12 +48,20 @@ let CSDepartment= new Sponsor({
   link: 'https://www.kent.edu/cs',
 });
 
+import RSMLogo from '@/assets/sponsors/RSMLogo_transparent.png'
+let RSM = new Sponsor({
+  logo: RSMLogo,
+  name: 'RSM Consulting',
+  link: 'https://rsmus.com/',
+});
+
 
 export default [
   //Hacksu,
   [
     StickerMule,
     GoogleCloud,
+    RSM,
   ],
   CSDepartment,
 
