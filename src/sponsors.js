@@ -63,6 +63,7 @@ export default [
     GoogleCloud,
   ],
   [
+    Hacksu,
     CSDepartment,
     RSM,
   ],
