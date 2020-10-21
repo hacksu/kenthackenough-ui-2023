@@ -1,4 +1,6 @@
 
+let ids = 0;
+let styling = '';
 class Sponsor {
   constructor(cfg) {
     Object.assign(this, {
@@ -6,12 +8,20 @@ class Sponsor {
       name: false,
       link: false,
       style: {},
+      scale: 1,
+      id: ids++,
     });
     Object.assign(this, cfg);
     this.style = Object.assign(this.style || {}, {
       'background': 'center / contain no-repeat url(' + this.logo + ')',
       'display': 'inline-block',
+      'transform': 'scale(' + this.scale + ')',
     })
+    styling += `
+#sponsorlogo-${this.id}:hover {
+  transform: scale(${this.scale * 1.1})!important;
+}
+`
   }
 }
 
@@ -21,6 +31,7 @@ let Hacksu = new Sponsor({
   logo: HacksuLogo,
   name: 'Hacksu',
   link: 'https://hacksu.com',
+  scale: 0.65,
 });
 
 import StickerMuleLogo from '@/assets/sponsors/StickerMule-Wide.svg'
@@ -45,7 +56,8 @@ import EchoArLogo from '@/assets/sponsors/echoAR.png'
 let EchoAr = new Sponsor({
   logo: EchoArLogo,
   name: 'EchoAr',
-  link: 'https://www.echoar.xyz/'
+  link: 'https://www.echoar.xyz/',
+  scale: 0.7,
 })
 
 import CSLogo from '@/assets/sponsors/CSDepartment.svg'
@@ -60,6 +72,7 @@ let RSM = new Sponsor({
   logo: RSMLogo,
   name: 'RSM Consulting',
   link: 'https://rsmus.com/',
+  scale: 0.85,
 });
 
 
@@ -67,8 +80,8 @@ export default [
   //Hacksu,
   [
     StickerMule,
-    EchoAr,
     GoogleCloud,
+    EchoAr,
   ],
   [
     Hacksu,
@@ -77,3 +90,5 @@ export default [
   ],
 
 ]
+
+document.head.insertAdjacentHTML("beforeend", `<style>${styling}</style>`);

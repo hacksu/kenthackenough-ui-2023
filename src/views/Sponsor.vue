@@ -12,7 +12,7 @@
         <div v-for="sponsorGroup in sponsors">
           <a class="sponsor" v-for="sponsor in (sponsorGroup instanceof Array ? sponsorGroup : [sponsorGroup])" v-bind:href="sponsor.link">
             <!-- <img class="logo" v-bind:src="sponsor.logo" v-bind:alt="sponsor.name" v-bind:style="sponsor.style"> -->
-            <span class="logo" v-bind:src="sponsor.logo" v-bind:alt="sponsor.name" v-bind:style="sponsor.style"></span>
+            <span class="logo" v-bind:src="sponsor.logo" v-bind:id="'sponsorlogo-' + sponsor.id" v-bind:alt="sponsor.name" v-bind:style="sponsor.style"></span>
           </a>
         </div>
       </div>
@@ -506,11 +506,12 @@ button:hover{
     max-width: calc(23vmax - 60px);
     width: 100vw;
     padding: 20px;
+
   }
 
-  :hover {
-    transform: scale(1.1);
-  }
+  /*:hover {
+    transform: scale(1.1)!important;
+  }*/
 }
 
 /*
