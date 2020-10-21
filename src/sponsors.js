@@ -41,6 +41,13 @@ let GoogleCloud = new Sponsor({
   link: 'https://cloud.google.com/',
 });
 
+import EchoArLogo from '@/assets/sponsors/echoAR.png'
+let EchoAr = new Sponsor({
+  logo: EchoArLogo,
+  name: 'EchoAr',
+  link: 'https://www.echoar.xyz/'
+})
+
 import CSLogo from '@/assets/sponsors/CSDepartment.svg'
 let CSDepartment= new Sponsor({
   logo: CSLogo,
@@ -60,6 +67,7 @@ export default [
   //Hacksu,
   [
     StickerMule,
+    EchoAr,
     GoogleCloud,
   ],
   [
