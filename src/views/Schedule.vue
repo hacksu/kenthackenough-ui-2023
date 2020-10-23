@@ -11,6 +11,8 @@
            <h2 style="margin-bottom: 10px; transform: scale(0.8); font-weight: normal"><b>{{ (event.type ? event.type : '') }}</b>{{ (event.type ? ' - ' : '') + event.title }}</h2>
            <h3 class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}  {{ (event.end) ? ('- ' + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : '' }}</h3>
            <span class="description" style="font-size: 20px; opacity: 0.9;" v-if="event.description && event.description.length > 0">{{ event.description }}</span>
+           <br v-if="event.location">
+           <a class="location" v-if="event.location" style="text-align: center;" v-bind:href="event.location">{{ event.icon || event.location }}</a>
          </div>
          <div v-else class="holder">
            <div style="min-height: 24px">
@@ -23,6 +25,8 @@
            </div>
            <br>
            <p class="description" v-if="event.description" style="text-align: center;">{{ event.description }}</p>
+           <br v-if="event.location">
+           <a class="location" v-if="event.location" style="text-align: center;" v-bind:href="event.location">{{ event.icon || event.location }}</a>
            <!--<span class="name">{{ event.title }}</span><br>
            <span class="time">{{ event.start }}</span>
            <span v-if="event.location != ''"> | </span>
@@ -393,6 +397,11 @@ export default {
         //border-radius: 2vh;
         padding: 2vh;
         margin-bottom: 1vh;
+        p {
+          max-width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
       .next {
         display: inline-block;
