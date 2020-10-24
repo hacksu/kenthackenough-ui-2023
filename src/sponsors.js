@@ -75,6 +75,14 @@ let RSM = new Sponsor({
   scale: 0.85,
 });
 
+import MLHLogo from '@/assets/sponsors/MLHLogo.svg'
+let MLH = new Sponsor({
+  logo: MLHLogo,
+  name: 'Major Leaugue Hacking',
+  link: 'https://mlh.io/',
+  scale: 0.5,
+});
+
 
 export default [
   //Hacksu,
@@ -88,6 +96,7 @@ export default [
     CSDepartment,
     RSM,
   ],
+  MLH,
 
 ]
 
