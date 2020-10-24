@@ -27,11 +27,6 @@
            <p class="description" v-if="event.description" style="text-align: center;">{{ event.description }}</p>
            <br v-if="event.location">
            <a class="location" v-if="event.location" style="text-align: center;" v-bind:href="event.location">{{ event.icon || event.location }}</a>
-           <!--<span class="name">{{ event.title }}</span><br>
-           <span class="time">{{ event.start }}</span>
-           <span v-if="event.location != ''"> | </span>
-           <span class="location">{{ event.location }}</span>
-           <span class="description">{{ event.description }}</span>-->
          </div>
 
        </div>
@@ -150,7 +145,7 @@ export default {
     return {
       //schedule
       daysold: [],
-      showPast: true,
+      showPast: false,
       data: {},
     }
   },
