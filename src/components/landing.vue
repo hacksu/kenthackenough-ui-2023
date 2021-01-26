@@ -23,9 +23,10 @@
     </div>
 
     <div id="landing-content-container">
-      <p class="woah desktop-only" style="font-size: 7vh;">OCTOBER 24<sup style="font-size: 4vh">th</sup>-25<sup style="font-size: 4vh">th</sup></p>
-      <p class="woah mobile-only" style="font-size: 5vh;">OCTOBER 24<sup style="font-size: 4vh">th</sup>-25<sup style="font-size: 4vh">th</sup></p>
-      <p class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><a class="hmm" style="display: inline-block; cursor: pointer; text-decoration: none;" href="/schedule">CHECK OUT THE SCHEDULE</a></p>
+      <p hidden class="woah desktop-only" style="font-size: 7vh;">OCTOBER 24<sup style="font-size: 4vh">th</sup>-25<sup style="font-size: 4vh">th</sup></p>
+      <p hidden class="woah mobile-only" style="font-size: 5vh;">OCTOBER 24<sup style="font-size: 4vh">th</sup>-25<sup style="font-size: 4vh">th</sup></p>
+      <p hidden class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><a class="hmm" style="display: inline-block; cursor: pointer; text-decoration: none;" href="/schedule">CHECK OUT THE SCHEDULE</a></p>
+      <p title="The Event has already occured" style="font-size: 5vh; max-width: 800px; width: 80vw; margin-left: auto; margin-right: auto;">REGISTRATION FOR KENT HACK ENOUGH 2020 IS CLOSED</p>
       <!--<p class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><span style="display: inline-block; cursor: pointer;" onclick="document.getElementById('faq-scrollto').click(); setTimeout(function() { let a = document.getElementsByClassName('faqModule')[2]; if (a.lastChild.nodeType != 1) { a.click(); } }, 250)">HOSTED VIRTUALLY</span></p>-->
       <span v-if="$parent.$parent.showRegister">
         <router-link tag="button" :to="{name: 'register'}" id="apply-btn" class="gold-clear-button"
