@@ -31,9 +31,9 @@
       Below are the following three tiers for Kent Hack Enough 2020! We will issue an itemized invoice once tier is confirmed.
       Please reach out to us if you are interested in sponsoring with an amount that is not posted below. </p>
       <div class="center">
-          <button class="contact" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="mailto:trentan@khe.io?subject=KHE Sponsorship Interest">Contact Us</a></button>
+          <button class="contact" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="mailto:joshua@khe.io?subject=KHE Sponsorship Interest">Contact Us</a></button>
       </div>
-      <span style="display: block; margin-top: -4%; color: white;">trentan@khe.io, kaushik@khe.io</span>
+      <span style="display: block; margin-top: -4%; color: white;">joshua@khe.io, katie@khe.io</span>
 
       <div class="center">
           <button class="paypal" style="cursor: pointer; width: 250px; max-width: 60vw;"><a style="text-decoration: none" href="https://www.paypal.com/myaccount/transfer/homepage">Pay via PayPal</a></button>
