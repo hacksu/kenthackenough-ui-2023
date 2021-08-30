@@ -1,13 +1,17 @@
 <template>
-  <div id="landing-container" style="margin-top: -53px;">
+  <div id="landing-container" class="landing" style="margin-top: -53px;">
 
-    <div class="back"></div>
+    <div class="back" style="">
+      <div class="squiggly" style="opacity: 0.02;">
 
-    <div class="img-box cassettes" style="background-position-y: 5vh; background-position-x: -10vh; left: 0px; bottom: 0px;"></div>
-    <div class="img-box headphones-orange" style="background-position-y: 5vh; background-position-x: -12vh; right: 0px; top: 0px; transform: rotate(-5deg) scaleX(-1);"></div>
+      </div>
+    </div>
+
+    <!-- <div class="img-box cassettes" style="background-position-y: 5vh; background-position-x: -10vh; left: 0px; bottom: 0px;"></div>
+    <div class="img-box headphones-orange" style="background-position-y: 5vh; background-position-x: -12vh; right: 0px; top: 0px; transform: rotate(-5deg) scaleX(-1);"></div> -->
 
     <a v-if="$parent.$parent.showMLH" id="mlh-trust-badge" href="https://mlh.io/seasons/2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=white" target="_blank">
-      <img id="mlh-banner" src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-white.svg" alt="Major League Hacking 2020 Hackathon Season">
+      <img id="mlh-banner" src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-white.svg" alt="Major League Hacking 2020 Hackathon Season">
     </a>
 
     <div id="logo-container">
@@ -16,24 +20,25 @@
       <img src="@/assets/goldflourish.png" class="desktop-only">
       <br>
       <img src="@/assets/goldlonglogo.png" id="short-logo">-->
-      <img src="@/assets/KHE_AI_Square1-gradient.svg" id="short-logo">
+      <img src="@/assets/KHE2021_Logo.png" id="short-logo">
       <br>
-      <span class="goes-retro" style="transform: rotate(-5deg) translate(20%, -20%);">GOES RETRO</span>
-      <h1 style="font-size: 7.5vmin!important; margin-top: -0.5vh; font-family: 'Dagger Square'!important; background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">KENT HACK ENOUGH</h1>
+      <h2 class="anniversary" style="">10th Anniversary</h2>
+      <h2 class="kenthackenough">Kent Hack Enough</h2>
     </div>
 
     <div id="landing-content-container">
-      <p hidden class="woah desktop-only" style="font-size: 7vh;">OCTOBER 24<sup style="font-size: 4vh">th</sup>-25<sup style="font-size: 4vh">th</sup></p>
-      <p hidden class="woah mobile-only" style="font-size: 5vh;">OCTOBER 24<sup style="font-size: 4vh">th</sup>-25<sup style="font-size: 4vh">th</sup></p>
-      <p hidden class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><a class="hmm" style="display: inline-block; cursor: pointer; text-decoration: none;" href="/schedule">CHECK OUT THE SCHEDULE</a></p>
-      <p title="The Event has already occured" style="font-size: 5vh; max-width: 800px; width: 80vw; margin-left: auto; margin-right: auto;">REGISTRATION FOR KENT HACK ENOUGH 2020 IS CLOSED</p>
+      <!-- <p class="date desktop-only" style="font-size: 7vh;">OCTOBER 23<sup style="font-size: 4vh">rd</sup>-24<sup style="font-size: 4vh">th</sup></p>
+      <p class="date mobile-only" style="font-size: 5vh;">OCTOBER 23<sup style="font-size: 4vh">rd</sup>-24<sup style="font-size: 4vh">th</sup></p> -->
+      <p class="date">October 23rd-24th</p>
+      <p v-if="$parent.$parent.showSchedule" class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><a class="hmm" style="display: inline-block; cursor: pointer; text-decoration: none;" href="/schedule">CHECK OUT THE SCHEDULE</a></p>
+      <p hidden title="The Event has already occured" style="font-size: 5vh; max-width: 800px; width: 80vw; margin-left: auto; margin-right: auto;">REGISTRATION FOR KENT HACK ENOUGH 2020 IS CLOSED</p>
       <!--<p class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><span style="display: inline-block; cursor: pointer;" onclick="document.getElementById('faq-scrollto').click(); setTimeout(function() { let a = document.getElementsByClassName('faqModule')[2]; if (a.lastChild.nodeType != 1) { a.click(); } }, 250)">HOSTED VIRTUALLY</span></p>-->
       <span v-if="$parent.$parent.showRegister">
-        <router-link tag="button" :to="{name: 'register'}" id="apply-btn" class="gold-clear-button"
+        <router-link tag="button" :to="{name: 'register'}" id="apply-btn" class="register-now"
           v-if="$parent.$parent.user._id == ''">
           Register Now!
         </router-link>
-        <router-link tag="button" :to="{name: 'apply'}" id="apply-btn" class="gold-clear-button"
+        <router-link tag="button" :to="{name: 'apply'}" id="apply-btn" class="apply-now"
           v-else-if="$parent.$parent.user._id == ''">
           Apply now!
         </router-link>
@@ -49,100 +54,6 @@
         <span style="font-family: 'Dagger Square'!important; color: white;">Interested in Sponsoring?</span>
       </a>
     </div>
-
-    <!-- Art, absolutely positioned.
-        The :style tags used on these assets make the assets shift slightly with the mouse motion
-                                  & the scroll, for a nice parallax effects -->
-    <!--<img src="@/assets/landing_assets/foreground_cliff.svg" id="foreground-cliff"
-      :style="{
-          'margin-bottom': -(scrollPos / 85) - (mouseY / 55) + 'px',
-          'margin-left': (mouseX / 55) - 50 + 'px'
-        }"
-      class="desert-asset">
-    <img src="@/assets/landing_assets/cowboy.svg" id="cowboy"
-      :style="{
-          'margin-bottom': -(scrollPos / 55) - (mouseY / 55) + 'px',
-          'margin-left': (mouseX / 55) + 'px'
-        }"
-      class="desert-asset">
-
-    <img src="@/assets/landing_assets/midground_1.svg" id="midground-1"
-      :style="{
-          'margin-bottom': -(scrollPos / 30) - (mouseY / 45) + 'px',
-          'margin-right': -(mouseX / 65) + 'px'
-        }"
-      class="desert-asset">
-    <img src="@/assets/landing_assets/midground_2.svg" id="midground-2"
-      :style="{
-          'margin-bottom': -(scrollPos / 18) - (mouseY / 75) + 'px',
-          'margin-right': -(mouseX / 85) + 'px'
-        }"
-      class="desert-asset">
-    <img src="@/assets/landing_assets/midground_3.svg" id="midground-3"
-    :style="{
-          'margin-bottom': -(scrollPos / 13) + 'px',
-          'margin-right': (mouseX / 85) - 40 + 'px'
-        }"
-      class="desert-asset">
-
-    <img src="@/assets/landing_assets/background_mesa.svg" id="mesa"
-      :style="{
-          'margin-bottom': -(scrollPos / 10) + (mouseY / 65) + 'px',
-          'margin-right': (mouseX / 75) + 'px'
-        }"
-      class="desert-asset">
-    <img src="@/assets/landing_assets/background_mountains.svg" id="mountains"
-      :style="{
-          'margin-bottom': -(scrollPos / 7) + (mouseY / 45) + 'px',
-          'margin-right': (mouseX / 65) - 60 + 'px'
-        }"
-      class="desert-asset">-->
-
-      <!--<img src="@/assets/SunglassesPink.svg" id="sunglasses-pink-1"
-        :style="{
-            'margin-bottom': -(scrollPos / 85) - (mouseY / 55) + 'px',
-            'margin-left': (mouseX / 55) - 50 + 'px'
-          }"
-        class="desert-asset">
-      <img src="@/assets/SunglassesBlue.svg" id="sunglasses-blue-1"
-        :style="{
-            'margin-bottom': -(scrollPos / 55) - (mouseY / 55) + 'px',
-            'margin-left': (mouseX / 55) + 'px'
-          }"
-        class="desert-asset">
-
-      <img src="@/assets/cassettes.svg" id="cassettes-1"
-        :style="{
-            'margin-bottom': -(scrollPos / 30) - (mouseY / 45) + 'px',
-            'margin-right': -(mouseX / 65) + 'px'
-          }"
-        class="desert-asset">
-      <img src="@/assets/walkman2020.png" id="walkman-1"
-        :style="{
-            'margin-bottom': -(scrollPos / 18) - (mouseY / 75) + 'px',
-            'margin-right': -(mouseX / 85) + 'px'
-          }"
-        class="desert-asset">
-      <img src="@/assets/cassettes.svg" id="cassettes-2"
-      :style="{
-            'margin-bottom': -(scrollPos / 13) + 'px',
-            'margin-right': (mouseX / 85) - 40 + 'px'
-          }"
-        class="desert-asset">
-
-      <img src="@/assets/cassette2020.png" id="cassette-1"
-        :style="{
-            'margin-bottom': -(scrollPos / 10) + (mouseY / 65) + 'px',
-            'margin-right': (mouseX / 75) + 'px'
-          }"
-        class="desert-asset">
-      <img src="@/assets/keyboard.png" id="keyboard-1"
-        :style="{
-            'margin-bottom': -(scrollPos / 7) + (mouseY / 45) + 'px',
-            'margin-right': (mouseX / 65) - 60 + 'px'
-          }"
-        class="desert-asset">-->
-
 
   </div>
 </template>
@@ -188,19 +99,93 @@ export default {
 <style scoped lang="scss">
 @import '@/globalVars.scss';
 
-.goes-retro {
-  color: $gold;
-  display: inline-block;
-  font-family: Lazer84;
-  font-size: 6vmin;
-  transform: rotate(-5deg) translate(0%, -20%);
-  letter-spacing: 1vmin;
-  filter: drop-shadow(4px 4px $blue) drop-shadow(-1.5px -1.5px $blue)
+.kenthackenough {
+  font-family: "Buba-Shadow";
+  color: #dec5ec;
+  font-size: 5vmax;
+  margin-top: -0.5em
+}
+.kenthackenough::after {
+  content: "Kent Hack Enough";
+  left: 0px;
+  width: 100%;
+  position: absolute;
+  font-family: 'Buba-Outline';
+  color: #36355E;
+}
+
+.date {
+  font-family: "Buba-Shadow";
+  color: #8AE87B;
+  font-size: 4vmax;
+  margin-top: -5vmax;
+}
+.date::after {
+  content: "October 23rd-24th";
+  left: 0px;
+  width: 100%;
+  position: absolute;
+  font-family: 'Buba-Outline';
+  color: #36355E;
 }
 
 .hmm {
   color: $gold!important;
   filter: none!important;
+}
+
+.anniversary {
+  margin-top: -50px;
+  transform: rotate(-5deg);
+  margin-left: 200px;
+  display: inline-block;
+  font-family: "Hestina";
+  color: #FF7C70;
+  font-size: 4vmax;
+  filter: drop-shadow(0.25vmax 0.25vmax #36355E); /* drop-shadow(-1.5px -1.5px black)*/
+  @media only screen and (max-width: $md-bp) {
+    font-size: 8vw;
+    margin-left: 20vw;
+    filter: drop-shadow(0.5vw 0.5vw #36355E); /* drop-shadow(-1.5px -1.5px black)*/
+  }
+  
+}
+
+
+// .landing {
+//   text-align: center;
+//   margin-left: auto;
+//   margin-right: auto;
+//   height: 100vh;
+//   width: 100vw;
+// }
+.landing .back {
+  background: linear-gradient(45deg,#FFECB8,#FFE499 95%);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  overflow: hidden;
+}
+.landing .back .squiggly {
+  margin-top: 8vh;
+  height: 84vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-image: url(../assets/squiggly-back.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -2;
+}
+.landing .back img {
+  width: 100vw;
+  opacity: 0.02;
+  z-index: -5;
 }
 
 .img-box {
@@ -230,9 +215,17 @@ export default {
 }
 
 #apply-btn {
-  font-size: 3vh;
   width: 300px;
   max-width: 80vw;
+  font-family: "Buba-Shadow";
+  color: #8AE87B;
+  font-size: 3vmax;
+  &.apply-now:after {
+    content: "Apply now!";
+  }
+  &.register-now:after {
+    content: "Register Now!";
+  }
   @media only screen and (min-width: 560px) {
     font-size: 4vh;
   }
@@ -251,25 +244,25 @@ export default {
   position: relative;
 }
 
-#landing-container .back {
-  /*background: $sand2;*/
-  display: inline-block;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  position: absolute;
-  /*background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);*/
-  //background: linear-gradient(0deg, rgba(0,84,224,1) 0%, rgba(65,23,67,1) 100%); /* blue */
-  /*background: linear-gradient(180deg, rgba(0,84,224,1) 0%, rgba(65,23,67,1) 74%, rgba(65,23,67,0) 100%);*/
-  //background-color: $sand2!important;
-  //background: rgb(215,93,222);
-  //background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
+// #landing-container .back {
+//   /*background: $sand2;*/
+//   display: inline-block;
+//   top: 0px;
+//   left: 0px;
+//   height: 100%;
+//   width: 100%;
+//   z-index: -1;
+//   position: absolute;
+//   /*background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);*/
+//   //background: linear-gradient(0deg, rgba(0,84,224,1) 0%, rgba(65,23,67,1) 100%); /* blue */
+//   /*background: linear-gradient(180deg, rgba(0,84,224,1) 0%, rgba(65,23,67,1) 74%, rgba(65,23,67,0) 100%);*/
+//   //background-color: $sand2!important;
+//   //background: rgb(215,93,222);
+//   //background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
 
-  background: linear-gradient(0deg, rgba(0,84,224,1) 0%, rgba(65,23,67,1) 95%); /* blue */
+//   background: linear-gradient(0deg, rgba(0,84,224,1) 0%, rgba(65,23,67,1) 95%); /* blue */
 
-}
+// }
 
 #logo-container {
   /*height: 130px;*/
@@ -293,19 +286,19 @@ export default {
 
 #landing-content-container {
   margin-top: 40px;
-  font-size: 4vmax;
+  // font-size: 4vmax;
   z-index: 11;
   /*position: relative;*/
   color: white;
 
   p {
     /*@extend .outline;*/
-    margin: 10px;
-    font-family: Commando;
-    color: white;
-    filter: drop-shadow(2px 2px #92D4E7); // drop-shadow(-1.5px -1.5px #92D4E7);
+    // margin: 10px;
+    // font-family: Commando;
+    // color: white;
+    // filter: drop-shadow(2px 2px #92D4E7); // drop-shadow(-1.5px -1.5px #92D4E7);
     /*font-size: 8vh;*/
-    letter-spacing: 1.5px;
+    // letter-spacing: 1.5px;
   }
 }
 
@@ -325,11 +318,6 @@ export default {
   width: 100%
 }
 
-.desert-asset {
-  position: absolute;
-  z-index: -1!important;
-  /*max-width: 400px;*/
-}
 
 /* Note that for all positioning, we need to use 'vw' as our unit
           -- even vertical positioning!!
@@ -427,50 +415,6 @@ This way the assets will scale with the screen width, for mobile phones. */
   z-index: 10;
 }
 
-#cowboy {
-  z-index: 9;
-  width: 13%;
-  bottom: 22vw;
-  left: 23%;
-  /* Using this media selector to make sure the cowboy stays on the cliff, even with it's max-width */
-  @media only screen and (min-width: 1150px) {
-    bottom: 260px;
-    max-width: 150px;
-  }
-}
-
-#midground-1 {
-  right: -20px;
-  bottom: -5vw;
-  z-index: 9;
-  width: 85%;
-}
-
-#midground-2 {
-  right: -30px;
-  bottom: -1vw;
-  z-index: 8;
-  width: 85%;
-}
-
-#midground-3 {
-  right: 0px;
-  bottom: -6vw;
-  z-index: 7;
-}
-
-#mesa {
-  width: 30%;
-  bottom: 8vw;
-  right: 10%;
-  z-index: 6;
-}
-
-#mountains {
-  width: 120%;
-  right: -170px;
-  bottom: -16vw;
-}
 
 @keyframes fadein {
   from {

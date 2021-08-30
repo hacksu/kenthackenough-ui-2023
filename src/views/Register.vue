@@ -1,6 +1,12 @@
 <template>
   <div id="register">
 
+    <div class="back" style="">
+      <div class="squiggly" style="opacity: 0.02;">
+
+      </div>
+    </div>
+
     <div style="display: block; height: 100px; margin: 0px; margin-bottom: -70px; padding-top: 10vh;"></div>
     <div class="auth-container">
       <span id="auth-title">Register</span>
@@ -99,7 +105,43 @@ export default {
 @import '@/globalVars.scss';
 
 #register {
-  background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+  width: 100vw;
+}
+#register .back {
+  background: linear-gradient(45deg,#FFECB8,#FFE499 95%);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  overflow: hidden;
+}
+#register .back .squiggly {
+  margin-top: 8vh;
+  height: 84vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-image: url(../assets/squiggly-back.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -2;
+}
+#register .back img {
+  width: 100vw;
+  opacity: 0.02;
+  z-index: -5;
+}
+
+#register {
+  // background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
   height: calc(100vh - 53px);
   width: 100vw;
 }

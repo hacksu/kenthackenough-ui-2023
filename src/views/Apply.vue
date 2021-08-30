@@ -3,7 +3,7 @@
     <router-link tag="div" to="/" id="app-header">
       <!--<img src="@/assets/goldflourish.png" class="flipped">-->
           <!-- Note we're flipping this with CSS  so we don't have to load an extra asset! -->
-      <img src="@/assets/KHE_AI_Square1.svg" class="logo">
+      <img src="@/assets/KHE2021_Logo.png" class="logo">
       <!--<img src="@/assets/goldflourish.png" class="desktop-only">-->
     </router-link>
 

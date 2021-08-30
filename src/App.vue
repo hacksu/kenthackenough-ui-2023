@@ -40,13 +40,13 @@ export default {
   },
   data() {
     return {
-      showLogin: false, //true,
-      showRegister: false, //true, //false,
+      showLogin: true,
+      showRegister: true, //false,
       //showRegister: (window.location.href.indexOf("khe.io") >= 0) ? false : true, // Temporary disable
       showSponsors: true, //false,
       allowSponsorship: true,
       showLive: false,
-      showSchedule: false, //true, //false,
+      showSchedule: true, //false,
       showPasswordReset: false,
       showMLH: true,
 
@@ -272,6 +272,32 @@ export default {
 	src: url("./assets/fonts/commando/commando.ttf");
 }
 
+
+@font-face {
+  font-family: "HappyBirthday";
+  src: url("./assets/fonts/happyBirthday.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "CreamCake";
+  src: url("./assets/fonts/CreamCake.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "Hestina";
+  src: url("./assets/fonts/Hestina.otf");
+}
+
+@font-face {
+  font-family: "Buba-Outline";
+  src: url("./assets/fonts/Buba-Outline.otf");
+}
+
+@font-face {
+  font-family: "Buba-Shadow";
+  src: url("./assets/fonts/Buba-Shadow.otf");
+}
+
   h1 {
     font-family: Commando;
     color: $black-overwrite;
@@ -320,7 +346,7 @@ export default {
   #banner {
     /*position: fixed;*/
     /*background-color: #39183e;*/
-    background-color: rgba(65,23,67,1);
+    background-color: #FF7C70;
     display: flex;
     justify-content: space-between;
     z-index: 98;
@@ -338,7 +364,7 @@ export default {
   }
 
   .banner-link:hover {
-    background-color: $blue;
+    background-color: #dec5ec;
 
   }
 
