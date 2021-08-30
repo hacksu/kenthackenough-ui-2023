@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="me" align="center" v-if="$parent.user._id != ''">
-      <qrcode-vue :value="uId" :size="size"></qrcode-vue>
+      <!-- <qrcode-vue :value="uId" :size="size"></qrcode-vue> -->
       <h2>Get the QR code above scanned at a sponsor table, one of our activities, or at the JP Morgan hacker space. The more you participate, the more likely you are to win cool prizes!</h2>
     </div>
 
@@ -15,14 +15,14 @@
 </template>
 
 <script>
-import QrcodeVue from 'qrcode.vue'
+// import QrcodeVue from 'qrcode.vue'
 import apiConfig from "@/config/config";
 import axios from 'axios'
 
 export default {
   name: 'Me',
   components: {
-    QrcodeVue
+    // QrcodeVue
   },
   mounted() { 
     this.$parent.wrapper.applicationManager.getApplication()
