@@ -7,6 +7,12 @@
       <!--<img src="@/assets/goldflourish.png" class="desktop-only">-->
     </router-link>
 
+    <div id="the-back" class="back" style="">
+      <div class="squiggly" style="opacity: 0.02;">
+
+      </div>
+    </div>
+
     <div id="questionHolder"
           v-on:submit.prevent
          v-if="currentQuestion != appQuestions.length">
@@ -574,12 +580,41 @@ export default {
 <style scoped lang="scss">
 @import '@/globalVars.scss';
 
+#the-back {
+  background: linear-gradient(45deg,#FFECB8,#FFE499 95%);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  overflow: hidden;
+}
+#the-back .squiggly {
+  margin-top: 8vh;
+  height: 84vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-image: url(../assets/squiggly-back.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -2;
+}
+#the-back img {
+  width: 100vw;
+  opacity: 0.02;
+  z-index: -5;
+}
+
   #application {
     color: white;
     display: flex;
     flex-direction: column;
     //background: $dark-blue;
-    background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
+    // background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
     height: 100vh;
   }
 
