@@ -6,13 +6,13 @@
           FREQUENTLY ASKED QUESTIONS
         </h2>
 
-        <div class="image-box1 desktop-only">
+        <!-- <div class="image-box1 desktop-only">
 
-        </div>
+        </div> -->
 
-        <div class="image-box2 desktop-only">
+        <!-- <div class="image-box2 desktop-only">
 
-        </div>
+        </div> -->
 
         <!--Outputs faq objects dynamically, as defined by the 'faqs' object in the data.-->
         <div class="faqModule" v-for="faq in faqs" @click="expandFAQ(faq.id)">
@@ -153,7 +153,7 @@ export default {
   position: absolute;
 }
 
-#faqTitle {
+#faqTitle2 {
   text-align: center;
   /*font-size: 50px;*/
   /*height: calc(8vw + 5vh);*/

@@ -42,17 +42,17 @@
           v-else-if="$parent.$parent.user._id == ''">
           Apply now!
         </router-link>
-        <div style="font-size: initial!important;">
-          <a href="https://mlh.io/code-of-conduct/" target="_blank" style="opacity: 0.75; color: white; font-size: 2vh; text-decoration: none;">MLH Code of Conduct</a>
+        <div style="font-size: initial!important; margin-top: 20px;">
+          <a href="https://mlh.io/code-of-conduct/" target="_blank" style="font-weight: bold; opacity: 0.75; color: black; font-size: 2vh; text-decoration: none;">MLH Code of Conduct</a>
         </div>
 
       </span>
-      <a class="desktop-only gold-link" v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '3vh!important' : '2.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '0px' : '0px') }" href="/sponsor" target="_blank">
+      <!-- <a class="desktop-only gold-link" v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '3vh!important' : '2.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '0px' : '0px') }" href="/sponsor" target="_blank">
         <span style="font-family: 'Dagger Square'!important; color: white;">Interested in Sponsoring?</span>
       </a>
       <a class="mobile-only gold-link" v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '6vmin!important' : '5.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '0px' : '0px') }" href="/sponsor" target="_blank">
         <span style="font-family: 'Dagger Square'!important; color: white;">Interested in Sponsoring?</span>
-      </a>
+      </a> -->
     </div>
 
   </div>

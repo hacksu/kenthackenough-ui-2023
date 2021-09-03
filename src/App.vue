@@ -448,7 +448,7 @@ export default {
     font-size: 2vmin!important;
   }
 
-  #auth-title {
+  #auth-title2 {
     font-family: Lazer84;
     font-size: 50px;
     margin: 0px;

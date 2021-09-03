@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <landing></landing>
-    <about></about>
+    <!-- <about></about> -->
     <faqvirtual></faqvirtual>
     <virtual></virtual>
   </div>
