@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       showLogin: true,
-      showRegister: true, //false,
+      showRegister: false, //true, //false,
       //showRegister: (window.location.href.indexOf("khe.io") >= 0) ? false : true, // Temporary disable
       showSponsors: false, //true, //false,
       allowSponsorship: true,
