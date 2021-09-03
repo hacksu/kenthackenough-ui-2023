@@ -1,7 +1,7 @@
 <template>
   <div id="landing-container" class="landing" style="margin-top: -53px;">
 
-    <div class="back" style="">
+    <div class="back" style="margin-top: 53px">
       <div class="squiggly" style="opacity: 0.02;">
 
       </div>
@@ -215,16 +215,26 @@ export default {
 }
 
 #apply-btn {
-  width: 300px;
+  width: 400px;
   max-width: 80vw;
   font-family: "Buba-Shadow";
   color: #8AE87B;
   font-size: 3vmax;
+  border: none;
+  background: none;
+  cursor: pointer;
   &.apply-now:after {
     content: "Apply now!";
   }
   &.register-now:after {
     content: "Register Now!";
+  }
+  &:after {
+    left: 0px;
+    width: 100%;
+    position: absolute;
+    font-family: 'Buba-Outline';
+    color: #36355E;
   }
   @media only screen and (min-width: 560px) {
     font-size: 4vh;
