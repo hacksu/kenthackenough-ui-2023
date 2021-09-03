@@ -7,6 +7,7 @@ To hide the information for people to sponsor KHE (aka, when we're a week or two
 Logos can be added by putting them inside `src/assets/sponsors` and then referencing them as per the example HacksuLogo inside of sponsors.js
 Logos can also be used remotely by specifying a link to an already existing asset.
 
+
 # Pushing to live
 
 Add live remote (if you haven't already)
