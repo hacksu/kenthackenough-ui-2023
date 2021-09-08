@@ -673,7 +673,8 @@ export default {
   flex-direction: column;
   //background: $dark-blue;
   // background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
-  height: 100vh;
+  // height: 100vh;
+  // overflow-x: hidden;
 }
 
 #app-header {
