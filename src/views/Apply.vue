@@ -668,7 +668,7 @@ export default {
 }
 
 #application {
-  color: white;
+  // color: white;
   display: flex;
   flex-direction: column;
   //background: $dark-blue;
@@ -709,6 +709,10 @@ export default {
   z-index: 50;
   position: relative;
   font-size: 20px;
+
+  padding: 50px;
+  background-color: white;
+  border-radius: 15px;
 }
 .question {
   margin-top: 30px;
@@ -721,6 +725,8 @@ input {
   width: 100%;
   outline: none;
   border-radius: 0.25em;
+
+  background-color: rgba(0, 0, 0, 0.05);
 }
 input:focus {
   opacity: 1;
@@ -740,6 +746,7 @@ input[type="text"]:focus {
 .nav-buttons {
   display: flex;
   justify-content: space-between;
+  padding-top: 20px;
 }
 
 .fancy-button {
