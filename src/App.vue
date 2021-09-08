@@ -195,7 +195,8 @@ export default {
           waiver: false, // agreed to waiver?                           ?
           resume: "", // the filename of their resume                   ?
           link: "", // a github/linkedin link                           ?
-          extra: ""
+          extra: "",
+          mlh_emails: null,
         }
       };
     },
