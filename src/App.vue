@@ -466,6 +466,8 @@ export default {
 
   #auth-subtitle {
     font-size: 20px;
+    margin-top: 5px;
+    // margin-bottom: 5px;
     // margin-bottom: 10px;
   }
 

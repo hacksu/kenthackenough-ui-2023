@@ -1,11 +1,17 @@
 <template>
   <div id="login">
 
+    <div class="back" style="">
+      <div class="squiggly" style="opacity: 0.02;">
+
+      </div>
+    </div>
+
     <div style="display: block; height: 100px; margin: 0px; margin-bottom: -70px; padding-top: 10vh;"></div>
+    <h6 id="auth-subtitle"><img style="height: 10vh;" src="../assets/KHE_Birthday.svg"/></h6>
     <div class="auth-container">
-      <span id="auth-title">Login</span>
+      <h2 id="auth-title">Login</h2>
       <!--<h6 id="auth-subtitle">I've seen you 'round these parts.</h6>-->
-      <h6 id="auth-subtitle"><img style="height: 5vh;" src="../assets/SunglassesPink.svg"/></h6>
       <div id="error-message"> {{ error }}</div>
       Email:<br>
       <input id="login-username"
@@ -110,6 +116,35 @@ export default {
     padding-bottom: 25px;
   }*/
 
+  #login .back {
+  background: linear-gradient(45deg,#FFECB8,#FFE499 95%);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  overflow: hidden;
+}
+#login .back .squiggly {
+  margin-top: 8vh;
+  height: 84vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-image: url(../assets/squiggly-back.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -2;
+}
+#login .back img {
+  width: 100vw;
+  opacity: 0.02;
+  z-index: -5;
+}
+
   #error-message{
     font-size: 15px;
     color: red;
@@ -117,7 +152,6 @@ export default {
   }
 
   #login {
-    background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
     height: calc(100vh - 53px);
     width: 100vw;
   }

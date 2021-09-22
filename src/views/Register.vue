@@ -8,9 +8,9 @@
     </div>
 
     <div style="display: block; height: 100px; margin: 0px; margin-bottom: -70px; padding-top: 10vh;"></div>
+    <h6 id="auth-subtitle"><img style="height: 10vh;" src="../assets/KHE_Birthday.svg"/></h6>
     <div class="auth-container">
-      <span id="auth-title">Register</span>
-      <h6 id="auth-subtitle"><img style="height: 5vh;" src="../assets/SunglassesPink.svg"/></h6>
+      <h2 id="auth-title">Register</h2>
       Email:<br>
       <input id="login-username"
             class="simple-text-input"
