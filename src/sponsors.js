@@ -34,11 +34,22 @@ let Hacksu = new Sponsor({
   scale: 0.65,
 });
 
-import StickerMuleLogo from '@/assets/sponsors/StickerMule-Wide.svg'
-let StickerMule = new Sponsor({
-  logo: StickerMuleLogo,
-  name: 'Sticker Mule',
-  link: 'http://hackp.ac/mlh-stickermule-hackathons', //'https://www.stickermule.com/',
+// import StickerMuleLogo from '@/assets/sponsors/StickerMule-Wide.svg'
+// let StickerMule = new Sponsor({
+//   logo: StickerMuleLogo,
+//   name: 'Sticker Mule',
+//   link: 'http://hackp.ac/mlh-stickermule-hackathons', //'https://www.stickermule.com/',
+//   style: {
+//     'border-radius': '2vh',
+//     'background-color': '#FFFFFF',
+//   },
+// });
+
+import GreenworksLabLogo from '@/assets/sponsors/greenworks_lab_logo.png'
+let GreenworksLab = new Sponsor({
+  logo: GreenworksLabLogo,
+  name: 'GreenWorks Lab',
+  link: 'https://www.youtube.com/watch?v=KZDA7lhl8Ls',
   style: {
     'border-radius': '2vh',
     'background-color': '#FFFFFF',
@@ -52,13 +63,13 @@ let GoogleCloud = new Sponsor({
   link: 'https://cloud.google.com/',
 });
 
-import EchoArLogo from '@/assets/sponsors/echoAR.png'
-let EchoAr = new Sponsor({
-  logo: EchoArLogo,
-  name: 'EchoAr',
-  link: 'https://www.echoar.xyz/',
-  scale: 0.7,
-})
+// import EchoArLogo from '@/assets/sponsors/echoAR.png'
+// let EchoAr = new Sponsor({
+//   logo: EchoArLogo,
+//   name: 'EchoAr',
+//   link: 'https://www.echoar.xyz/',
+//   scale: 0.7,
+// })
 
 import CSLogo from '@/assets/sponsors/CSDepartment.svg'
 let CSDepartment= new Sponsor({
@@ -87,14 +98,13 @@ let MLH = new Sponsor({
 export default [
   //Hacksu,
   [
-    StickerMule,
+    RSM,
     GoogleCloud,
-    EchoAr,
+    GreenworksLab,
   ],
   [
     Hacksu,
     CSDepartment,
-    RSM,
   ],
   MLH,
 

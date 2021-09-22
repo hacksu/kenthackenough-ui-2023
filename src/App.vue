@@ -43,7 +43,7 @@ export default {
       showLogin: true,
       showRegister: true, //true, //false,
       //showRegister: (window.location.href.indexOf("khe.io") >= 0) ? false : true, // Temporary disable
-      showSponsors: false, //true, //false,
+      showSponsors: true, //true, //false,
       allowSponsorship: true,
       showLive: false,
       showSchedule: false, //true, //false,
