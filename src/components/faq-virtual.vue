@@ -60,7 +60,7 @@ export default {
           id: 2, // swapped with one above it
           question: "How do I attend?",
           answer:
-            "After <span style='background: none; border: none; color: #92D4E7; cursor: pointer;' onclick='document.getElementById(\"apply-btn\").click()'>registering</span>, a link to join the event will be emailed to you  on October 24th. Looking forward to seeing you then!"
+            "After <span style='background: none; border: none; color: #92D4E7; cursor: pointer;' onclick='document.getElementById(\"apply-btn\").click()'>registering</span>, a link to join the event will be emailed to you on October 23rd. Looking forward to seeing you then!"
         },
         {
           id: 3,
