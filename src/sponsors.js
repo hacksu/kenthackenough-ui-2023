@@ -49,7 +49,7 @@ import GreenworksLabLogo from '@/assets/sponsors/greenworks_lab_logo.png'
 let GreenworksLab = new Sponsor({
   logo: GreenworksLabLogo,
   name: 'GreenWorks Lab',
-  link: 'https://www.youtube.com/watch?v=KZDA7lhl8Ls',
+  link: 'https://ascic.aurora-schools.org/',
   style: {
     'border-radius': '2vh',
     'background-color': '#FFFFFF',
@@ -104,9 +104,10 @@ export default [
   ],
   [
     Hacksu,
-    CSDepartment,
+    MLH,
+    // CSDepartment,
   ],
-  MLH,
+  // MLH,
 
 ]
 
