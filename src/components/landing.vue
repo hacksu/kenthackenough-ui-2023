@@ -29,7 +29,7 @@
     <div id="landing-content-container">
       <!-- <p class="date desktop-only" style="font-size: 7vh;">OCTOBER 23<sup style="font-size: 4vh">rd</sup>-24<sup style="font-size: 4vh">th</sup></p>
       <p class="date mobile-only" style="font-size: 5vh;">OCTOBER 23<sup style="font-size: 4vh">rd</sup>-24<sup style="font-size: 4vh">th</sup></p> -->
-      <p class="date">October 23rd-24th</p>
+      <p class="date">December 4th-5th</p>
       <p v-if="$parent.$parent.showSchedule" class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><a class="hmm" style="display: inline-block; cursor: pointer; text-decoration: none;" href="/schedule">CHECK OUT THE SCHEDULE</a></p>
       <p hidden title="The Event has already occured" style="font-size: 5vh; max-width: 800px; width: 80vw; margin-left: auto; margin-right: auto;">REGISTRATION FOR KENT HACK ENOUGH 2020 IS CLOSED</p>
       <!--<p class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><span style="display: inline-block; cursor: pointer;" onclick="document.getElementById('faq-scrollto').click(); setTimeout(function() { let a = document.getElementsByClassName('faqModule')[2]; if (a.lastChild.nodeType != 1) { a.click(); } }, 250)">HOSTED VIRTUALLY</span></p>-->
@@ -120,8 +120,9 @@ export default {
   font-size: 4vmax;
   margin-top: -5vmax;
 }
+
 .date::after {
-  content: "October 23rd-24th";
+  content: "December 4th-5th";
   left: 0px;
   width: 100%;
   position: absolute;
