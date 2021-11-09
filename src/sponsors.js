@@ -56,12 +56,12 @@ let GreenworksLab = new Sponsor({
   },
 });
 
-import GoogleCloudLogo from '@/assets/sponsors/GoogleCloud-Wide.png'
-let GoogleCloud = new Sponsor({
-  logo: GoogleCloudLogo,
-  name: 'Google Cloud',
-  link: 'https://cloud.google.com/',
-});
+// import GoogleCloudLogo from '@/assets/sponsors/GoogleCloud-Wide.png'
+// let GoogleCloud = new Sponsor({
+//   logo: GoogleCloudLogo,
+//   name: 'Google Cloud',
+//   link: 'https://cloud.google.com/',
+// });
 
 // import EchoArLogo from '@/assets/sponsors/echoAR.png'
 // let EchoAr = new Sponsor({
@@ -99,7 +99,7 @@ export default [
   //Hacksu,
   [
     RSM,
-    GoogleCloud,
+    // GoogleCloud,
     GreenworksLab,
   ],
   [
