@@ -625,6 +625,11 @@ export default {
 
   mounted() {
     this.focusElement();
+    const user = this.$parent.wrapper.userManager.getLocalUser();
+    // console.log('user =', user);
+    if (!user) {
+      this.$router.push('/register');
+    }
   },
   //  filters: {
   //    phone: function(phone) {
