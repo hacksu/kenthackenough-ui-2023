@@ -1,5 +1,10 @@
 <template>
   <div id="schedule"  style="margin-top: -53px; min-height: calc(100vh - 80px - 50px);">
+     <div class="back" style="margin-top: 53px">
+      <div class="squiggly" style="opacity: 0.02;">
+
+      </div>
+    </div>
     <br><br><br><br>
    <h1 style="font-size: 7.5vmin!important; margin-top: -6vh; font-family: 'Dagger Square'!important; color: white">SCHEDULE</h1>
    <div class="flex-schedule">
@@ -204,7 +209,7 @@ export default {
         }
       }
       this._days = days;
-      //console.log(this._days);
+      console.log(this._days);
       return this._days;
     },
     async fetchEvents() {
@@ -344,10 +349,35 @@ export default {
     padding-top: 50px;
     margin: 0px;
     text-align: left;
-    background-image: linear-gradient(to right,#D75DDE , #F47732);
+    // background-image: linear-gradient(to right,#D75DDE , #F47732);
+    // background: linear-gradient(45deg,#FFECB8,#FFE499 95%);
     text-align: center;
     justify-items: center;
   }
+
+  .back {
+  background: linear-gradient(45deg,#FFECB8,#FFE499 95%);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  overflow: hidden;
+}
+.back .squiggly {
+  margin-top: 8vh;
+  height: 84vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-image: url(../assets/squiggly-back.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -2;
+}
 
   p{
       margin: 0;

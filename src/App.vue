@@ -46,7 +46,7 @@ export default {
       showSponsors: true, //true, //false,
       allowSponsorship: false,
       showLive: false,
-      showSchedule: false, //true, //false,
+      showSchedule: true, //true, //false,
       showPasswordReset: false,
       showMLH: true,
 
