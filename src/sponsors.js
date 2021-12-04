@@ -63,6 +63,14 @@ let GoogleCloud = new Sponsor({
   link: 'https://cloud.google.com/',
 });
 
+import IHCILogo from '@/assets/sponsors/ihci_logo_original.png'
+let IHCI = new Sponsor({
+  logo: IHCILogo,
+  name: '13th International Conference on Intelligent Human Computer Interaction',
+  link: 'https://www.ihci.cs.kent.edu/',
+  scale: 0.6
+});
+
 // import EchoArLogo from '@/assets/sponsors/echoAR.png'
 // let EchoAr = new Sponsor({
 //   logo: EchoArLogo,
@@ -99,14 +107,18 @@ export default [
   //Hacksu,
   [
     RSM,
+    CSDepartment,
+    MLH,
+    
+  ],
+  [
+    IHCI,
     GoogleCloud,
-    GreenworksLab,
   ],
   [
     Hacksu,
-    MLH,
-    CSDepartment,
-  ],
+    GreenworksLab,
+  ]
   // MLH,
 
 ]
