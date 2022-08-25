@@ -48,7 +48,7 @@ export default {
       showLive: false,
       showSchedule: true, //true, //false,
       showPasswordReset: false,
-      showMLH: true,
+      showMLH: false,
 
       hasApp: false,
       hasCheckedForApp: false,

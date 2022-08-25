@@ -5,27 +5,15 @@
         <div class="split" style="">
           <span style="max-width: calc(100% - 20px); display: inline-block;">
             <h1 style="font-size: 6.5vh!important;">Where to Go</h1>
-            <p>Kent Hack Enough is graciously hosted in the Kent State Library, at: </p>
-            <p>1125 Risman Dr, Kent, OH 44242</p>
+            <p>Kent Hack Enough is graciously hosted in the Kent State Design Innovation Hub, at: </p>
+            <p>Design Innovation Hub, Art Bldg, Kent, OH 44243</p>
             <h3>Parking</h3>
             <p>KSU will not be ticketing over the weekend. The two parking lots closest to the library are the Visitor Lot right by the bus stop, and the R lot by Eastway.</p>
           </span>
         </div>
 
-        <iframe class="split" id="mapIframe" src="https://www.google.com/maps/d/embed?mid=13yeMa_BGkM3Q7XOvwX7K7U2CEcEUwzal" width="600" height="450" frameborder="0" style="border:0"></iframe>
+        <iframe class="split" id="mapIframe" src="https://map.concept3d.com/?id=568&tbh&sbh#!m/613809?lh/?ct/44418,5603" width="600" height="450" frameborder="0" style="border:0"></iframe>
       </div>
-    </div>
-
-    <div id="powered-by" style="padding-top: 10px; padding-bottom: 10px;">
-      <p id="powered-by-text" style="color: black; font-family: abel; font-weight: 900; opacity: 0.5;">POWERED BY</p>
-
-      <a id="small-hacksu-logo" href="http://hacksu.com">
-        <img style="opacity: 0.5;" id="powered-by-hacksu" src="@/assets/2019-hacksu-color.svg">
-      </a>
-
-      <a id="small-mlh-logo" href="https://mlh.io">
-        <img style="opacity: 0.5;" id="powered-by-mlh" src="@/assets/mlh-logo.svg">
-      </a>
     </div>
   </div>
 </template>

@@ -3,6 +3,7 @@
     <landing></landing>
     <!-- <about></about> -->
     <faqvirtual></faqvirtual>
+    <kentmap></kentmap>
     <virtual></virtual>
   </div>
 </template>
@@ -23,7 +24,7 @@ export default {
     about,
     //faq,
     faqvirtual,
-    //kentmap,
+    kentmap,
     virtual
   }
 }
