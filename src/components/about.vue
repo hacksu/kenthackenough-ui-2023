@@ -1,15 +1,16 @@
 <template>
 <div id="about-container">
   <div id="header-container">
-    <span style="font-size: 9vmin; margin-bottom: 0px;">KENT HACK ENOUGH</span><br>
-    <span class="goes-retro" style="transform: rotate(-5deg) translate(90%, -0%)">GOES RETRO</span>
+    <span id="title">KENT HACK ENOUGH</span>
+    <br>
+    <span id="subtitle">2022</span>
   </div>
   <div class="image-box2 desktop-only">
 
   </div>
   <div id="about-content-container">
     <img style="max-width: 80vh;" src="@/assets/keyboard.png">
-    <div id="about-text-container" style="font-size: 5vmin; transform: scale(1);">
+    <div id="about-text-container">
        <!--Kent Hack Enough is ready to blast to the past! Come join us at this totally tubular event as we work together to make outstanding projects!<br><br>-->
        Kent Hack Enough is ready to <span class="highlight">blast to the past</span>! Come login to the simulations as we work together <span class="highlight">online</span> and make some amazing projects!<br><br>
     </div>
@@ -29,23 +30,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '@/globalVars.scss';
-
-.goes-retro {
-  color: $gold;
-  display: inline-block;
-  font-family: Lazer84;
-  font-size: 5vmin;
-  transform: rotate(-5deg) translate(0%, -20%);
-  letter-spacing: 1vmin;
-  filter: drop-shadow(4px 4px $blue) drop-shadow(-1.5px -1.5px $blue)
-}
+@import '@/styles/global.scss';
 
 .image-box2 {
   background-position: 0vw 0vh;
   right: 5vw;
   position: absolute;
-  background-image: url("../assets/SunglassesPink.svg");
+  // background-image: url("../assets/SunglassesPink.svg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 25vh;
@@ -72,16 +63,22 @@ export default {
   }
 }
 #about-container {
+  @include bg-flashy;
   min-height: 100vh;
   overflow: hidden;
   padding: 0px;
   margin: 0px;
   padding-bottom: 20px;
-  background: rgb(215,93,222);
-  background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
   position: relative;
-  color: $black-overwrite;
-  font-family: Commando;
+  // color: $black-overwrite;
+  // font-family: Commando;
+  #title {
+    font-size: 7vmin;
+    font-weight: bold;
+  }
+  #subtitle {
+    font-size: 5vmin;
+  }
 }
 
 
@@ -115,13 +112,15 @@ export default {
 #about-text-container {
   min-height: 200px;
   font-size: 30px;
-  text-align: justify;
+  // text-align: justify;
+  text-align: right;
   padding: 2.5vw;
   line-height: 50px;
   margin-left: 5vw;
-  color: $light-blue;
+  // color: $light-blue;
   .highlight {
-    color: $gold;
+    // color: $gold;
+    color: color('secondary');
   }
   @media only screen and (max-width: $lg-bp) {
     margin-left: 0vw;
@@ -130,11 +129,11 @@ export default {
   }
 }
 #colored-text-container {
-  background: $gold;
-  box-shadow: 10px 10px 0px $blue;
+  // background: $gold;
+  // box-shadow: 10px 10px 0px $blue;
   font-size: 24px;
   text-align: left;
-  color: $dark-blue;
+  // color: $dark-blue;
   padding:  20px 5vw;
   margin: 0px 15vw 100px;
   @media only screen and (max-width: $lg-bp) {
