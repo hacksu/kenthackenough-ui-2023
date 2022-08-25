@@ -1,4 +1,5 @@
-@import './theme.scss';
+@import './responsive.scss';
+@import './theme';
 
 $md-bp: 560px; // Medium break point, for responsive design
 $lg-bp: 1000px;

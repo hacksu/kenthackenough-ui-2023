@@ -4,9 +4,6 @@
       <div class="squiggly" style="opacity: 0.02"></div>
     </div>
 
-    <!-- <div class="img-box cassettes" style="background-position-y: 5vh; background-position-x: -10vh; left: 0px; bottom: 0px;"></div>
-    <div class="img-box headphones-orange" style="background-position-y: 5vh; background-position-x: -12vh; right: 0px; top: 0px; transform: rotate(-5deg) scaleX(-1);"></div> -->
-
     <a
       v-if="$parent.$parent.showMLH"
       id="mlh-trust-badge"
@@ -21,36 +18,13 @@
     </a>
 
     <div id="logo-container">
-      <!--<img src="@/assets/goldflourish.png" class="flipped desktop-only">
-      <img src="@/assets/goldshortlogo.png">
-      <img src="@/assets/goldflourish.png" class="desktop-only">
-      <br>
-      <img src="@/assets/goldlonglogo.png" id="short-logo">-->
-      <img src="@/assets/KHE2021_Logo.png" id="short-logo" />
-      <br />
-      <h2 class="anniversary" style="">10th Anniversary</h2>
-      <h2 class="kenthackenough">Kent Hack Enough</h2>
+      <img src="@/assets/KHE_AI_Rounded3.svg" id="short-logo" />
+      <!-- <br /> -->
+      <!-- <h2 class="kenthackenough">Kent Hack Enough</h2> -->
     </div>
 
     <div id="landing-content-container">
-      <!-- <p class="date desktop-only" style="font-size: 7vh;">OCTOBER 23<sup style="font-size: 4vh">rd</sup>-24<sup style="font-size: 4vh">th</sup></p>
-      <p class="date mobile-only" style="font-size: 5vh;">OCTOBER 23<sup style="font-size: 4vh">rd</sup>-24<sup style="font-size: 4vh">th</sup></p> -->
-      <p class="date">December 4th-5th</p>
-      <!-- <p v-if="$parent.$parent.showSchedule" class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><a class="hmm" style="display: inline-block; cursor: pointer; text-decoration: none;" href="/schedule">CHECK OUT THE SCHEDULE</a></p> -->
-      <p
-        hidden
-        title="The Event has already occured"
-        style="
-          font-size: 5vh;
-          max-width: 800px;
-          width: 80vw;
-          margin-left: auto;
-          margin-right: auto;
-        "
-      >
-        REGISTRATION FOR KENT HACK ENOUGH 2020 IS CLOSED
-      </p>
-      <!--<p class="hmm" style="font-size: 5vh; font-family: 'Dagger Square'!important;"><span style="display: inline-block; cursor: pointer;" onclick="document.getElementById('faq-scrollto').click(); setTimeout(function() { let a = document.getElementsByClassName('faqModule')[2]; if (a.lastChild.nodeType != 1) { a.click(); } }, 250)">HOSTED VIRTUALLY</span></p>-->
+      <p id="date">December 4th-5th</p>
       <span v-if="$parent.$parent.showRegister">
         <router-link
           tag="button"
@@ -70,7 +44,35 @@
         >
           Apply now!
         </router-link>
-        <div style="font-size: initial !important; margin-top: 20px">
+        <p v-if="$parent.$parent.showSchedule" style="margin: 20px;">
+          <a
+            id="schedule-link"
+            style="
+              display: inline-block;
+              cursor: pointer;
+              text-decoration: none;
+            "
+            href="/schedule"
+            >CHECK OUT THE SCHEDULE</a
+          >
+        </p>
+        <p
+          hidden
+          title="The Event has already occured"
+          style="
+            font-size: 5vh;
+            max-width: 800px;
+            width: 80vw;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          REGISTRATION FOR KENT HACK ENOUGH 2020 IS CLOSED
+        </p>
+        <div
+          v-if="$parent.$parent.showMLH"
+          style="font-size: initial !important; margin-top: 20px"
+        >
           <a
             href="https://mlh.io/code-of-conduct/"
             target="_blank"
@@ -133,8 +135,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/global.scss';
-
+@import "@/styles/global.scss";
 
 // .landing {
 //   text-align: center;
@@ -167,30 +168,27 @@ export default {
   z-index: -1;
 }
 
-#apply-btn {
-  width: 400px;
+#date {
+  font-size: 3.5vh;
   max-width: 80vw;
-  // font-family: "Buba-Shadow";
-  // color: #8ae87b;
-  font-size: 3vmax;
-  border: none;
-  background: none;
-  cursor: pointer;
-  &.apply-now:after {
-    content: "Apply now!";
-  }
-  &.register-now:after {
-    content: "Register Now!";
-  }
-  &:after {
-    left: 0px;
-    width: 100%;
-    position: absolute;
-    font-family: "Buba-Outline";
-    color: #36355e;
-  }
-  @media only screen and (min-width: 560px) {
-    font-size: 4vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#apply-btn {
+  @include btn-primary;
+  @include grow("hover", 1.1, 0.3s);
+  width: 300px;
+  max-width: 80vw;
+}
+
+#schedule-link {
+  @include underline;
+  @include grow("hover", 1.025, 0.2s);
+  color: color("text-primary");
+  font-size: 2vh;
+  @include mobile {
+    font-size: 2.5vh;
   }
 }
 
@@ -200,32 +198,8 @@ export default {
   padding: 0px;
   margin: 0px;
   padding-bottom: 20px;
-  /*background: url('../assets/weirdShapes.svg');
-  background-size: cover;
-  background-position: center;*/
-  /*background-color: $sand2;*/ /*#411743;*/
   position: relative;
 }
-
-// #landing-container .back {
-//   /*background: $sand2;*/
-//   display: inline-block;
-//   top: 0px;
-//   left: 0px;
-//   height: 100%;
-//   width: 100%;
-//   z-index: -1;
-//   position: absolute;
-//   /*background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);*/
-//   //background: linear-gradient(0deg, rgba(0,84,224,1) 0%, rgba(65,23,67,1) 100%); /* blue */
-//   /*background: linear-gradient(180deg, rgba(0,84,224,1) 0%, rgba(65,23,67,1) 74%, rgba(65,23,67,0) 100%);*/
-//   //background-color: $sand2!important;
-//   //background: rgb(215,93,222);
-//   //background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
-
-//   background: linear-gradient(0deg, rgba(0,84,224,1) 0%, rgba(65,23,67,1) 95%); /* blue */
-
-// }
 
 #logo-container {
   /*height: 130px;*/
@@ -280,5 +254,4 @@ export default {
 sup {
   font-size: 14px;
 }
-
 </style>

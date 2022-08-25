@@ -59,14 +59,14 @@
           Live!
         </p>
         <p
-          class="banner-link"
+          class="banner-link register-link"
           @click="scrollTo('/register', '#register')"
           v-if="user._id == '' && $data.showRegister"
         >
-          Register/Login
+          Register
         </p>
         <p
-          class="banner-link"
+          class="banner-link logout-link"
           @click="logout()"
           v-if="user._id != '' && $data.showRegister"
         >
@@ -411,17 +411,27 @@ export default {
   display: flex;
   justify-content: space-between;
   z-index: 98;
+  padding-left: 20px;
 }
 
 .banner-link {
-  padding: 15px;
+  // padding: 15px;
+  padding: 30px 15px;
   margin: 0px;
   font-size: 18px;
   // color: white;
   cursor: pointer;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  border-radius: 0.25em;
+  // -webkit-transition-duration: 0.2s;
+  // transition-duration: 0.2s;
+  // border-radius: 0.25em;
+  @include grow('hover', 1.05, 0.2s);
+  @include underline;
+}
+
+.register-link, .logout-link {
+  @include display-not(mobile) {
+    margin-left: 50px;
+  }
 }
 
 // .banner-link:hover {
