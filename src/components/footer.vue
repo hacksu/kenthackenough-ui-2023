@@ -1,21 +1,4 @@
 <template>
-  <!--<div id="mapframe" hidden>
-    <div id="map" class="widget">
-      <div class="info-container">
-        <div class="split" style="">
-          <span style="max-width: calc(100% - 20px); display: inline-block;">
-            <h1 style="font-size: 6.5vh!important;">Where to Go</h1>
-            <p>Due to COVID-19, Kent Hack Enough is going <span class="goes-retro">VIRTUAL</span></p>
-            <p>1125 Risman Dr, Kent, OH 44242</p>
-            <h3>Parking</h3>
-            <p>KSU will not be ticketing over the weekend. The two parking lots closest to the library are the Visitor Lot right by the bus stop, and the R lot by Eastway.</p>
-          </span>
-        </div>
-
-
-      </div>
-    </div>-->
-
     <div id="powered-by" style="padding-top: 10px; padding-bottom: 10px;">
       <p id="powered-by-text" style="color: black; font-family: abel; font-weight: 900; opacity: 0.5;">POWERED BY</p>
 
@@ -23,28 +6,31 @@
         <img style="opacity: 0.5;" id="powered-by-hacksu" src="@/assets/2019-hacksu-color.svg">
       </a>
 
-      <a id="small-mlh-logo" href="https://mlh.io">
+      <a id="small-mlh-logo" href="https://mlh.io" v-if="mlh">
         <img style="opacity: 0.5;" id="powered-by-mlh" src="@/assets/mlh-logo.svg">
       </a>
     </div>
-  </div>
 </template>
 
-<style scoped lang="scss">
-  @import '@/globalVars.scss';
-
-  .goes-retro {
-    color: $gold;
-    display: inline-block;
-    font-family: Lazer84;
-    font-size: 6.5vmin;
-    letter-spacing: 0.7vmin;
-    text-align: center;
-    filter: drop-shadow(2px 2px $blue) drop-shadow(-1.5px -1.5px $blue)
+<script>
+export default {
+  name: "Footer",
+  data() {
+    return {};
+  },
+  computed: {
+    mlh() {
+      return this.$root.$children[0].showMLH;
+    }
   }
+};
+</script>
+
+<style scoped lang="scss">
+  @import '@/styles/global.scss';
 
   #powered-by-text {
-    color: $black-overwrite;
+    // color: $black-overwrite;
     font-weight: bold;
     font-family: Commando;
     text-align: center;
@@ -136,7 +122,7 @@
       flex-direction: row;
       min-height: 50px;
       padding-left: 50px;
-      background-color: $sand2;
+      // background-color: $sand2;
       filter: brightness(90%);
     }
 
@@ -172,11 +158,3 @@
   }
 </style>
 
-<script>
-export default {
-  name: "Map",
-  data() {
-    return {};
-  }
-};
-</script>

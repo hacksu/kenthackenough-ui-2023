@@ -1,31 +1,29 @@
 <template>
   <div class="home">
-    <landing></landing>
-    <!-- <about></about> -->
-    <faqvirtual></faqvirtual>
-    <kentmap></kentmap>
-    <virtual></virtual>
+    <Landing></Landing>
+    <About></About>
+    <FAQ></FAQ>
+    <Map></Map>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Landing from '@/components/landing.vue';
-import about from '@/components/about.vue';
-import faq from '@/components/faq.vue';
-import faqvirtual from '@/components/faq-virtual.vue';
-import kentmap from '@/components/map.vue';
-import virtual from '@/components/virtual.vue';
+import About from '@/components/about.vue';
+import FAQ from '@/components/faq-virtual.vue';
+import Map from '@/components/map.vue';
+import Footer from '@/components/footer.vue';
 
 export default {
   name: 'home',
   components: {
     Landing,
-    about,
-    //faq,
-    faqvirtual,
-    kentmap,
-    virtual
+    About,
+    FAQ,
+    Map,
+    Footer,
   }
 }
 </script>

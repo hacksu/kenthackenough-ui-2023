@@ -19,30 +19,7 @@
 </template>
 
 <style scoped lang="scss">
-  @import '@/globalVars.scss';
-
-  #powered-by-text {
-    color: $black-overwrite;
-    font-weight: bold;
-    font-family: Commando;
-    text-align: center;
-    font-size: 20px;
-    margin-top: 0px;
-    margin-bottom: 10px;
-  }
-
-  #powered-by-hacksu {
-    float: left;
-    width: 50%;
-    height: 90px;
-  }
-
-  #powered-by-mlh {
-    float: right;
-    width: 50%;
-    height: 50px;
-    margin-top: 17px;
-  }
+  @import '@/styles/global.scss';
 
   #directions {
     text-align: left;
@@ -50,13 +27,14 @@
     padding-right: 2rem;
   }
 
-  #map {
-    color: white;
-  }
+  // #map {
+  //   color: white;
+  // }
 
   #mapframe {
-    background: rgb(215,93,222);
-    background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
+    // background: rgb(215,93,222);
+    // background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
+    @include bg-flashy;
   }
 
   .info-container {
@@ -108,38 +86,7 @@
     .split {
       width: 50%;
     }
-
-    #powered-by {
-      display: flex;
-      flex-direction: row;
-      min-height: 50px;
-      padding-left: 50px;
-      background-color: $sand2;
-    }
-
-    #powered-by-text {
-      font-size: 18px;
-      margin: auto 0;
-    }
-
-    #powered-by-hacksu {
-      width: 100%;
-      height: 65px;
-    }
-
-    #powered-by-mlh {
-      width: 100%;
-      height: 65px;
-      margin-top: 0;
-    }
-
-    #small-hacksu-logo {
-      width: 150px;
-    }
-
-    #small-mlh-logo {
-      width: 90px;
-    }
+    
   }
 
   @media screen and (max-width: 1199px) {

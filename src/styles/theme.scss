@@ -1,0 +1,31 @@
+// Colors
+$colors: (
+    error: #e87c72,
+    primary: #fff,
+);
+
+@function color($name) {
+    @return map-get($map: $colors, $key: $name);
+}
+
+body {
+    font-family: Ropa Sans,sans-serif;
+    color: color('primary');
+}
+
+@mixin bg-primary {
+    background-color: #142027;
+    color: color('primary');
+}
+
+@mixin bg-secondary {
+    background-color: color('primary');
+}
+
+@mixin bg-flashy {
+    background-image: linear-gradient(to top left, #35c982, #4683ff);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: "cover";
+    color: color('primary');
+}
