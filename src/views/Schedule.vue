@@ -1,43 +1,54 @@
 <template>
-  <div id="schedule"  style="margin-top: -53px; min-height: calc(100vh - 80px - 50px);">
-     <div class="back" style="margin-top: 53px">
-      <div class="squiggly" style="opacity: 0.02;">
+  <div id="schedule" style="margin-top: -53px; min-height: calc(100vh - 80px - 50px);">
+    <div class="back">
 
-      </div>
     </div>
-    <br><br><br><br>
-   <h1 style="font-size: 7.5vmin!important; margin-top: -6vh; font-family: 'Dagger Square'!important; color: white">SCHEDULE</h1>
-   <div class="flex-schedule">
-     <div class="day" v-for="day in days" v-bind:id="day.name" v-bind:key="day.name">
-       <h2>{{ day.relative }}</h2>
-       <h3>{{ day.humanDate }}</h3>
-       <div class="event" v-for="event in day.events" v-bind:key="event.id">
-         <div v-if="event.nextEvent" class="next holder">
-           <h2 style="margin-bottom: 10px; transform: scale(0.8); font-weight: normal"><b>{{ (event.type ? event.type : '') }}</b>{{ (event.type ? ' - ' : '') + event.title }}</h2>
-           <h3 class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}  {{ (event.end) ? ('- ' + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : '' }}</h3>
-           <span class="description" style="font-size: 20px; opacity: 0.9;" v-if="event.description && event.description.length > 0">{{ event.description }}</span>
-           <br v-if="event.location">
-           <a class="location" v-if="event.location" style="text-align: center;" v-bind:href="event.location">{{ event.icon || event.location }}</a>
-         </div>
-         <div v-else class="holder">
-           <div style="min-height: 24px">
-             <!--<span class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }} - {{ event.end.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}</span>
+    <br>
+    <h1 style="font-size: 7.5vmin!important;">
+      SCHEDULE
+    </h1>
+    <div class="flex-schedule">
+      <div class="day" v-for="day in days" v-bind:id="day.name" v-bind:key="day.name">
+        <h2>{{ day.relative }}</h2>
+        <h3>{{ day.humanDate }}</h3>
+        <div class="event" v-for="event in day.events" v-bind:key="event.id">
+          <div v-if="event.nextEvent" class="next holder">
+            <h2 style="margin-bottom: 10px; transform: scale(0.8); font-weight: normal"><b>{{ (event.type ? event.type :
+                '')
+            }}</b>{{ (event.type ? ' - ' : '') + event.title }}</h2>
+            <h3 class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }} {{ (event.end) ? ('-'
+                + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : ''
+            }}</h3>
+            <span class="description" style="font-size: 20px; opacity: 0.9;"
+              v-if="event.description && event.description.length > 0">{{ event.description }}</span>
+            <br v-if="event.location">
+            <a class="location" v-if="event.location" style="text-align: center;" v-bind:href="event.location">{{
+                event.icon || event.location
+            }}</a>
+          </div>
+          <div v-else class="holder">
+            <div style="min-height: 24px">
+              <!--<span class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }} - {{ event.end.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}</span>
              -->
-             <span class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}  {{ (event.end) ? ('- ' + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : '' }}</span>
+              <span class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }} {{ (event.end) ?
+                  ('- ' + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : ''
+              }}</span>
 
-             <span class="type" v-bind:style="{'opacity': (event.type ? 1 : 0), }">{{ event.type || '_' }}</span>
-             <h3 class="name">{{ event.title }}</h3>
-           </div>
-           <br>
-           <p class="description" v-if="event.description" style="text-align: center;">{{ event.description }}</p>
-           <br v-if="event.location">
-           <a class="location" v-if="event.location" style="text-align: center;" v-bind:href="event.location">{{ event.icon || event.location }}</a>
-         </div>
+              <span class="type" v-bind:style="{ 'opacity': (event.type ? 1 : 0), }">{{ event.type || '_' }}</span>
+              <h3 class="name">{{ event.title }}</h3>
+            </div>
+            <br>
+            <p class="description" v-if="event.description" style="text-align: center;">{{ event.description }}</p>
+            <br v-if="event.location">
+            <a class="location" v-if="event.location" style="text-align: center;" v-bind:href="event.location">{{
+                event.icon || event.location
+            }}</a>
+          </div>
 
-       </div>
-     </div>
+        </div>
+      </div>
 
-     <!--
+      <!--
      <div class="day" id="friday">
        <h2>Friday, September 27th</h2>
          <div class="event" v-for="event in schedule.fridayEvents" v-bind:key="event.id">
@@ -73,7 +84,7 @@
    -->
 
 
-   </div>
+    </div>
   </div>
 </template>
 
@@ -123,7 +134,7 @@ function getNow() {
   return now;
 }
 
-function getDayOfYear(dateObject=false) {
+function getDayOfYear(dateObject = false) {
   var now = dateObject || getNow();
   var start = new Date(now.getFullYear(), 0, 0);
   var oneDay = 1000 * 60 * 60 * 24;
@@ -132,7 +143,7 @@ function getDayOfYear(dateObject=false) {
   return day;
 }
 
-let dayTemplate = function(day) {
+let dayTemplate = function (day) {
   let name = weekday[day.getDay()];
   let humanDate = `${month[day.getMonth()]} ${getOrdinalNum(day.getDate())}`;
   return {
@@ -150,7 +161,7 @@ export default {
     return {
       //schedule
       daysold: [],
-      showPast: false,
+      showPast: true,
       data: {},
     }
   },
@@ -160,7 +171,7 @@ export default {
     },
   },
   methods: {
-    getDays(changed=false) {
+    getDays(changed = false) {
       if (changed) {
         //this.data = changed;
       }
@@ -225,7 +236,7 @@ export default {
           x.end = new Date(x.end);
         }
         let day = x.start;
-        let indx = ([day.getMonth()+1, day.getDate(), day.getFullYear()]).join('-');
+        let indx = ([day.getMonth() + 1, day.getDate(), day.getFullYear()]).join('-');
         x.dayDate = day;
         x.dayIndex = indx;
       }
@@ -236,18 +247,18 @@ export default {
       //this.$computed.days(true);
       //this.parseEvents();
       let _this = this;
-      setTimeout(function() {
+      setTimeout(function () {
         _this.loadingData = false;
       }, 2000)
     },
-    parseEvents(past=true) {
+    parseEvents(past = true) {
       if (true) {
         return this.$forceUpdate();
       }
       let days = {};
       let data = this._data;
       //console.log(data);
-      let dayTemplate = function(day) {
+      let dayTemplate = function (day) {
         let name = weekday[day.getDay()];
         let humanDate = `${month[day.getMonth()]} ${getOrdinalNum(day.getDate())}`;
         return {
@@ -272,7 +283,7 @@ export default {
           x.nextEvent = true;
         }
         let day = x.start;
-        let indx = ([day.getMonth()+1, day.getDate(), day.getFullYear()]).join('-');
+        let indx = ([day.getMonth() + 1, day.getDate(), day.getFullYear()]).join('-');
         if (!days[indx]) {
           let day2 = dayTemplate(day);
           day2.ofYear = getDayOfYear(day2.date);
@@ -340,23 +351,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import '@/globalVars.scss';
+@import '@/styles/global.scss';
 
-  $small: 500px;
+$small: 500px;
 
-  #schedule {
-    padding: 100px 5vw 80px 5vw;
-    padding-top: 50px;
-    margin: 0px;
-    text-align: left;
-    // background-image: linear-gradient(to right,#D75DDE , #F47732);
-    // background: linear-gradient(45deg,#FFECB8,#FFE499 95%);
-    text-align: center;
-    justify-items: center;
-  }
+#schedule {
+  padding: 100px 5vw 80px 5vw;
+  padding-top: 50px;
+  margin: 0px;
+  text-align: left;
+  text-align: center;
+  justify-items: center;
+}
 
-  .back {
-  background: linear-gradient(45deg,#FFECB8,#FFE499 95%);
+.back {
+  @include bg-flashy;
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -365,6 +374,7 @@ export default {
   z-index: -1;
   overflow: hidden;
 }
+
 .back .squiggly {
   margin-top: 8vh;
   height: 84vh;
@@ -379,100 +389,113 @@ export default {
   z-index: -2;
 }
 
-  p{
-      margin: 0;
-  }
+p {
+  margin: 0;
+}
 
-  h1, h2, h3 {
-      text-align: center;
-  }
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 5vmin;
+}
+
+h3 {
+  font-size: 3vmin;
+  font-weight: normal;
+}
+
+.day {
+  max-width: 1000px;
+  width: calc(98vw - 8vh);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: white;
+  border-radius: 2vh;
+
+  padding: 2vh;
+  margin-bottom: 4vh;
 
   h2 {
-    font-size: 5vmin;
+    margin-bottom: 0px;
+    color: black;
   }
 
   h3 {
-    font-size: 3vmin;
-    font-weight: normal;
+    margin-top: 0px;
+    color: black;
   }
 
-  .day {
-    max-width: 1000px;
-    width: calc(98vw - 8vh);
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  .event {
+    .holder {
+      //background-color: white;
+      //border-radius: 2vh;
+      padding: 2vh;
+      margin-bottom: 1vh;
 
-    background-color: white;
-    border-radius: 2vh;
+      p {
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
 
-    padding: 2vh;
-    margin-bottom: 4vh;
-    h2 {
-      margin-bottom: 0px;
-      color: black;
+    .next {
+      display: inline-block;
+      border-radius: 2vh;
+      padding: 2vh;
+      margin-bottom: 2vh;
     }
-    h3 {
-      margin-top: 0px;
-      color: black;
-    }
-    .event {
-      .holder {
-        //background-color: white;
-        //border-radius: 2vh;
-        padding: 2vh;
-        margin-bottom: 1vh;
-        p {
-          max-width: 80%;
-          margin-left: auto;
-          margin-right: auto;
+
+    .holder:not(.next) {
+      div {
+        @media screen and (max-width: $small) {
+          margin-bottom: -30px;
         }
       }
-      .next {
-        display: inline-block;
-        border-radius: 2vh;
-        padding: 2vh;
-        margin-bottom: 2vh;
-      }
-      .holder:not(.next) {
-        div {
-          @media screen and (max-width: $small) {
-            margin-bottom: -30px;
-          }
-        }
-        .time {
-          float: left;
-          padding-left: 1vh;
-          padding-right: 1vh;
-          width: 136px;
-        }
-        .type {
-          font-weight: bold;
-          float: left;
-          //padding-right: 2vh;
-          width: 120px;
 
-        }
-        .name {
-          text-align: left;
-          float: left;
-          color: black;
-          font-size: 18px;
-          @media screen and (max-width: $small) {
-            display: block;
-            text-align: center;
-            float: none;
-          }
-        }
-        .description {
-          opacity: 0.9;
+      .time {
+        float: left;
+        padding-left: 1vh;
+        padding-right: 1vh;
+        width: 136px;
+      }
+
+      .type {
+        font-weight: bold;
+        float: left;
+        //padding-right: 2vh;
+        width: 120px;
+
+      }
+
+      .name {
+        text-align: left;
+        float: left;
+        color: black;
+        font-size: 18px;
+
+        @media screen and (max-width: $small) {
           display: block;
+          text-align: center;
+          float: none;
         }
+      }
+
+      .description {
+        opacity: 0.9;
+        display: block;
       }
     }
   }
+}
 
-  /*
+/*
   #schedule {
     padding: 10px 15vw;
     background-color: $sand;

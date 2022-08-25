@@ -1,25 +1,15 @@
 <template>
   <div id="powered-by" style="padding-top: 10px; padding-bottom: 10px">
-    <p
-      id="powered-by-text"
-    >
+    <p id="powered-by-text">
       POWERED BY
     </p>
 
     <a id="small-hacksu-logo" href="http://hacksu.com">
-      <img
-        style="opacity: 0.5"
-        id="powered-by-hacksu"
-        src="@/assets/2019-hacksu-color.svg"
-      />
+      <img style="opacity: 0.5" id="powered-by-hacksu" src="@/assets/2019-hacksu-color.svg" />
     </a>
 
     <a id="small-mlh-logo" href="https://mlh.io" v-if="mlh">
-      <img
-        style="opacity: 0.5"
-        id="powered-by-mlh"
-        src="@/assets/mlh-logo.svg"
-      />
+      <img style="opacity: 0.5" id="powered-by-mlh" src="@/assets/mlh-logo.svg" />
     </a>
   </div>
 </template>
@@ -118,6 +108,5 @@ h3 {
     width: 90px;
   }
 }
-
 </style>
 

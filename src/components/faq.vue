@@ -16,7 +16,7 @@
 
         <!--Outputs faq objects dynamically, as defined by the 'faqs' object in the data.-->
         <div class="faqModule" v-for="faq in faqs" @click="expandFAQ(faq.id)">
-          <div class="question" >
+          <div class="question">
             <span v-if="expanded != faq.id">▶ &nbsp;</span>
             <span v-if="expanded == faq.id">▼ &nbsp;</span>
             <span class="qText">{{ faq.question }}</span>
@@ -155,31 +155,36 @@ export default {
 
 #faqTitle {
   text-align: center;
+
   /*font-size: 50px;*/
   /*height: calc(8vw + 5vh);*/
   img {
     height: 100%;
   }
+
   @media only screen and (max-width: $md-bp) {
     height: calc(13vw + 3vh);
-    font-size: 7.5vmin!important;
+    font-size: 7.5vmin !important;
   }
+
   color: black;
-  background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);
+  background: linear-gradient(90deg, rgba(215, 93, 222, 1) 0%, rgba(245, 119, 49, 1) 100%);
   display: inline-block;
   font-family: Lazer84;
   font-size: 6vmin;
-  transform: rotate(-2.5deg); /* translate(0%, -20%); */
+  transform: rotate(-2.5deg);
+  /* translate(0%, -20%); */
   line-height: 7.5vmin;
   letter-spacing: 1vmin;
   /*filter: drop-shadow(4px 4px $blue) drop-shadow(-1.5px -1.5px $blue)*/
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 #faq {
   background-color: var(--orange);
   background-image: radial-gradient(var(--dark-orange) 15%, transparent 16%),
-  radial-gradient(var(--dark-orange) 15%, transparent 16%);
+    radial-gradient(var(--dark-orange) 15%, transparent 16%);
   background-size: 60px 60px;
   background-position: 0 0, 30px 30px;
   font-size: 20px;
@@ -187,22 +192,26 @@ export default {
   color: black;
   width: 50vw;
   margin-left: 25vw;
+
   @media only screen and (max-width: $md-bp) {
     width: 90vw;
     margin-left: 5vw;
   }
 }
+
 .faqModule {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   padding: 10px 20px 10px 20px;
   margin: 5px;
   background: white;
 }
+
 .question {
   width: 100%;
   cursor: pointer;
   font-weight: bold;
 }
+
 .answer {
   margin-top: 10px;
   border-top: 1px solid gray;
@@ -211,20 +220,25 @@ export default {
   max-height: 300px;
   padding-bottom: 50px;
 }
+
 #contactLink {
   color: black;
 }
+
 .qText {
   transition-duration: 0.4s;
 }
+
 .qText:hover {
   letter-spacing: 1px;
 }
+
 /*  VUE TRANSITIONS*/
 .wipe-enter-active,
 .wipe-leave-active {
   transition: max-height 0.5s;
 }
+
 .wipe-enter,
 .wipe-leave-to {
   max-height: 0px;

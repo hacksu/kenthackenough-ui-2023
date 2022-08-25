@@ -2,74 +2,41 @@
   <div id="app">
     <div id="banner" style="z-index: 100">
       <div id="bannerL" class="bannerContainer" style="z-index: 100">
-        <p
-          class="banner-link khe-link"
-          id="kheTitle"
-          @click="scrollTo('/', '#mainContainer')"
-        >
+        <p class="banner-link khe-link" id="kheTitle" @click="scrollTo('/', '#mainContainer')">
           KENT HACK ENOUGH
         </p>
 
         <div id="hamburgMenu">
-          <img
-            id="hamburgIcon"
-            src="@/assets/Hamburger_icon.svg.png"
-            width="50"
-            @click="togMenu()"
-          />
+          <img id="hamburgIcon" src="@/assets/Hamburger_icon.svg.png" width="50" @click="togMenu()" />
         </div>
       </div>
 
-      <div
-        id="bannerR"
-        class="bannerContainer"
-        :class="{ hidden: expandMenu }"
-        style="z-index: 100"
-      >
+      <div id="bannerR" class="bannerContainer" :class="{ hidden: expandMenu }" style="z-index: 100">
         <p class="banner-link" @click="scrollTo('/', 'landing-container')">
           Home
         </p>
         <!-- <p class="banner-link"@click="scrollTo('/', '#about-container')">About</p> -->
-        <p
-          class="banner-link"
-          id="faq-scrollto"
-          @click="scrollTo('/', '#faq-container')"
-        >
+        <p class="banner-link" id="faq-scrollto" @click="scrollTo('/', '#faq-container')">
           FAQ
         </p>
-        <p
-          v-if="$data.showSponsors"
-          class="banner-link"
-          @click="scrollTo('/sponsor', '#sponsors')"
-        >
+        <p v-if="$data.showSponsors" class="banner-link" @click="scrollTo('/sponsor', '#sponsors')">
           Sponsors
         </p>
         <p class="banner-link" @click="scrollTo('/contact', '#contact')">
           Contact
         </p>
-        <p
-          v-if="$data.showSchedule"
-          class="banner-link"
-          @click="scrollTo('/schedule')"
-        >
+        <p v-if="$data.showSchedule" class="banner-link" @click="scrollTo('/schedule')">
           Schedule
         </p>
         <p class="banner-link" @click="scrollTo('/', '#map')" hidden>Virtual</p>
         <p v-if="$data.showLive" class="banner-link" @click="scrollTo('/live')">
           Live!
         </p>
-        <p
-          class="banner-link register-link"
-          @click="scrollTo('/register', '#register')"
-          v-if="user._id == '' && $data.showRegister"
-        >
+        <p class="banner-link register-link" @click="scrollTo('/register', '#register')"
+          v-if="user._id == '' && $data.showRegister">
           Register
         </p>
-        <p
-          class="banner-link logout-link"
-          @click="logout()"
-          v-if="user._id != '' && $data.showRegister"
-        >
+        <p class="banner-link logout-link" @click="logout()" v-if="user._id != '' && $data.showRegister">
           Log out
         </p>
         <div class="padding" style="width: 50px"></div>
@@ -319,8 +286,7 @@ export default {
   font-weight: 400;
   font-display: swap;
   src: local("Ropa Sans Regular"), local("RopaSans-Regular"),
-    url(https://fonts.gstatic.com/s/ropasans/v9/EYqxmaNOzLlWtsZSScy6UzNpY5I.woff2)
-      format("woff2");
+    url(https://fonts.gstatic.com/s/ropasans/v9/EYqxmaNOzLlWtsZSScy6UzNpY5I.woff2) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
     U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
@@ -428,7 +394,8 @@ export default {
   @include underline;
 }
 
-.register-link, .logout-link {
+.register-link,
+.logout-link {
   @include display-not(mobile) {
     margin-left: 50px;
   }

@@ -1,49 +1,26 @@
 <template>
-  <div
-    id="sponsors"
-    style="margin-top: -53px; min-height: calc(100vh - 80px - 50px)"
-  >
+  <div id="sponsors" style="margin-top: -53px; min-height: calc(100vh - 80px - 50px)">
     <div class="back" style="">
-      <div class="squiggly" style="opacity: 0.02"></div>
     </div>
 
-    <img src="@/assets/KHE2021_Logo.png" style="margin-top: 4vh" />
-    <h1 class="sponsorship-title">
-      SPONSORSHIP
-    </h1>
+    <img src="@/assets/KHE2022_Logo.svg" style="margin-top: 4vh" />
+    <h1 class="sponsorship-title">SPONSORSHIP</h1>
 
     <div v-if="sponsors.length > 0">
       <!-- <h2 class="sponsor-thanks" style="margin-left: auto; margin-right: auto">Thanks to these amazing companies for sponsoring Kent Hack Enough 2021!</h2> -->
       <br />
-      <div
-        style="
-          max-width: 80vw;
-          text-align: center;
-          margin-left: auto;
-          margin-right: auto;
-          background-color: white;
-          border-radius: 2vh;
-          padding: 2vh;
-        "
-      >
-        <h2 class="sponsor-thanks" style="margin-left: auto; margin-right: auto">Thanks to these amazing companies for sponsoring Kent Hack Enough 2021!</h2>
+      <div id="sponsors-container">
+        <h2 class="sponsor-thanks" style="margin-left: auto; margin-right: auto">
+          Thanks to these amazing companies for sponsoring Kent Hack Enough
+          2022!
+        </h2>
         <div v-for="(sponsorGroup, groupIndex) in sponsors" v-bind:key="groupIndex">
-          <a
-            class="sponsor"
-            v-for="sponsor in sponsorGroup instanceof Array
-              ? sponsorGroup
-              : [sponsorGroup]"
-            v-bind:href="sponsor.link"
-            v-bind:key="sponsor.name"
-          >
+          <a class="sponsor" v-for="sponsor in sponsorGroup instanceof Array
+          ? sponsorGroup
+          : [sponsorGroup]" v-bind:href="sponsor.link" v-bind:key="sponsor.name">
             <!-- <img class="logo" v-bind:src="sponsor.logo" v-bind:alt="sponsor.name" v-bind:style="sponsor.style"> -->
-            <span
-              class="logo"
-              v-bind:src="sponsor.logo"
-              v-bind:id="'sponsorlogo-' + sponsor.id"
-              v-bind:alt="sponsor.name"
-              v-bind:style="sponsor.style"
-            ></span>
+            <span class="logo" v-bind:src="sponsor.logo" v-bind:id="'sponsorlogo-' + sponsor.id"
+              v-bind:alt="sponsor.name" v-bind:style="sponsor.style"></span>
           </a>
         </div>
       </div>
@@ -52,60 +29,36 @@
     </div>
 
     <div v-if="$parent.allowSponsorship">
-      <p
-        style="
-          font-family: 'Dagger Square';
-          color: white;
+      <p style="
           font-size: 5vmin;
           max-width: 1200px;
           margin-left: auto;
           margin-right: auto;
-        "
-      >
+        ">
         Looking to sponsor Kent Hack Enough?
       </p>
       <br />
-      <p
-        style="
-          font-family: 'Dagger Square';
-          color: #f3ea5f;
+      <p style="
           font-size: 3vmin;
           max-width: 1200px;
           margin-left: auto;
           margin-right: auto;
-        "
-      >
+        ">
         We look forward to working with you for the 9th year of KHE! Below are
         the following three tiers for Kent Hack Enough 2020! We will issue an
         itemized invoice once tier is confirmed. Please reach out to us if you
         are interested in sponsoring with an amount that is not posted below.
       </p>
       <div class="center">
-        <button
-          class="contact"
-          style="cursor: pointer; width: 250px; max-width: 60vw"
-        >
-          <a
-            style="text-decoration: none"
-            href="mailto:joshua@khe.io?subject=KHE Sponsorship Interest"
-            >Contact Us</a
-          >
+        <button class="contact" style="cursor: pointer; width: 250px; max-width: 60vw">
+          <a style="text-decoration: none" href="mailto:joshua@khe.io?subject=KHE Sponsorship Interest">Contact Us</a>
         </button>
       </div>
-      <span style="display: block; margin-top: -4%; color: white"
-        >joshua@khe.io, katie@khe.io</span
-      >
+      <span style="display: block; margin-top: -4%; color: white">joshua@khe.io, katie@khe.io</span>
 
       <div class="center">
-        <button
-          class="paypal"
-          style="cursor: pointer; width: 250px; max-width: 60vw"
-        >
-          <a
-            style="text-decoration: none"
-            href="https://www.paypal.com/myaccount/transfer/homepage"
-            >Pay via PayPal</a
-          >
+        <button class="paypal" style="cursor: pointer; width: 250px; max-width: 60vw">
+          <a style="text-decoration: none" href="https://www.paypal.com/myaccount/transfer/homepage">Pay via PayPal</a>
         </button>
       </div>
 
@@ -118,15 +71,13 @@
       <span style="display: block; margin-top: 0%; color: white">
         PayPal Instructions: Payment should be addressed to "staff@khe.io".
         Selecting "Sending to a friend" keeps your contribution free of PayPal
-        service fees.</span
-      >
+        service fees.</span>
 
       <div id="container">
         <div id="tier1" class="tier" v-on:click="tier1()">
           <div id="colorTier1">
             <!--<img src="@/assets/images/cassetteTape.png">-->
-            <div
-              style="
+            <div style="
                 transform: scale(0.5);
                 height: 160px;
                 width: calc(100% - 40px);
@@ -134,9 +85,7 @@
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
-              "
-              id="cassette-img"
-            ></div>
+              " id="cassette-img"></div>
           </div>
           <h2>Cassette Tape</h2>
           <p class="specialText2">$250</p>
@@ -148,8 +97,7 @@
         <div id="tier2" class="tier" v-on:click="tier2()">
           <div id="colorTier2">
             <!--<img src="@/assets/images/sunglasses.png">-->
-            <div
-              style="
+            <div style="
                 transform: scale(0.6);
                 height: 160px;
                 width: calc(100% - 40px);
@@ -157,9 +105,7 @@
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
-              "
-              id="sunglasses-img"
-            ></div>
+              " id="sunglasses-img"></div>
           </div>
 
           <h2>Sunglasses</h2>
@@ -172,8 +118,7 @@
         <div id="tier3" class="tier" v-on:click="tier3()">
           <div id="colorTier3">
             <!--<img src="@/assets/images/keyboard.png">-->
-            <div
-              style="
+            <div style="
                 transform: scale(0.85);
                 height: 160px;
                 width: calc(100% - 40px);
@@ -181,9 +126,7 @@
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
-              "
-              id="keyboard-img"
-            ></div>
+              " id="keyboard-img"></div>
           </div>
 
           <h2>Keyboard</h2>
@@ -193,11 +136,7 @@
           </div>
         </div>
 
-        <div
-          id="detailsTier1"
-          style="display: none"
-          v-on:click="buttonClose1($event)"
-        >
+        <div id="detailsTier1" style="display: none" v-on:click="buttonClose1($event)">
           <div id="contextTier1" class="contextTier">
             <div class="center">
               <h2>Cassette Tape</h2>
@@ -216,11 +155,7 @@
           </div>
         </div>
 
-        <div
-          id="detailsTier2"
-          style="display: none"
-          v-on:click="buttonClose2($event)"
-        >
+        <div id="detailsTier2" style="display: none" v-on:click="buttonClose2($event)">
           <div id="contextTier2" class="contextTier">
             <div class="center">
               <h2>Sunglasses</h2>
@@ -243,11 +178,7 @@
           </div>
         </div>
 
-        <div
-          id="detailsTier3"
-          style="display: none"
-          v-on:click="buttonClose3($event)"
-        >
+        <div id="detailsTier3" style="display: none" v-on:click="buttonClose3($event)">
           <div id="contextTier3" class="contextTier">
             <div class="center">
               <h2>Keyboard</h2>
@@ -371,7 +302,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/globalVars.scss";
+@import '@/styles/global.scss';
 
 //   #sponsor {
 //   text-align: center;
@@ -381,7 +312,7 @@ export default {
 //   width: 100vw;
 // }
 #sponsors .back {
-  background: linear-gradient(45deg, #ffecb8, #ffe499 95%);
+  @include bg-flashy;
   height: 100vh;
   width: 100%;
   position: fixed;
@@ -390,25 +321,22 @@ export default {
   z-index: -1;
   overflow: hidden;
 }
-#sponsors .back .squiggly {
-  margin-top: 8vh;
-  height: 84vh;
-  width: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-image: url(../assets/squiggly-back.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  z-index: -2;
-}
-#sponsors .back img {
-  width: 100vw;
-  opacity: 0.02;
-  z-index: -5;
+
+.sponsor-thanks {
+  color: color('text-secondary');
+  width: 600px;
+  max-width: 80vw;
 }
 
+#sponsors-container {
+  @include bg-secondary;
+  max-width: 80vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2vh;
+  padding: 3.5vh;
+}
 
 // .sponsor-thanks {
 // //   width: 400px;
@@ -439,20 +367,10 @@ export default {
 
 .sponsorship-title {
   margin-top: -0.5vh;
-  font-family: "Buba-Shadow";
-  color: #8AE87B;
   font-size: 5vmax;
   border: none;
   background: none;
-  cursor: pointer;
-  &:after {
-    content: "SPONSORSHIP";
-    left: 0px;
-    width: 100%;
-    position: absolute;
-    font-family: 'Buba-Outline';
-    color: #36355E;
-  }
+
   @media only screen and (min-width: 560px) {
     font-size: 7vh;
   }
@@ -460,7 +378,7 @@ export default {
 
 #sponsors {
   padding: 100px 5vw 80px 5vw;
-  padding-top: 50px;
+  padding-top: 100px;
   padding-bottom: 0px;
   margin: 0px;
   text-align: left;
@@ -481,6 +399,7 @@ export default {
 }
 
 .tier {
+  @include bg-secondary;
   //display: flex;
   display: inline-block !important;
   //flex-direction: column;
@@ -490,7 +409,6 @@ export default {
   color: black;
   height: 420px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  background-color: white;
   transition: transform 0.25s, filter 0.25s, -webkit-transform 0.25s,
     -webkit-filter 0.25s;
   cursor: pointer;
@@ -515,9 +433,6 @@ export default {
   display: block;
   border-radius: 0.25rem;
   margin-top: 5%;
-  //margin-left: 5%;
-  //margin-right: 5%;
-  background-color: #f3ea5f;
 }
 
 #tier2:hover {
@@ -563,7 +478,7 @@ h1 {
 // }
 
 img:not(.logo) {
-//   height: 200px;
+  //   height: 200px;
   width: 30vh;
   max-width: 50vw;
 }
@@ -594,20 +509,28 @@ button:hover {
 #detailsTier3 {
   font-family: "Dagger Square";
   border-radius: 0.25rem;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
   left: 0px;
   top: 0px;
-  width: 100vw; /* Full width */
-  height: 100vh; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100vw;
+  /* Full width */
+  height: 100vh;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 .contextTier {
   border: 1px solid #888;
-  max-width: 80vh; /* Could be more or less, depending on screen size */
+  max-width: 80vh;
+  /* Could be more or less, depending on screen size */
   max-width: 400px;
   width: 90vw;
   height: 60%;
@@ -617,19 +540,22 @@ button:hover {
 
 #contextTier1 {
   background-color: #92d4e7;
-  margin: 20vh auto; /* 15% from the top and centered */
+  margin: 20vh auto;
+  /* 15% from the top and centered */
   padding: 20px;
 }
 
 #contextTier2 {
   background-color: #f3ea5f;
-  margin: 20vh auto; /* 15% from the top and centered */
+  margin: 20vh auto;
+  /* 15% from the top and centered */
   padding: 20px;
 }
 
 #contextTier3 {
   background-color: #70c86b;
-  margin: 20vh auto; /* 15% from the top and centered */
+  margin: 20vh auto;
+  /* 15% from the top and centered */
   padding: 20px;
 }
 
@@ -692,6 +618,7 @@ button:hover {
 .sponsor {
   padding: 20px;
   text-decoration: none;
+
   .logo {
     transition: transform 0.25s;
     height: 15vmin;

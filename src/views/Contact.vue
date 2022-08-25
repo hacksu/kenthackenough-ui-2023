@@ -1,8 +1,9 @@
 <template>
   <div id="contact" class="widget">
+    <div class="back"></div>
     <div v-if="!submitted">
-      <h1 id="contactTitle">Contact us</h1>
-      <p>
+      <h1 id="contactTitle">Contact</h1>
+      <p style="opacity: 0.5; margin-bottom: 40px;">
         If you have any questions, concerns, or problems, please do not hesitate
         to contact us. One of our organizers will get back to you as soon as
         humanly possible.
@@ -10,65 +11,37 @@
 
       <div class="formField">
         <span id="subjectTitle">Subject:</span>
-        <input
-          type="text"
-          placeholder="Team Formation"
-          name="subject"
-          class="contactTextField"
-          v-model="subject"
-        />
+        <input type="text" placeholder="What do you need to talk to us about?" name="subject" class="contactTextField"
+          v-model="subject" />
       </div>
 
       <div class="formField">
         <span id="subjectTitle">Name:</span>
-        <input
-          type="text"
-          placeholder="John Doe"
-          name="name"
-          class="contactTextField"
-          v-model="name"
-        />
+        <input type="text" placeholder="What is your name?" name="name" class="contactTextField" v-model="name" />
       </div>
 
       <div class="formField">
         <span id="subjectTitle">Email:</span>
-        <input
-          type="text"
-          placeholder="jdoe@example.com"
-          name="email"
-          class="contactTextField"
-          v-model="email"
-        />
+        <input type="text" placeholder="Where can we contact you?" name="email" class="contactTextField"
+          v-model="email" />
       </div>
 
       <div class="formField">
         <span id="subjectTitle">Body:</span>
-        <textarea
-          placeholder="Tell us what's up here!"
-          name="body"
-          class="contactTextField"
-          v-model="content"
-        >
+        <textarea placeholder="Tell us more!" name="body" class="contactTextField" v-model="content">
         </textarea>
       </div>
 
-      <button
-        id="contactButton"
-        class="apply-link disabled"
-        v-if="!subject || !name || !email || !content"
-        style="opacity: 0.5"
-      >
-        Send!
-      </button>
+      <div style="text-align: center;">
+        <button id="contactButton" class="apply-link disabled" v-if="!subject || !name || !email || !content"
+          style="opacity: 0.5">
+          Send!
+        </button>
 
-      <button
-        id="contactButton"
-        class="apply-link"
-        @click="submitTicket()"
-        v-else
-      >
-        Send!
-      </button>
+        <button id="contactButton" class="apply-link" @click="submitTicket()" v-else>
+          Send!
+        </button>
+      </div>
 
       <p class="error" v-html="err"></p>
     </div>
@@ -93,6 +66,15 @@ export default {
       err: "",
     };
   },
+  watch: {
+    content() {
+      const $el = this.$el.querySelector('textarea');
+      console.log($el.scrollHeight, $el.offsetHeight);
+      if ($el.scrollHeight > $el.offsetHeight) {
+        $el.style.height = $el.scrollHeight + 30 + 'px';
+      }
+    }
+  },
   methods: {
     submitTicket() {
       this.$parent.wrapper.ticketManager
@@ -114,16 +96,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/globalVars.scss";
 @import "@/styles/global.scss";
 
 #contact {
   @include bg-primary;
   text-align: left;
-  padding: 2rem 6rem;
+  // padding: 2rem 6rem;
+  padding: 20px 6rem 100px 6rem;
   font-size: 20px;
   line-height: 30px;
-  height: 100vh;
+  // height: 100vh;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .back {
+    @include bg-primary;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    overflow: hidden;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -143,30 +139,41 @@ export default {
 .formField {
   width: 100%;
   margin-bottom: 20px;
+
+  input,
+  textarea {
+    @include input-primary;
+    margin: 5px 0px;
+  }
 }
 
 .contactTextField {
   display: block;
   // color: white;
   background: none;
-  border: none;
-  outline: none;
+  // border: none;
+  // outline: none;
   font-size: 20px;
   width: 100%;
-  border-bottom: 2px solid white;
+  // border-bottom: 2px solid white;
+}
+
+textarea.contactTextField {
+  min-height: 100px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
 }
 
 #contactButton {
+  margin-top: 10px;
+  @include btn-primary;
   position: relative;
   text-align: center;
   display: inline-block;
-  border: 2px solid $gold;
-  color: var(--white);
-  background-color: Transparent;
   width: 200px;
   height: 50px;
   font-size: 20px;
-  transition: all 0.5s;
 }
 
 #contactButton:hover:not(.disabled) {
@@ -174,7 +181,7 @@ export default {
   position: relative;
   // background-color: $gold;
   // color: $dark-blue;
-  transition: 0.5s;
+  // transition: 0.5s;
 }
 
 .disabled {

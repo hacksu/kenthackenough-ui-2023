@@ -1,20 +1,12 @@
 <template>
   <div id="landing-container" class="landing" style="margin-top: -53px">
-    <div class="back" style="margin-top: 53px">
-      <div class="squiggly" style="opacity: 0.02"></div>
-    </div>
+    <div class="back"></div>
 
-    <a
-      v-if="$parent.$parent.showMLH"
-      id="mlh-trust-badge"
+    <a v-if="$parent.$parent.showMLH" id="mlh-trust-badge"
       href="https://mlh.io/seasons/2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=white"
-      target="_blank"
-    >
-      <img
-        id="mlh-banner"
-        src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-white.svg"
-        alt="Major League Hacking 2020 Hackathon Season"
-      />
+      target="_blank">
+      <img id="mlh-banner" src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-white.svg"
+        alt="Major League Hacking 2020 Hackathon Season" />
     </a>
 
     <div id="logo-container">
@@ -26,65 +18,38 @@
     <div id="landing-content-container">
       <p id="date">December 4th-5th</p>
       <span v-if="$parent.$parent.showRegister">
-        <router-link
-          tag="button"
-          :to="{ name: 'register' }"
-          id="apply-btn"
-          class="register-now"
-          v-if="$parent.$parent.user._id == ''"
-        >
+        <router-link tag="button" :to="{ name: 'register' }" id="apply-btn" class="register-now"
+          v-if="$parent.$parent.user._id == ''">
           Register Now!
         </router-link>
-        <router-link
-          tag="button"
-          :to="{ name: 'apply' }"
-          id="apply-btn"
-          class="apply-now"
-          v-else-if="$parent.$parent.user._id == ''"
-        >
+        <router-link tag="button" :to="{ name: 'apply' }" id="apply-btn" class="apply-now"
+          v-else-if="$parent.$parent.user._id == ''">
           Apply now!
         </router-link>
         <p v-if="$parent.$parent.showSchedule" style="margin: 20px;">
-          <a
-            id="schedule-link"
-            style="
+          <a id="schedule-link" style="
               display: inline-block;
               cursor: pointer;
               text-decoration: none;
-            "
-            href="/schedule"
-            >CHECK OUT THE SCHEDULE</a
-          >
+            " href="/schedule">CHECK OUT THE SCHEDULE</a>
         </p>
-        <p
-          hidden
-          title="The Event has already occured"
-          style="
+        <p hidden title="The Event has already occured" style="
             font-size: 5vh;
             max-width: 800px;
             width: 80vw;
             margin-left: auto;
             margin-right: auto;
-          "
-        >
+          ">
           REGISTRATION FOR KENT HACK ENOUGH 2020 IS CLOSED
         </p>
-        <div
-          v-if="$parent.$parent.showMLH"
-          style="font-size: initial !important; margin-top: 20px"
-        >
-          <a
-            href="https://mlh.io/code-of-conduct/"
-            target="_blank"
-            style="
+        <div v-if="$parent.$parent.showMLH" style="font-size: initial !important; margin-top: 20px">
+          <a href="https://mlh.io/code-of-conduct/" target="_blank" style="
               font-weight: bold;
               opacity: 0.75;
               color: black;
               font-size: 2vh;
               text-decoration: none;
-            "
-            >MLH Code of Conduct</a
-          >
+            ">MLH Code of Conduct</a>
         </div>
       </span>
       <!-- <a class="desktop-only gold-link" v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '3vh!important' : '2.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '0px' : '0px') }" href="/sponsor" target="_blank">
@@ -187,6 +152,7 @@ export default {
   @include grow("hover", 1.025, 0.2s);
   color: color("text-primary");
   font-size: 2vh;
+
   @include mobile {
     font-size: 2.5vh;
   }
@@ -204,17 +170,21 @@ export default {
 #logo-container {
   /*height: 130px;*/
   margin-top: 100px;
+
   img {
     height: 70%;
     padding: 0px 10px;
+
     @media only screen and (max-width: $md-bp) {
       height: 80%;
     }
   }
+
   #short-logo {
     margin-top: 20px;
     width: 25vw;
     height: auto;
+
     @media only screen and (max-width: $md-bp) {
       width: 50vw;
     }
@@ -246,6 +216,7 @@ export default {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }

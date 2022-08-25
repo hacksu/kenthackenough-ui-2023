@@ -1,4 +1,4 @@
-@import "./colors.scss";
+@import "../colors.scss";
 
 @mixin underline($color: linear-gradient(to top left, color("primary"), color("secondary"))) {
     @include display-not(mobile) {
