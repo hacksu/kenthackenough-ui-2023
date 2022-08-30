@@ -102,7 +102,7 @@ export default {
   @include bg-primary;
   text-align: left;
   // padding: 2rem 6rem;
-  padding: 20px 6rem 100px 6rem;
+  padding: 100px 6rem 100px 6rem;
   font-size: 20px;
   line-height: 30px;
   // height: 100vh;

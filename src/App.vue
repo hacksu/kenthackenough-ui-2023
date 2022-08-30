@@ -79,7 +79,13 @@ export default {
       scores: [],
     };
   },
+  watch: {
+    '$route': function(to, from) {
+      this.handleScroll();
+    }
+  },
   mounted() {
+    window.addEventListener('scroll', this.handleScroll);
     // Checking if a user is saved as logged in
     var user = this.wrapper.userManager.getLocalUser();
     if (user && user.key) {
@@ -156,7 +162,17 @@ export default {
     });
     this.getScores();
   },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
   methods: {
+    handleScroll(event) {
+      if (document.documentElement.scrollTop > 0 || this.$route.name !== 'home') {
+        document.getElementById('banner').classList.add('scrolled');
+      } else {
+        document.getElementById('banner').classList.remove('scrolled');
+      }
+    },
     dispLogin: function () {
       // Normally we could do a one line function like this inside an @click attribute,
       // but this makes it easier to access from it's children
@@ -371,19 +387,41 @@ export default {
 }
 
 #banner {
-  /*position: fixed;*/
+  position: fixed;
+  width: 100%;
   /*background-color: #39183e;*/
   // background-color: #ff7c70;
-  @include bg-primary;
+  transition: all 0.2s;
   display: flex;
   justify-content: space-between;
   z-index: 98;
   padding-left: 20px;
+  @include mobile {
+    @include bg-primary;
+  }
+  @include display-not(mobile) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    #bannerR {
+      padding-right: 250px;
+    }
+    #bannerL {
+      padding-left: 10px;
+    }
+  }
+}
+#banner.scrolled {
+  @include bg-primary;
+  @include display-not(mobile) {
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
 }
 
 .banner-link {
   // padding: 15px;
-  padding: 30px 15px;
+  padding: 10px 15px;
   margin: 0px;
   font-size: 18px;
   // color: white;

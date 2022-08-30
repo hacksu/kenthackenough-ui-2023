@@ -1,5 +1,5 @@
 <template>
-  <div id="schedule" style="margin-top: -53px; min-height: calc(100vh - 80px - 50px);">
+  <div id="schedule" style="min-height: calc(100vh - 80px - 50px);">
     <div class="back">
 
     </div>

@@ -1,6 +1,8 @@
 <template>
-  <div id="landing-container" class="landing" style="margin-top: -53px">
+  <div id="landing-container" class="landing">
     <div class="back"></div>
+    <div class="hacksu-box box1"/>
+    <div class="hacksu-box box2"/>
 
     <a v-if="$parent.$parent.showMLH" id="mlh-trust-badge"
       href="https://mlh.io/seasons/2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=white"
