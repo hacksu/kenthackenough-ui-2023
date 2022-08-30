@@ -17,6 +17,7 @@ Logos can also be used remotely by specifying a link to an already existing asse
 
 ```bash
 cd /var/www
+mkdir kenthackenough-ui-2022
 mkdir kenthackenough-ui-2022.git
 cd kenthackenough-ui-2022.git
 git init --bare
