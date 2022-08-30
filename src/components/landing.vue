@@ -40,7 +40,7 @@
             margin-left: auto;
             margin-right: auto;
           ">
-          REGISTRATION FOR KENT HACK ENOUGH 2020 IS CLOSED
+          REGISTRATION FOR KENT HACK ENOUGH 2022 IS CLOSED
         </p>
         <div v-if="$parent.$parent.showMLH" style="font-size: initial !important; margin-top: 20px">
           <a href="https://mlh.io/code-of-conduct/" target="_blank" style="
@@ -51,6 +51,18 @@
               text-decoration: none;
             ">MLH Code of Conduct</a>
         </div>
+      </span>
+      <span v-if="!$parent.$parent.showRegister && $parent.$parent.registrationOpens">
+        <p title="Registration has not yet opened!" style="
+            font-size: 3vh;
+            max-width: 800px;
+            width: 80vw;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.5;
+          ">
+          Registration opens {{$parent.$parent.registrationOpens}}
+        </p>
       </span>
       <!-- <a class="desktop-only gold-link" v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '3vh!important' : '2.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '0px' : '0px') }" href="/sponsor" target="_blank">
         <span style="font-family: 'Dagger Square'!important; color: white;">Interested in Sponsoring?</span>

@@ -11,13 +11,13 @@
     <div id="about-content-container">
       <img style="max-width: 80vh;" src="@/assets/keyboard.png">
       <div id="about-text-container">
-        <!--Kent Hack Enough is ready to blast to the past! Come join us at this totally tubular event as we work together to make outstanding projects!<br><br>-->
-        Kent Hack Enough is ready to <span class="highlight">blast to the past</span>! Come login to the simulations as
-        we work together <span class="highlight">online</span> and make some amazing projects!<br><br>
+        Kent Hack Enough is ready to blast to the past! Come join us at this <span class="highlight">totally tubular</span> event as we work together to make outstanding projects!<br><br>
+        <!-- Kent Hack Enough is ready to <span class="highlight">blast to the past</span>! Come login to the simulations as
+        we work together <span class="highlight">online</span> and make some amazing projects!<br><br> -->
       </div>
     </div>
     <div id="colored-text-container">
-      This is our 9th KHE! Whether you're <b>totally new</b> to tech & design or a <b>seasoned pro</b>, come spend a
+      This is our 11th KHE! Whether you're <b>totally new</b> to tech & design or a <b>seasoned pro</b>, come spend a
       weekend making something great with us!
     </div>
     <div class="back"></div>
