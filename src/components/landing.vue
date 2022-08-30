@@ -183,7 +183,7 @@ export default {
 
 #logo-container {
   /*height: 130px;*/
-  margin-top: 100px;
+  margin-top: 150px;
 
   img {
     height: 70%;
