@@ -113,7 +113,7 @@ export default {
 .landing .back {
   // background: linear-gradient(45deg, #ffecb8, #ffe499 95%);
   @include bg-primary;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   position: absolute;
   top: 0px;

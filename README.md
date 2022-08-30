@@ -10,9 +10,38 @@ Logos can also be used remotely by specifying a link to an already existing asse
 
 # Pushing to live
 
+
+## Setup
+
+[DigitalOcean Tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-automatic-deployment-with-git-with-a-vps)
+
+```bash
+cd /var/www
+mkdir kenthackenough-ui-2022.git
+cd kenthackenough-ui-2022.git
+git init --bare
+nano hooks/post-receive
+```
+
+Here's the contents of `hooks/post-receive`
+```bash
+#!/bin/sh
+git --work-tree=/var/www/kenthackenough-ui-2022 --git-dir=/var/www/kenthackenough-ui-2022.git checkout -f
+cd /var/www/kenthackenough-ui-2022
+npm install
+npm install --dev
+npm run build
+```
+
+```bash
+chmod +x hooks/post-receive
+```
+
+## Deployment
+
 Add live remote (if you haven't already)
 ```
-git remote add live ssh://root@khe.io/var/www/kenthackenough-ui-2020.git
+git remote add live ssh://root@khe.io/var/www/kenthackenough-ui-2022.git
 ```
 
 Push to live
