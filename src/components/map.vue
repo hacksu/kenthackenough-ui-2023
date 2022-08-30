@@ -12,10 +12,15 @@
             <p>Design Innovation Hub, Art Bldg, Kent, OH 44243</p>
             <h3>Parking</h3>
             <p>
+              The easiest parking space to use will be the Student Center Visitor Lot. 
+              After parking, walk towards the visitor center, and head left between the buildings. 
+              The DI Hub is located near the Honors College.
+            </p>
+            <!-- <p>
               KSU will not be ticketing over the weekend. The two parking lots
               closest to the library are the Visitor Lot right by the bus stop,
               and the R lot by Eastway.
-            </p>
+            </p> -->
           </span>
         </div>
 
