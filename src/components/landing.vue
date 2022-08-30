@@ -18,7 +18,7 @@
     </div>
 
     <div id="landing-content-container">
-      <p id="date">December 4th-5th</p>
+      <p id="date">October 15th-16th</p>
       <span v-if="$parent.$parent.showRegister">
         <router-link tag="button" :to="{ name: 'register' }" id="apply-btn" class="register-now"
           v-if="$parent.$parent.user._id == ''">
