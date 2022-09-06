@@ -12,13 +12,13 @@
     </a>
 
     <div id="logo-container">
-      <img src="@/assets/KHE_AI_Rounded3.svg" id="short-logo" />
+      <img src="/Logo.svg" id="short-logo" />
       <!-- <br /> -->
       <!-- <h2 class="kenthackenough">Kent Hack Enough</h2> -->
     </div>
 
     <div id="landing-content-container">
-      <p id="date">October 15th-16th</p>
+      <p id="date">October 15th - 16th</p>
       <span v-if="$parent.$parent.showRegister">
         <router-link tag="button" :to="{ name: 'register' }" id="apply-btn" class="register-now"
           v-if="$parent.$parent.user._id == ''">
@@ -155,7 +155,7 @@ export default {
 }
 
 #apply-btn {
-  @include btn-primary;
+  @include large-btn-primary;
   @include grow("hover", 1.1, 0.3s);
   width: 300px;
   max-width: 80vw;

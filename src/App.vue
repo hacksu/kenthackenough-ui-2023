@@ -58,8 +58,8 @@ export default {
   data() {
     return {
       showLogin: true,
-      showRegister: false, //true, //false,
-      registrationOpens: 'September 1st',
+      showRegister: true, //true, //false,
+      registrationOpens: 'September 6th',
       //showRegister: (window.location.href.indexOf("khe.io") >= 0) ? false : true, // Temporary disable
       showSponsors: false, //true, //false,
       allowSponsorship: false,
@@ -167,7 +167,11 @@ export default {
   },
   methods: {
     handleScroll(event) {
-      if (document.documentElement.scrollTop > 0 || this.$route.name !== 'home') {
+      let ok = true;
+      if (this.$route.name === 'apply') {
+        ok = false;
+      }
+      if (ok && (document.documentElement.scrollTop > 0 || this.$route.name !== 'home')) {
         document.getElementById('banner').classList.add('scrolled');
       } else {
         document.getElementById('banner').classList.remove('scrolled');
@@ -550,13 +554,12 @@ export default {
   position: relative;
   z-index: 15;
   padding-top: 10px;
-  background: $sand2;
   border-radius: 25px;
   width: 50vw;
   min-width: 300px;
-  color: black;
   margin-left: 50%;
   transform: translatex(-50%);
+  @include bg-secondary;
 }
 
 .simple-text-input {

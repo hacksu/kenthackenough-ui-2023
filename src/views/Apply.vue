@@ -1,50 +1,24 @@
 <template>
   <div id="application" ref="application" @keyup.enter="next()">
-    <router-link tag="div" to="/" id="app-header">
-      <!--<img src="@/assets/goldflourish.png" class="flipped">-->
-      <!-- Note we're flipping this with CSS  so we don't have to load an extra asset! -->
-      <img src="@/assets/KHE2021_Logo.png" class="logo" />
-      <!--<img src="@/assets/goldflourish.png" class="desktop-only">-->
-    </router-link>
-
-    <div id="the-back" class="back" style="">
-      <div class="squiggly" style="opacity: 0.02"></div>
+    <div style="display: block; height: 100px; margin: 0px; margin-bottom: -70px; padding-top: 10vh;"></div>
+    <h6 id="auth-subtitle"><img style="height: 10vh;" src="/Logo.svg" /></h6>
+    <div class="back" style="">
     </div>
 
-    <div
-      id="questionHolder"
-      v-on:submit.prevent
-      v-if="currentQuestion != appQuestions.length"
-    >
-      <div
-        class="question"
-        v-for="(question, index) in appQuestions"
-        :key="index"
-      >
+    <div id="questionHolder" v-on:submit.prevent v-if="currentQuestion != appQuestions.length">
+      <div class="question" v-for="(question, index) in appQuestions" :key="index">
         <div id="displayedQuestion" v-if="currentQuestion == index">
           <p>
             {{ index + 1 }}.
             <span class="err" v-if="question.required">*</span>
             <span v-html="question.label"></span>
           </p>
-          <input
-            type="text"
-            v-if="question.type == 'text'"
-            class="question"
-            @keyup.enter="next()"
-            v-bind:placeholder="question.placeholder"
-            v-model="$parent.user.application[question.appField]"
-          />
+          <input type="text" v-if="question.type == 'text'" class="question" @keyup.enter="next()"
+            v-bind:placeholder="question.placeholder" v-model="$parent.user.application[question.appField]" />
 
           <div v-if="question.type == 'phone'">
-            <vue-tel-input
-              v-model="$parent.user.application.phone"
-              :defaultCountry="'US'"
-              @onInput="onInput"
-              placeholder="5551239876"
-              @keyup.enter="next()"
-              class="front"
-            >
+            <vue-tel-input v-model="$parent.user.application.phone" :defaultCountry="'US'" @onInput="onInput"
+              placeholder="5551239876" @keyup.enter="next()" class="front">
             </vue-tel-input>
           </div>
 
@@ -54,33 +28,18 @@
 
                 You can find it's handler in the watched functions.
 -->
-            <input
-              class="hidden question"
-              v-model="radioInput"
-              @keyup.enter="next()"
-            />
-            <div
-              class="opt"
-              v-for="(option, optIndex) in question.options"
-              :key="optIndex"
-              v-bind:class="{
-                selected:
-                  $parent.user.application[question.appField] == option[1],
-                selectable:
-                  $parent.user.application[question.appField] != option[1],
-              }"
-              @click="$parent.user.application[question.appField] = option[1]"
-            >
+            <input class="hidden question" v-model="radioInput" @keyup.enter="next()" />
+            <div class="opt" v-for="(option, optIndex) in question.options" :key="optIndex" v-bind:class="{
+              selected:
+                $parent.user.application[question.appField] == option[1],
+              selectable:
+                $parent.user.application[question.appField] != option[1],
+            }" @click="$parent.user.application[question.appField] = option[1]">
               [{{ optIndex + 1 }}.] &nbsp; {{ option[0] }}
             </div>
-            <input
-              class="stringOpt"
-              v-if="question.stringInputLabel != undefined"
-              type="text"
-              v-model="$parent.user.application[question.appField]"
-              @keyup.enter="next()"
-              v-bind:placeholder="question.stringInputLabel"
-            />
+            <input class="stringOpt" v-if="question.stringInputLabel != undefined" type="text"
+              v-model="$parent.user.application[question.appField]" @keyup.enter="next()"
+              v-bind:placeholder="question.stringInputLabel" />
           </div>
 
           <div class="optHolder" v-if="question.type == 'bool'">
@@ -88,10 +47,7 @@
               TL;DR. Be respectful. Harassment and abuse are never tolerated.
             </span>
 
-            <span
-              v-if="question.appField == 'demographic'"
-              class="gray-subtitle"
-            >
+            <span v-if="question.appField == 'demographic'" class="gray-subtitle">
               I authorize you to share my application/registration information
               for event administration, ranking, MLH administration, pre- and
               post-event informational e-mails, and occasional messages about
@@ -100,30 +56,18 @@
               Privacy Policy.
             </span>
 
-            <input
-              class="hidden question"
-              v-model="boolInput"
-              @keyup.enter="next()"
-            />
-            <div
-              class="opt"
-              v-bind:class="{
-                selected: $parent.user.application[question.appField] == true,
-                selectable:
-                  $parent.user.application[question.appField] != true,
-              }"
-              @click="$parent.user.application[question.appField] = true"
-            >
+            <input class="hidden question" v-model="boolInput" @keyup.enter="next()" />
+            <div class="opt" v-bind:class="{
+              selected: $parent.user.application[question.appField] == true,
+              selectable:
+                $parent.user.application[question.appField] != true,
+            }" @click="$parent.user.application[question.appField] = true">
               1. Yes!
             </div>
-            <div
-              class="opt"
-              v-bind:class="{
-                selected: $parent.user.application[question.appField] == false,
-                selectable: $parent.user.application[question.appField] != false,
-              }"
-              @click="$parent.user.application[question.appField] = false"
-            >
+            <div class="opt" v-bind:class="{
+              selected: $parent.user.application[question.appField] == false,
+              selectable: $parent.user.application[question.appField] != false,
+            }" @click="$parent.user.application[question.appField] = false">
               2. Nope!
             </div>
             <!-- <div v-if="question.appField == 'travel' &&
@@ -137,76 +81,40 @@
           </div>
 
           <div v-if="question.type == 'number'">
-            <input
-              type="number"
-              class="numInput"
-              v-model="$parent.user.application[question.appField]"
-              v-bind:placeholder="question.placeholder"
-            />
-            <p
-              v-if="
-                question.appField == 'age' &&
-                $parent.user.application[question.appField] != '' &&
-                $parent.user.application[question.appField] > 12 &&
-                $parent.user.application[question.appField] < 18
-              "
-              style="font-size: 14px"
-            >
+            <input type="number" class="numInput" v-model="$parent.user.application[question.appField]"
+              v-bind:placeholder="question.placeholder" />
+            <p v-if="
+              question.appField == 'age' &&
+              $parent.user.application[question.appField] != '' &&
+              $parent.user.application[question.appField] > 12 &&
+              $parent.user.application[question.appField] < 18
+            " style="font-size: 14px">
               As a minor, make sure you bring a
-              <a
-                href="https://drive.google.com/file/d/1-AKs9LPvUtkPbgQwvr1o-nbHIxr5Ez_9/view?usp=sharing"
-                target="_blank"
-                class="orange-link"
-                >waiver</a
-              >, signed by a parent or gaurdian.
+              <a href="https://drive.google.com/file/d/1-AKs9LPvUtkPbgQwvr1o-nbHIxr5Ez_9/view?usp=sharing"
+                target="_blank" class="orange-link">waiver</a>, signed by a parent or gaurdian.
             </p>
           </div>
 
           <div v-if="question.type == 'upload'">
-            <input
-              class="hidden question"
-              v-model="boolInput"
-              @keyup.enter="next()"
-            />
-            <vue-dropzone
-              ref="resumeUpload"
-              id="dropzone"
-              :options="dropzoneOptions"
-              v-on:error="uploadError(errorMessage)"
-              name="resume"
-              v-on:success="uploadSuccess()"
-            ></vue-dropzone>
+            <input class="hidden question" v-model="boolInput" @keyup.enter="next()" />
+            <vue-dropzone ref="resumeUpload" id="dropzone" :options="dropzoneOptions"
+              v-on:error="uploadError(errorMessage)" name="resume" v-on:success="uploadSuccess()"></vue-dropzone>
           </div>
         </div>
       </div>
       <div class="nav-buttons">
-        <button
-          @click="previous()"
-          class="fancy-button"
-          v-if="currentQuestion != 0"
-        >
+        <button @click="previous()" class="fancy-button" v-if="currentQuestion != 0">
           ← Back
         </button>
         <button style="opacity: 0" v-else></button>
-        <button
-          @click="next()"
-          class="fancy-button"
-          v-if="currentQuestion < appQuestions.length - 1"
-          :class="{
-            disabled: !valid(currentQuestion),
-          }"
-        >
+        <button @click="next()" class="fancy-button" v-if="currentQuestion < appQuestions.length - 1" :class="{
+          disabled: !valid(currentQuestion),
+        }">
           Next →
-          <p>or press Enter</p>
         </button>
-        <button
-          @click="submit()"
-          v-else
-          class="fancy-button"
-          :class="{
-            disabled: !valid(currentQuestion),
-          }"
-        >
+        <button @click="submit()" v-else class="fancy-button" :class="{
+          disabled: !valid(currentQuestion),
+        }">
           Finish!
         </button>
       </div>
@@ -628,7 +536,7 @@ export default {
     const user = this.$parent.wrapper.userManager.getLocalUser();
     // console.log('user =', user);
     if (!user) {
-      this.$router.push('/register');
+      // this.$router.push('/register');
     }
   },
   //  filters: {
@@ -642,6 +550,18 @@ export default {
 
 <style scoped lang="scss">
 @import "@/globalVars.scss";
+@import '@/styles/global.scss';
+
+#application .back {
+  @include bg-flashy;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  overflow: hidden;
+}
 
 #the-back {
   background: linear-gradient(45deg, #ffecb8, #ffe499 95%);
@@ -653,6 +573,7 @@ export default {
   z-index: -1;
   overflow: hidden;
 }
+
 #the-back .squiggly {
   margin-top: 8vh;
   height: 84vh;
@@ -666,6 +587,7 @@ export default {
   background-size: cover;
   z-index: -2;
 }
+
 #the-back img {
   width: 100vw;
   opacity: 0.02;
@@ -688,7 +610,7 @@ export default {
   padding-top: 50px;
   left: 0px;
   min-height: 100px;
-  color: black;
+  // color: black;
   font-size: 20px;
 
   padding-bottom: 20px;
@@ -699,6 +621,7 @@ export default {
   img {
     height: 60px;
   }
+
   z-index: 99;
 
   @media only screen and (max-width: 600px) {
@@ -707,6 +630,7 @@ export default {
     }
   }
 }
+
 #questionHolder {
   margin-left: 15%;
   margin-right: 15%;
@@ -717,12 +641,14 @@ export default {
   font-size: 20px;
 
   padding: 50px;
-  background-color: white;
   border-radius: 15px;
+  @include bg-secondary;
 }
+
 .question {
   margin-top: 30px;
 }
+
 input {
   font-size: 20px;
   padding: 5px;
@@ -734,16 +660,20 @@ input {
 
   background-color: rgba(0, 0, 0, 0.05);
 }
+
 input:focus {
   opacity: 1;
-  border-bottom: solid gold 3px;
+  border-bottom: solid color('secondary');
 }
+
 input[type="text"] {
   opacity: 0.5;
 }
+
 input[type="text"]:focus {
   opacity: 1;
 }
+
 .optHolder {
   display: flex;
   flex-flow: row wrap;
@@ -756,7 +686,9 @@ input[type="text"]:focus {
 }
 
 .fancy-button {
-  border-radius: 0.25em;
+  // border-radius: 0.25em;
+  @include btn-primary;
+  padding: 12px;
 }
 
 /*  Used to facilitate the option chosen in the radio questions*/
@@ -764,6 +696,7 @@ input[type="text"]:focus {
   max-height: 2px;
   opacity: 0;
 }
+
 .hidden:focus {
   opacity: 0;
 }
@@ -783,16 +716,20 @@ input[type="text"]:focus {
   cursor: pointer;
   font-size: 15px;
 }
+
 .selectable:hover {
   filter: brightness(90%);
 }
+
 .selectable:active {
   filter: brightness(80%);
 }
+
 .selected {
   filter: brightness(80%);
   border: solid 2px var(--orange);
 }
+
 .stringOpt {
   width: 42%;
   min-width: 200px;
@@ -802,6 +739,7 @@ input[type="text"]:focus {
   color: lightcoral;
   font-weight: bold;
 }
+
 .is-danger {
   border-bottom: solid 3px lightcoral;
 }
@@ -827,6 +765,7 @@ input[type="text"]:focus {
   z-index: 1001 !important;
   color: black;
 }
+
 .orange-link {
   color: orange !important;
 }
@@ -839,6 +778,7 @@ input[type="text"]:focus {
   bottom: 0px;
   z-index: 10;
 }
+
 #apply-cactus {
   position: absolute;
   height: 50vh;

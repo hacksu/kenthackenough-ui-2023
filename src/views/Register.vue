@@ -2,13 +2,10 @@
   <div id="register">
 
     <div class="back" style="">
-      <div class="squiggly" style="opacity: 0.02;">
-
-      </div>
     </div>
 
     <div style="display: block; height: 100px; margin: 0px; margin-bottom: -70px; padding-top: 10vh;"></div>
-    <h6 id="auth-subtitle"><img style="height: 10vh;" src="../assets/KHE_Birthday.svg"/></h6>
+    <h6 id="auth-subtitle"><img style="height: 10vh;" src="/Logo.svg"/></h6>
     <div class="auth-container">
       <h2 id="auth-title">Register</h2>
       Email:<br>
@@ -102,42 +99,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '@/globalVars.scss';
+@import '@/styles/global.scss';
 
-#register {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  height: 100vh;
-  width: 100vw;
-}
 #register .back {
-  background: linear-gradient(45deg,#FFECB8,#FFE499 95%);
+  @include bg-flashy;
   height: 100vh;
-  width: 100vw;
-  position: absolute;
+  width: 100%;
+  position: fixed;
   top: 0px;
   left: 0px;
   z-index: -1;
   overflow: hidden;
-}
-#register .back .squiggly {
-  margin-top: 8vh;
-  height: 84vh;
-  width: 100vw;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-image: url(../assets/squiggly-back.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  z-index: -2;
-}
-#register .back img {
-  width: 100vw;
-  opacity: 0.02;
-  z-index: -5;
 }
 
 #register {

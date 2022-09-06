@@ -3,7 +3,7 @@
     <div class="back" style="">
     </div>
 
-    <img src="@/assets/KHE2022_Logo.svg" style="margin-top: 4vh" />
+    <img src="/Logo.svg" style="margin-top: 4vh" />
     <h1 class="sponsorship-title">SPONSORSHIP</h1>
 
     <div v-if="sponsors.length > 0">

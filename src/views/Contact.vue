@@ -167,7 +167,7 @@ textarea.contactTextField {
 
 #contactButton {
   margin-top: 10px;
-  @include btn-primary;
+  @include large-btn-primary;
   position: relative;
   text-align: center;
   display: inline-block;
