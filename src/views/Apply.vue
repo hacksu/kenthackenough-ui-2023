@@ -536,7 +536,7 @@ export default {
     const user = this.$parent.wrapper.userManager.getLocalUser();
     // console.log('user =', user);
     if (!user) {
-      // this.$router.push('/register');
+      this.$router.push('/register');
     }
   },
   //  filters: {
