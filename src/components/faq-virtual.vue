@@ -48,9 +48,9 @@ export default {
           id: 0,
           question: "What is a hackathon?",
           answer:
-            `A hackathon is a weekend long event to meet smart creative people, make connections, learn, and build something awesome! 
+            `A hackathon is a weekend-long event to meet smart creative people, make connections, learn, and build something awesome! 
             <br><br> 
-            Attendes meet on Saturday, make a team, and have 24 hours to build a tech-related project. 
+            Attendees meet on Saturday, make a team, and have 24 hours to build a tech-related project. 
             There will be optional lessons and talks, sponsors looking to hire smart, motivated people, and tons of free stuff!`
         },
         {
@@ -58,24 +58,26 @@ export default {
           question: "Can I participate?",
           answer:
             `If you're a high school student, a college student, or a recent college graduate, then yes! 
-             KHE is attended by people of all skill levels and backgrounds. 
-             You'll fit right in, and hopefully learn something.`
+            KHE is attended by people of all skill levels and backgrounds. 
+            You'll fit right in and hopefully, learn something!`
         },
         {
           id: 2,
           question: "Sounds cool, but how much does it cost?",
           answer:
-            `$0.00!<br><br>
+            `$0.00!
+            <br><br>
             Thanks to the generosity of our sponsors, we're able to put on events like this for <i>free</i>.  
-            We even pay for your meals for the weekend, and can reimburse you for travel costs.  
+            We even pay for your meals for the weekend and can reimburse you for travel costs.  
             Make sure to thank our sponsors - we couldn't do it without them!`
         },
         {
           id: 3,
           question: "What should I bring?",
           answer:
-            `Bring a laptop/something to hack on, a change of clothes, deoderant, a blanket/pillow, toiletries, deoderant, 
-            anything else you think you might use to complete your project, and deoderant.<br><br>
+            `Bring a laptop/something to hack on, a change of clothes, deodorant, a blanket/pillow, toiletries, deodorant, 
+            anything else you think you might use to complete your project, and deodorant.
+            <br><br>
             We'll have an MLH hardware lab, which means we'll also have cool hardware available to rent!`
         },
         {
