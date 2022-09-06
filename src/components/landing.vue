@@ -7,8 +7,8 @@
     <a v-if="$parent.$parent.showMLH" id="mlh-trust-badge"
       href="https://mlh.io/seasons/2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=white"
       target="_blank">
-      <img id="mlh-banner" src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-white.svg"
-        alt="Major League Hacking 2020 Hackathon Season" />
+      <img id="mlh-banner" src="https://s3.amazonaws.com/logged-assets/trust-badge/2023/mlh-trust-badge-2023-white.svg"
+        alt="Major League Hacking 2023 Hackathon Season" />
     </a>
 
     <div id="logo-container">
@@ -45,10 +45,9 @@
           REGISTRATION FOR KENT HACK ENOUGH 2022 IS CLOSED
         </p>
         <div v-if="$parent.$parent.showMLH" style="font-size: initial !important; margin-top: 20px">
-          <a href="https://mlh.io/code-of-conduct/" target="_blank" style="
+          <a class="mlh-conduct" href="https://mlh.io/code-of-conduct/" target="_blank" style="
               font-weight: bold;
               opacity: 0.75;
-              color: black;
               font-size: 2vh;
               text-decoration: none;
             ">MLH Code of Conduct</a>
@@ -216,14 +215,36 @@ export default {
   min-width: 60px;
   position: absolute;
   //left: 5px;
-  left: 200px;
+  left: 300px;
   top: 0;
   width: 10%;
   z-index: 10000;
 }
 
+@media (max-width: 1100px) {
+  #mlh-trust-badge {
+    left: 80vw;
+  }
+}
+
+@media (max-width: 500px) {
+  #mlh-trust-badge {
+    left: 70vw;
+  }
+}
+
+// @media (max-width: 1100px) {
+//   #mlh-trust-badge {
+//     left: 250px;
+//   }
+// }
+
 #mlh-banner {
   width: 100%;
+}
+
+.mlh-conduct {
+  color: color('secondary')
 }
 
 @keyframes fadein {

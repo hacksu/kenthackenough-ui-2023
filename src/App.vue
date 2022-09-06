@@ -66,7 +66,7 @@ export default {
       showLive: false,
       showSchedule: false, //true, //false,
       showPasswordReset: false,
-      showMLH: false,
+      showMLH: true,
 
       hasApp: false,
       hasCheckedForApp: false,
