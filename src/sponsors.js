@@ -102,24 +102,67 @@ let MLH = new Sponsor({
   scale: 0.5,
 });
 
+import NationwideLogo from '@/assets/sponsors/Nationwide.png'
+let Nationwide = new Sponsor({
+  logo: NationwideLogo,
+  name: 'Nationwide',
+  link: 'https://www.nationwide.com/',
+  scale: 0.75,
+})
+
+import ProgressiveLogo from '@/assets/sponsors/Progressive.png'
+let Progressive = new Sponsor({
+  logo: ProgressiveLogo,
+  name: 'Progressive',
+  link: 'https://www.progressive.com/',
+  scale: 0.75,
+})
+
+
+import Echo3DLogo from '@/assets/sponsors/echo3D.png'
+let Echo3D = new Sponsor({
+  logo: Echo3DLogo,
+  name: 'Echo3D',
+  link: 'https://www.echo3d.co/',
+  scale: 1.0,
+})
+
+import BawlsLogo from '@/assets/sponsors/Bawls.png'
+let Bawls = new Sponsor({
+  logo: BawlsLogo,
+  name: 'Bawls',
+  link: 'https://www.bawls.com/',
+  scale: 0.75,
+})
+
+import StandOutStickersLogo from '@/assets/sponsors/StandOutStickers.png'
+let StandOutStickers = new Sponsor({
+  logo: StandOutStickersLogo,
+  name: 'StandOutStickers',
+  link: 'http://hackp.ac/mlh-StandOutStickers-hackathons',
+  scale: 0.75,
+})
+
 
 export default [
-  //Hacksu,
   [
     RSM,
+    Nationwide,
+    Progressive,
+  ],
+  [
     CSDepartment,
-    MLH,
-    
-  ],
-  [
-    IHCI,
     GoogleCloud,
+    Echo3D,
   ],
   [
+    Bawls,
     Hacksu,
-    GreenworksLab,
+    MLH,
+  ],
+  [
+    StandOutStickers,
   ]
-  // MLH,
 
 ]
 
