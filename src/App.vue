@@ -61,7 +61,7 @@ export default {
       showRegister: true, //true, //false,
       registrationOpens: 'September 6th',
       //showRegister: (window.location.href.indexOf("khe.io") >= 0) ? false : true, // Temporary disable
-      showSponsors: false, //true, //false,
+      showSponsors: true, //true, //false,
       allowSponsorship: false,
       showLive: false,
       showSchedule: false, //true, //false,

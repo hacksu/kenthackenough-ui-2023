@@ -151,8 +151,8 @@ export default [
     Progressive,
   ],
   [
-    CSDepartment,
     GoogleCloud,
+    CSDepartment,
     Echo3D,
   ],
   [
