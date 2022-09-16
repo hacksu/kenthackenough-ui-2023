@@ -84,6 +84,7 @@ let CSDepartment= new Sponsor({
   logo: CSLogo,
   name: 'Kent State Computer Science',
   link: 'https://www.kent.edu/cs',
+  scale: 1.25
 });
 
 import RSMLogo from '@/assets/sponsors/RSMLogo_transparent.png'
@@ -108,7 +109,7 @@ let Nationwide = new Sponsor({
   name: 'Nationwide',
   link: 'https://www.nationwide.com/',
   scale: 0.75,
-})
+});
 
 import ProgressiveLogo from '@/assets/sponsors/Progressive.png'
 let Progressive = new Sponsor({
@@ -116,7 +117,7 @@ let Progressive = new Sponsor({
   name: 'Progressive',
   link: 'https://www.progressive.com/',
   scale: 0.75,
-})
+});
 
 
 import Echo3DLogo from '@/assets/sponsors/echo3D.png'
@@ -125,7 +126,7 @@ let Echo3D = new Sponsor({
   name: 'Echo3D',
   link: 'https://www.echo3d.co/',
   scale: 1.0,
-})
+});
 
 import BawlsLogo from '@/assets/sponsors/Bawls.png'
 let Bawls = new Sponsor({
@@ -133,7 +134,7 @@ let Bawls = new Sponsor({
   name: 'Bawls',
   link: 'https://www.bawls.com/',
   scale: 0.75,
-})
+});
 
 import StandOutStickersLogo from '@/assets/sponsors/StandOutStickers.png'
 let StandOutStickers = new Sponsor({
@@ -141,7 +142,15 @@ let StandOutStickers = new Sponsor({
   name: 'StandOutStickers',
   link: 'http://hackp.ac/mlh-StandOutStickers-hackathons',
   scale: 0.75,
-})
+});
+
+import USGLogo from '@/assets/sponsors/USG.png'
+let USG = new Sponsor({
+  logo: USGLogo,
+  name: "Undergraduate Student Government",
+  link: "http://www.kentstateusg.com/",
+  scale: 1,
+});
 
 
 export default [
@@ -152,15 +161,16 @@ export default [
   ],
   [
     GoogleCloud,
-    CSDepartment,
+    MLH,
     Echo3D,
   ],
   [
-    Bawls,
+    CSDepartment,
     Hacksu,
-    MLH,
+    USG,
   ],
   [
+    Bawls,
     StandOutStickers,
   ]
 
