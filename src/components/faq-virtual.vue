@@ -68,7 +68,7 @@ export default {
             `$0.00!
             <br><br>
             Thanks to the generosity of our sponsors, we're able to put on events like this for <i>free</i>.  
-            We even pay for your meals for the weekend and can reimburse you for travel costs.  
+            We even pay for your meals for the weekend!  
             Make sure to thank our sponsors - we couldn't do it without them!`
         },
         {

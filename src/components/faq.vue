@@ -60,7 +60,7 @@ export default {
           id: 2,
           question: "Sounds cool, but how much does it cost?",
           answer:
-            "$0.00!<br><br>Thanks to the generosity of our sponsors, we're able to put on events like this for <i>free</i>.  We even pay for your meals for the weekend, and can reimburse you for travel costs.  Make sure to thank our sponsors - we couldn't do it without them!"
+            "$0.00!<br><br>Thanks to the generosity of our sponsors, we're able to put on events like this for <i>free</i>.  We even pay for your meals for the weekend! Make sure to thank our sponsors - we couldn't do it without them!"
         },
         {
           id: 3,
