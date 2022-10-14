@@ -11,41 +11,82 @@
       <div class="day" v-for="day in days" v-bind:id="day.name" v-bind:key="day.name">
         <h2>{{ day.relative }}</h2>
         <h3>{{ day.humanDate }}</h3>
-        <div class="event" v-for="event in day.events" v-bind:key="event.id">
-          <div v-if="event.nextEvent" class="next holder">
-            <h2 style="margin-bottom: 10px; transform: scale(0.8); font-weight: normal"><b>{{ (event.type ? event.type :
-                '')
-            }}</b>{{ (event.type ? ' - ' : '') + event.title }}</h2>
-            <h3 class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }} {{ (event.end) ? ('-'
-                + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : ''
-            }}</h3>
-            <span class="description" style="font-size: 20px; opacity: 0.9;"
-              v-if="event.description && event.description.length > 0">{{ event.description }}</span>
-            <br v-if="event.location">
-            <a class="location" v-if="event.location" style="text-align: center;" v-bind:href="event.location">{{
-                event.icon || event.location
-            }}</a>
-          </div>
-          <div v-else class="holder">
-            <div style="min-height: 24px">
-              <!--<span class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }} - {{ event.end.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}</span>
-             -->
-              <span class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }} {{ (event.end) ?
-                  ('- ' + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : ''
-              }}</span>
-
-              <span class="type" v-bind:style="{ 'opacity': (event.type ? 1 : 0), }">{{ event.type || '_' }}</span>
-              <h3 class="name">{{ event.title }}</h3>
+        <span class="event-holder">
+          <div class="event" v-for="event in day.events" v-bind:key="event.id">
+            <div v-if="event.nextEvent" class="next holder">
+              <h2 style="margin-bottom: 10px; transform: scale(0.8); font-weight: normal"><b>{{ (event.type ? event.type :
+                  '')
+              }}</b>{{ (event.type ? ' - ' : '') + event.title }}</h2>
+              <h3 class="time">{{
+                (event.start && event.end && event.start.getTime() === event.end.getTime()) ? (
+                  (event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }))
+                ) : (
+                  (event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }))
+                  + ' ' + 
+                  ((event.end) ? ('- ' + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : '')
+                )
+              }}</h3>
+              <span class="description" style="font-size: 20px; opacity: 0.9;"
+                v-if="event.description && event.description.length > 0">{{ event.description }}</span>
+              <br v-if="event.location">
+              <a class="location" v-if="event.location && event.location.startsWith('http')" style="text-align: center;" v-bind:href="event.location">{{
+                  event.icon || event.location
+              }}</a>
+              <span class="location" v-if="event.location && !event.location.startsWith('http')" style="text-align: center;">
+                {{event.icon || event.location}}
+              </span>
             </div>
-            <br>
-            <p class="description" v-if="event.description" style="text-align: center;">{{ event.description }}</p>
-            <br v-if="event.location">
-            <a class="location" v-if="event.location" style="text-align: center;" v-bind:href="event.location">{{
-                event.icon || event.location
-            }}</a>
-          </div>
+            <div v-else class="holder">
+              <div style="min-height: 24px" hidden>
+                <!--<span class="time">{{ event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }) }} - {{ event.end.toLocaleTimeString('en-US', { timeStyle: 'short' }) }}</span>
+              -->
+                <span class="time">{{ 
+                  (event.start && event.end && event.start.getTime() === event.end.getTime()) ? (
+                    (event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }))
+                  ) : (
+                    (event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }))
+                    + ' ' + 
+                    ((event.end) ? ('-' + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : '')
+                  )
+                }}</span>
 
-        </div>
+                <span class="type" v-bind:style="{ 'opacity': (event.type ? 1 : 0), }">{{ event.type || '_' }}</span>
+                <h3 class="name">{{ event.title }}</h3>
+
+              </div>
+
+              <div style="min-height: 24px; display: flex; justify-content: space-between;">
+                
+                <span class="time">{{ 
+                  (event.start && event.end && event.start.getTime() === event.end.getTime()) ? (
+                    (event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }))
+                  ) : (
+                    (event.start.toLocaleTimeString('en-US', { timeStyle: 'short' }))
+                    + ' ' + 
+                    ((event.end) ? ('- ' + event.end.toLocaleTimeString('en-US', { timeStyle: 'short' })) : '')
+                  )
+                }}</span>
+
+                <h3 class="name">{{ event.title }}</h3>
+
+                <span class="type" v-bind:style="{ 'opacity': (event.type ? 1 : 0), }">{{ event.type || '_' }}</span>
+                
+              </div>
+
+              <br>
+              <p class="description" v-if="event.description" style="text-align: center;">{{ event.description }}</p>
+              <br v-if="event.location">
+              <span v-if="event.location" style="padding-right: 10px;">Location:</span>
+              <a class="location" v-if="event.location && event.location.startsWith('http')" style="text-align: center;" v-bind:href="event.location">{{
+                  event.icon || event.location
+              }}</a>
+              <span class="location" v-if="event.location && !event.location.startsWith('http')" style="text-align: center;">{{
+                  event.icon || event.location
+              }}</span>
+            </div>
+
+          </div>
+        </span>
       </div>
 
       <!--
@@ -415,7 +456,8 @@ h3 {
   margin-left: auto;
   margin-right: auto;
 
-  background-color: white;
+  // background-color: white;
+  @include bg-secondary;
   border-radius: 2vh;
 
   padding: 2vh;
@@ -431,7 +473,19 @@ h3 {
     color: black;
   }
 
+
+  .event:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .event:last-child {
+    border-bottom: none;
+  }
+
   .event {
+    // border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
     .holder {
       //background-color: white;
       //border-radius: 2vh;
@@ -460,23 +514,27 @@ h3 {
       }
 
       .time {
-        float: left;
+        // float: left;
         padding-left: 1vh;
         padding-right: 1vh;
-        width: 136px;
+        // width: 136px;
+        width: 160px;
       }
 
       .type {
         font-weight: bold;
-        float: left;
+        // float: left;
         //padding-right: 2vh;
-        width: 120px;
+        // width: 120px;
+        width: 160px;
+        padding-left: 1vh;
+        padding-right: 1vh;
 
       }
 
       .name {
-        text-align: left;
-        float: left;
+        // text-align: left;
+        // float: left;
         color: black;
         font-size: 18px;
 
