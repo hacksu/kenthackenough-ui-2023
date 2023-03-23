@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --port 4000",
-    "build": "vue-cli-service build"
+    "serve": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.14",
     "khe-frontend-lib": "github:hacksu/khe-frontend-lib",
     "sass": "^1.38.2",
     "vue": "^2.6.6",
@@ -18,11 +20,12 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/babel-preset-app": "^4.5.4",
-    "@vue/cli-plugin-babel": "^3.0.1",
-    "@vue/cli-service": "^3.0.1",
+    "@originjs/vite-plugin-commonjs": "^1.0.1",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21"
+    "vite": "^2.7.2",
+    "vite-plugin-env-compatible": "^1.1.1",
+    "vite-plugin-html": "3.2.0",
+    "vite-plugin-vue2": "^1.9.0"
   },
   "postcss": {
     "plugins": {
