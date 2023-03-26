@@ -1,6 +1,6 @@
 # Develop
 
-With Node.js installed, run `npm serve` from the console to get a version of this website at http://localhost:3000 that should automatically update when you change its code.
+With Node.js installed, put `npm run serve` into the console with this directory open to get a version of this website at http://localhost:3000 that should automatically update when you change its code.
 
 # Adding Sponsorship Logos
 
