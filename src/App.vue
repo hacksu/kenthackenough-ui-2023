@@ -7,7 +7,7 @@
         </p>
 
         <div id="hamburgMenu">
-          <img id="hamburgIcon" src="@/assets/Hamburger_icon.svg.png" width="50" @click="togMenu()" />
+          <img id="hamburgIcon" :src="hamburgerIcon" width="50" @click="togMenu()" />
         </div>
       </div>
 
@@ -49,7 +49,7 @@
 <script>
 import { ApiWrapper } from "khe-frontend-lib";
 import scrollto from "vue-scrollto";
-
+import hamburgerIcon from '@/assets/Hamburger_icon.svg.png'
 import apiConfig from "./config/config";
 
 export default {
@@ -67,7 +67,6 @@ export default {
       showSchedule: true, //true, //false,
       showPasswordReset: false,
       showMLH: true,
-
       hasApp: false,
       hasCheckedForApp: false,
       expandMenu: false,
@@ -77,6 +76,7 @@ export default {
       events: [],
       messages: [],
       scores: [],
+      hamburgerIcon
     };
   },
   watch: {
