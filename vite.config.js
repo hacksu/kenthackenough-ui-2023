@@ -1,12 +1,14 @@
 import { defineConfig } from 'vite';
 import path from 'path';
-import { createVuePlugin } from 'vite-plugin-vue2';
+import vue from '@vitejs/plugin-vue';
 import envCompatible from 'vite-plugin-env-compatible';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  root: "./",
+  publicDir: "public",
   resolve: {
     alias: [
       {
@@ -29,16 +31,16 @@ export default defineConfig({
     ]
   },
   plugins: [
-    createVuePlugin({ jsx: true }),
-    viteCommonjs(),
-    envCompatible(),
-    createHtmlPlugin({
-      inject: {
-        data: {
-          title: 'kenthackenough-ui-2019'
-        }
-      }
-    })
+    vue(),
+    // viteCommonjs(),
+    // envCompatible(),
+    // createHtmlPlugin({
+    //   inject: {
+    //     data: {
+    //       title: 'KentHackEnough'
+    //     }
+    //   }
+    // })
   ],
-  build: {}
+  build: {outDir: "dist"}
 })

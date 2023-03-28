@@ -1,39 +1,31 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from './views/Home.vue'
-import Apply from './views/Apply.vue'
-import Register from './views/Register.vue'
-import Login from './views/Login.vue'
 import Sponsor from './views/Sponsor.vue'
 import Contact from './views/Contact.vue'
-import Schedule from './views/Schedule.vue'
 
-Vue.use(Router)
-
-export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
+export const router = createRouter({
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
       name: 'home',
       component: Home
     },
-    {
-      path: '/register',
-      name: 'register',
-      component: Register,
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: Login,
-    },
-    {
-      path: '/apply',
-      name: 'apply',
-      component: Apply
-    },
+    // {
+    //   path: '/register',
+    //   name: 'register',
+    //   component: Register,
+    // },
+    // {
+    //   path: '/login',
+    //   name: 'login',
+    //   component: Login,
+    // },
+    // {
+    //   path: '/apply',
+    //   name: 'apply',
+    //   component: Apply
+    // },
     {
       path: '/sponsor',
       name: 'sponsor',
@@ -44,10 +36,10 @@ export default new Router({
       name: 'contact',
       component: Contact
     },
-    {
-      path: '/schedule',
-      name: 'schedule',
-      component: Schedule
-    }
+    // {
+    //   path: '/schedule',
+    //   name: 'schedule',
+    //   component: Schedule
+    // }
   ]
 })

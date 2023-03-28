@@ -1,8 +1,8 @@
 <template>
   <div id="landing-container" class="landing">
     <div class="back"></div>
-    <div class="hacksu-box box1"/>
-    <div class="hacksu-box box2"/>
+    <div class="hacksu-box box1" />
+    <div class="hacksu-box box2" />
 
     <!-- <a v-if="$parent.$parent.showMLH" id="mlh-trust-badge"
       href="https://mlh.io/seasons/2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=white"
@@ -12,7 +12,7 @@
     </a> -->
 
     <div id="logo-container">
-      <img src="/2023_logo.png" id="short-logo" />
+      <img src="/2023_Logo.png" id="short-logo" />
       <!-- <br /> -->
       <!-- <h2 class="kenthackenough">Kent Hack Enough</h2> -->
     </div>
@@ -55,14 +55,14 @@
       </span> -->
       <span v-if="!$parent.$parent.showRegister && $parent.$parent.registrationOpens">
         <p title="Registration has not yet opened!" style="
-            font-size: 3vh;
-            max-width: 800px;
-            width: 80vw;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.5;
-          ">
-          Registration opens {{$parent.$parent.registrationOpens}}
+                font-size: 3vh;
+                max-width: 800px;
+                width: 80vw;
+                margin-left: auto;
+                margin-right: auto;
+                opacity: 0.5;
+              ">
+          Registration opens {{ $parent.$parent.registrationOpens }}
         </p>
       </span>
       <!-- <a class="desktop-only gold-link" v-bind:style="{ 'font-size': ((!$parent.$parent.showRegister) ? '3vh!important' : '2.5vmin') + '', 'margin-top': ((!$parent.$parent.showRegister) ? '0px' : '0px') }" href="/sponsor" target="_blank">

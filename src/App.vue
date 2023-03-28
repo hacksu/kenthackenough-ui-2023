@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import { ApiWrapper } from "khe-frontend-lib";
 import scrollto from "vue-scrollto";
 import hamburgerIcon from '@/assets/Hamburger_icon.svg.png'
 import apiConfig from "./config/config";
@@ -71,7 +70,6 @@ export default {
       hasCheckedForApp: false,
       expandMenu: false,
       user: this.userInitialState(),
-      wrapper: new ApiWrapper(apiConfig),
       liveUpdates: {},
       events: [],
       messages: [],
@@ -80,87 +78,87 @@ export default {
     };
   },
   watch: {
-    '$route': function(to, from) {
+    '$route': function (to, from) {
       this.handleScroll();
     }
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
     // Checking if a user is saved as logged in
-    var user = this.wrapper.userManager.getLocalUser();
-    if (user && user.key) {
-      console.log("You've been logged in from a previous session!");
-      this.user._id = user.key;
-      this.user.email = user.email;
-      this.user.role = user.role;
+    // var user = this.wrapper.userManager.getLocalUser();
+    // if (user && user.key) {
+    //   console.log("You've been logged in from a previous session!");
+    //   this.user._id = user.key;
+    //   this.user.email = user.email;
+    //   this.user.role = user.role;
 
-      // Redirects to home if they're on register
-      if (
-        this.$route.fullPath == "/register" ||
-        this.$route.fullPath == "/login"
-      ) {
-        this.$router.push("/");
-      }
+    //   // Redirects to home if they're on register
+    //   if (
+    //     this.$route.fullPath == "/register" ||
+    //     this.$route.fullPath == "/login"
+    //   ) {
+    //     this.$router.push("/");
+    //   }
 
-      // Checks if the user has an application
-      this.wrapper.applicationManager
-        .getApplication()
-        .then((app) => {
-          console.log("Hey you have an app: ", app);
-          this.hasApp = app._onServer;
-          this.hasCheckedForApp = true;
-        })
-        .catch((err) => {
-          console.error("Problem getting your app!!");
-          this.hasCheckedForApp = true;
-        });
-    }
-    // LOADING IN SCHEDULE
-    let vm = this;
-    this.liveUpdates = this.wrapper.liveManager;
-    this.liveUpdates.exisitingEvents().then((msgs) => {
-      for (let i = 0; i < msgs.length; i++) vm.events.push(msgs[i]);
-    });
-    this.liveUpdates.SubscribeToEvents({
-      onCreate(event) {
-        vm.events.unshift(event);
-      },
-      onUpdate: function (event) {
-        var index = vm.events.findIndex(function (o) {
-          return o._id === event._id;
-        });
-        vm.events.splice(index, 1);
-        vm.events.push(event);
-      },
-      onDelete: function (event) {
-        var index = vm.events.findIndex(function (o) {
-          return o._id === event._id;
-        });
-        if (index !== -1) vm.events.splice(index, 1);
-      },
-    });
-    // LOADING IN UPDATES
-    this.liveUpdates.exisitingMessages().then((msgs) => {
-      for (let i = 0; i < msgs.length; i++) vm.messages.push(msgs[i]);
-    });
-    this.liveUpdates.SubscribeToMessages({
-      onCreate(msg) {
-        vm.messages.unshift(msg);
-      },
-      onUpdate: function (event) {
-        var index = vm.messages.findIndex(function (o) {
-          return o._id === event._id;
-        });
-        vm.messages[index].text = event.text;
-      },
-      onDelete: function (event) {
-        var index = vm.messages.findIndex(function (o) {
-          return o._id === event._id;
-        });
-        if (index !== -1) vm.messages.splice(index, 1);
-      },
-    });
-    this.getScores();
+    //   // Checks if the user has an application
+    //   this.wrapper.applicationManager
+    //     .getApplication()
+    //     .then((app) => {
+    //       console.log("Hey you have an app: ", app);
+    //       this.hasApp = app._onServer;
+    //       this.hasCheckedForApp = true;
+    //     })
+    //     .catch((err) => {
+    //       console.error("Problem getting your app!!");
+    //       this.hasCheckedForApp = true;
+    //     });
+    // }
+    // // LOADING IN SCHEDULE
+    // let vm = this;
+    // this.liveUpdates = this.wrapper.liveManager;
+    // this.liveUpdates.exisitingEvents().then((msgs) => {
+    //   for (let i = 0; i < msgs.length; i++) vm.events.push(msgs[i]);
+    // });
+    // this.liveUpdates.SubscribeToEvents({
+    //   onCreate(event) {
+    //     vm.events.unshift(event);
+    //   },
+    //   onUpdate: function (event) {
+    //     var index = vm.events.findIndex(function (o) {
+    //       return o._id === event._id;
+    //     });
+    //     vm.events.splice(index, 1);
+    //     vm.events.push(event);
+    //   },
+    //   onDelete: function (event) {
+    //     var index = vm.events.findIndex(function (o) {
+    //       return o._id === event._id;
+    //     });
+    //     if (index !== -1) vm.events.splice(index, 1);
+    //   },
+    // });
+    // // LOADING IN UPDATES
+    // this.liveUpdates.exisitingMessages().then((msgs) => {
+    //   for (let i = 0; i < msgs.length; i++) vm.messages.push(msgs[i]);
+    // });
+    // this.liveUpdates.SubscribeToMessages({
+    //   onCreate(msg) {
+    //     vm.messages.unshift(msg);
+    //   },
+    //   onUpdate: function (event) {
+    //     var index = vm.messages.findIndex(function (o) {
+    //       return o._id === event._id;
+    //     });
+    //     vm.messages[index].text = event.text;
+    //   },
+    //   onDelete: function (event) {
+    //     var index = vm.messages.findIndex(function (o) {
+    //       return o._id === event._id;
+    //     });
+    //     if (index !== -1) vm.messages.splice(index, 1);
+    //   },
+    // });
+    // this.getScores();
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -199,18 +197,18 @@ export default {
       this.showLogin = false;
       this.showPasswordReset = !this.showPasswordReset;
     },
-    getScores() {
-      // LOADING LEADERBOARD:
-      var vm = this;
-      this.wrapper.gamifyV1
-        .scoreboard()
-        .then((scores) => {
-          vm.scores = scores;
-        })
-        .catch((err) => {
-          throw err;
-        });
-    },
+    // getScores() {
+    //   // LOADING LEADERBOARD:
+    //   var vm = this;
+    //   this.wrapper.gamifyV1
+    //     .scoreboard()
+    //     .then((scores) => {
+    //       vm.scores = scores;
+    //     })
+    //     .catch((err) => {
+    //       throw err;
+    //     });
+    // },
     userInitialState() {
       this.hasApp = false;
       return {
@@ -242,16 +240,16 @@ export default {
         },
       };
     },
-    logout: function () {
-      this.wrapper.userManager.logout();
-      //        .then(() => {
-      //        console.log("Logged out!");
-      //      }).catch((err) => {
-      //        console.error("Error logging out: ", err);
-      //      })
-      this.user = this.userInitialState();
-      this.$router.push({ path: "/" });
-    },
+    // logout: function () {
+    //   this.wrapper.userManager.logout();
+    //   //        .then(() => {
+    //   //        console.log("Logged out!");
+    //   //      }).catch((err) => {
+    //   //        console.error("Error logging out: ", err);
+    //   //      })
+    //   this.user = this.userInitialState();
+    //   this.$router.push({ path: "/" });
+    // },
     togMenu: function () {
       this.expandMenu = !this.expandMenu;
     },
@@ -400,9 +398,11 @@ export default {
   justify-content: space-between;
   z-index: 98;
   padding-left: 20px;
+
   @include mobile {
     @include bg-primary;
   }
+
   @include display-not(mobile) {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -410,13 +410,16 @@ export default {
     #bannerR {
       padding-right: 250px;
     }
+
     #bannerL {
       padding-left: 10px;
     }
   }
 }
+
 #banner.scrolled {
   @include bg-primary;
+
   @include display-not(mobile) {
     padding-top: 10px;
     padding-bottom: 5px;

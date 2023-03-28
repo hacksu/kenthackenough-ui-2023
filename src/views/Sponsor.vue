@@ -16,11 +16,11 @@
         </h2>
         <div v-for="(sponsorGroup, groupIndex) in sponsors" v-bind:key="groupIndex">
           <a class="sponsor" v-for="sponsor in sponsorGroup instanceof Array
-          ? sponsorGroup
-          : [sponsorGroup]" v-bind:href="sponsor.link" v-bind:key="sponsor.name">
+            ? sponsorGroup
+            : [sponsorGroup]" v-bind:href="sponsor.link" v-bind:key="sponsor.name">
             <!-- <img class="logo" v-bind:src="sponsor.logo" v-bind:alt="sponsor.name" v-bind:style="sponsor.style"> -->
-            <span class="logo" v-bind:src="sponsor.logo" v-bind:id="'sponsorlogo-' + sponsor.id"
-              v-bind:alt="sponsor.name" v-bind:style="sponsor.style"></span>
+            <span class="logo" v-bind:src="sponsor.logo" v-bind:id="'sponsorlogo-' + sponsor.id" v-bind:alt="sponsor.name"
+              v-bind:style="sponsor.style"></span>
           </a>
         </div>
       </div>
@@ -30,20 +30,20 @@
 
     <div v-if="$parent.allowSponsorship">
       <p style="
-          font-size: 5vmin;
-          max-width: 1200px;
-          margin-left: auto;
-          margin-right: auto;
-        ">
+              font-size: 5vmin;
+              max-width: 1200px;
+              margin-left: auto;
+              margin-right: auto;
+            ">
         Looking to sponsor Kent Hack Enough?
       </p>
       <br />
       <p style="
-          font-size: 3vmin;
-          max-width: 1200px;
-          margin-left: auto;
-          margin-right: auto;
-        ">
+              font-size: 3vmin;
+              max-width: 1200px;
+              margin-left: auto;
+              margin-right: auto;
+            ">
         We look forward to working with you for the 9th year of KHE! Below are
         the following three tiers for Kent Hack Enough 2020! We will issue an
         itemized invoice once tier is confirmed. Please reach out to us if you
@@ -78,14 +78,14 @@
           <div id="colorTier1">
             <!--<img src="@/assets/images/cassetteTape.png">-->
             <div style="
-                transform: scale(0.5);
-                height: 160px;
-                width: calc(100% - 40px);
-                padding: 20px;
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
-              " id="cassette-img"></div>
+                    transform: scale(0.5);
+                    height: 160px;
+                    width: calc(100% - 40px);
+                    padding: 20px;
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                  " id="cassette-img"></div>
           </div>
           <h2>Cassette Tape</h2>
           <p class="specialText2">$250</p>
@@ -98,14 +98,14 @@
           <div id="colorTier2">
             <!--<img src="@/assets/images/sunglasses.png">-->
             <div style="
-                transform: scale(0.6);
-                height: 160px;
-                width: calc(100% - 40px);
-                padding: 20px;
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
-              " id="sunglasses-img"></div>
+                    transform: scale(0.6);
+                    height: 160px;
+                    width: calc(100% - 40px);
+                    padding: 20px;
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                  " id="sunglasses-img"></div>
           </div>
 
           <h2>Sunglasses</h2>
@@ -119,14 +119,14 @@
           <div id="colorTier3">
             <!--<img src="@/assets/images/keyboard.png">-->
             <div style="
-                transform: scale(0.85);
-                height: 160px;
-                width: calc(100% - 40px);
-                padding: 20px;
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
-              " id="keyboard-img"></div>
+                    transform: scale(0.85);
+                    height: 160px;
+                    width: calc(100% - 40px);
+                    padding: 20px;
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                  " id="keyboard-img"></div>
           </div>
 
           <h2>Keyboard</h2>
@@ -229,46 +229,46 @@ export default {
         x.style.display = "none";
       }
     },
-    buttonClose1: function (evt) {
-      if (evt && evt.target.id.indexOf("detailsTier") >= 0) {
-      } else if (evt) {
-        return false;
-      }
-      var x = document.getElementById("detailsTier1");
-      x.style.display = "none";
-    },
-    tier2: function () {
-      var x = document.getElementById("detailsTier2");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-    },
-    buttonClose2: function (evt) {
-      if (evt && evt.target.id.indexOf("detailsTier") >= 0) {
-      } else if (evt) {
-        return false;
-      }
-      var x = document.getElementById("detailsTier2");
-      x.style.display = "none";
-    },
-    tier3: function () {
-      var x = document.getElementById("detailsTier3");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-    },
-    buttonClose3: function (evt) {
-      if (evt && evt.target.id.indexOf("detailsTier") >= 0) {
-      } else if (evt) {
-        return false;
-      }
-      var x = document.getElementById("detailsTier3");
-      x.style.display = "none";
-    },
+    // buttonClose1: function (evt) {
+    //   if (evt && evt.target.id.indexOf("detailsTier") >= 0) {
+    //   } else if (evt) {
+    //     return false;
+    //   }
+    //   var x = document.getElementById("detailsTier1");
+    //   x.style.display = "none";
+    // },
+    // tier2: function () {
+    //   var x = document.getElementById("detailsTier2");
+    //   if (x.style.display === "none") {
+    //     x.style.display = "block";
+    //   } else {
+    //     x.style.display = "none";
+    //   }
+    // },
+    // buttonClose2: function (evt) {
+    //   if (evt && evt.target.id.indexOf("detailsTier") >= 0) {
+    //   } else if (evt) {
+    //     return false;
+    //   }
+    //   var x = document.getElementById("detailsTier2");
+    //   x.style.display = "none";
+    // },
+    // tier3: function () {
+    //   var x = document.getElementById("detailsTier3");
+    //   if (x.style.display === "none") {
+    //     x.style.display = "block";
+    //   } else {
+    //     x.style.display = "none";
+    //   }
+    // },
+    // buttonClose3: function (evt) {
+    //   if (evt && evt.target.id.indexOf("detailsTier") >= 0) {
+    //   } else if (evt) {
+    //     return false;
+    //   }
+    //   var x = document.getElementById("detailsTier3");
+    //   x.style.display = "none";
+    // },
     nothing: function () {
       // do nothing. ignore clicks
     },
@@ -276,22 +276,22 @@ export default {
   mounted() {
     //this.sponsors = Sponsors;
     //console.log(this.sponsors);
-    document.getElementById(
-      "cassette-img"
-    ).style.backgroundImage = `url(${cassette})`;
-    document.getElementById(
-      "sunglasses-img"
-    ).style.backgroundImage = `url(${sunglasses})`;
-    document.getElementById(
-      "keyboard-img"
-    ).style.backgroundImage = `url(${keyboard})`;
-    this.$parent.wrapper.sponsorSource
-      .getSponsors()
-      .then((data) => {
-        //this.sponsors = data;
-        console.log("SPONSORS", this.sponsors);
-      })
-      .catch(console.error);
+    // document.getElementById(
+    //   "cassette-img"
+    // ).style.backgroundImage = `url(${cassette})`;
+    // document.getElementById(
+    //   "sunglasses-img"
+    // ).style.backgroundImage = `url(${sunglasses})`;
+    // document.getElementById(
+    //   "keyboard-img"
+    // ).style.backgroundImage = `url(${keyboard})`;
+    // this.$parent.wrapper.sponsorSource
+    //   .getSponsors()
+    //   .then((data) => {
+    //     //this.sponsors = data;
+    //     console.log("SPONSORS", this.sponsors);
+    //   })
+    //   .catch(console.error);
   },
   data() {
     return {
