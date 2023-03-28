@@ -25,17 +25,17 @@
         <p class="banner-link" @click="scrollTo('/contact', '#contact')">
           Contact
         </p>
-        <p v-if="$data.showSchedule" class="banner-link" @click="scrollTo('/schedule')">
+        <!-- <p v-if="$data.showSchedule" class="banner-link" @click="scrollTo('/schedule')">
           Schedule
-        </p>
+        </p> -->
         <p class="banner-link" @click="scrollTo('/', '#map')" hidden>Virtual</p>
         <p v-if="$data.showLive" class="banner-link" @click="scrollTo('/live')">
           Live!
         </p>
-        <p class="banner-link register-link" @click="scrollTo('/register', '#register')"
+        <!-- <p class="banner-link register-link" @click="scrollTo('/register', '#register')"
           v-if="user._id == '' && $data.showRegister">
           Register
-        </p>
+        </p> -->
         <p class="banner-link logout-link" @click="logout()" v-if="user._id != '' && $data.showRegister">
           Log out
         </p>

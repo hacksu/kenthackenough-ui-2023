@@ -3,21 +3,19 @@
     <div id="header-container">
       <span id="title">KENT HACK ENOUGH</span>
       <br>
-      <span id="subtitle">2022</span>
+      <span id="subtitle">2023</span>
     </div>
-    <div class="image-box2 desktop-only">
+    <!-- <div class="image-box2 desktop-only">
 
-    </div>
+    </div> -->
     <div id="about-content-container">
-      <img style="max-width: 80vh;" src="@/assets/keyboard.png">
+      <img style="max-width: 80vh;" src="@/assets/text_rocket.png">
       <div id="about-text-container">
-        Kent Hack Enough is ready to blast to the past! Come join us at this <span class="highlight">totally tubular</span> event as we work together to make outstanding projects!<br><br>
-        <!-- Kent Hack Enough is ready to <span class="highlight">blast to the past</span>! Come login to the simulations as
-        we work together <span class="highlight">online</span> and make some amazing projects!<br><br> -->
+        Kent Hack Enough is <span class="highlight">rocketing off</span> to the unknown! Come join us at this space-fairing event as we work together to make outstanding projects!<br><br>
       </div>
     </div>
     <div id="colored-text-container">
-      This is our 11th KHE! Whether you're <b>totally new</b> to tech & design or a <b>seasoned pro</b>, come spend a
+      This is our 12th KHE! Whether you're <b>totally new</b> to tech & design or a <b>seasoned pro</b>, come spend a
       weekend making something great with us!
     </div>
     <div class="back"></div>
@@ -45,7 +43,7 @@ export default {
   max-width: 35vmax;
   height: 40vh;
   max-height: 50vw;
-  z-index: 0;
+  z-index: -1;
   margin-top: -15vh;
   transform: rotate(-5deg);
 
@@ -90,7 +88,8 @@ export default {
 
 
 #about-container .back {
-  /*background: linear-gradient(90deg, rgba(215,93,222,1) 0%, rgba(245,119,49,1) 100%);*/
+  
+  background-image: url('stars.png');
   display: inline-block;
   top: 0px;
   left: 0px;
@@ -98,6 +97,7 @@ export default {
   width: 100%;
   z-index: -2;
   position: absolute;
+  
 }
 
 
@@ -115,7 +115,7 @@ export default {
     width: 60vw;
     align-self: center;
   }
-
+  z-index: 1;
   justify-content: space-between;
 }
 
@@ -131,7 +131,7 @@ export default {
   // color: $light-blue;
   .highlight {
     // color: $gold;
-    color: color('secondary');
+    color: #FF0000;
   }
 
   @media only screen and (max-width: $lg-bp) {

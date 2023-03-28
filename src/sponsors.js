@@ -154,7 +154,7 @@ let USG = new Sponsor({
 
 
 export default [
-  [
+  /*[
     RSM,
     Nationwide,
     Progressive,
@@ -172,7 +172,7 @@ export default [
   [
     Bawls,
     StandOutStickers,
-  ]
+  ]*/
 
 ]
 

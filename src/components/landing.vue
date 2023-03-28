@@ -4,22 +4,22 @@
     <div class="hacksu-box box1"/>
     <div class="hacksu-box box2"/>
 
-    <a v-if="$parent.$parent.showMLH" id="mlh-trust-badge"
+    <!-- <a v-if="$parent.$parent.showMLH" id="mlh-trust-badge"
       href="https://mlh.io/seasons/2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=white"
       target="_blank">
       <img id="mlh-banner" src="https://s3.amazonaws.com/logged-assets/trust-badge/2023/mlh-trust-badge-2023-white.svg"
         alt="Major League Hacking 2023 Hackathon Season" />
-    </a>
+    </a> -->
 
     <div id="logo-container">
-      <img src="/Logo.svg" id="short-logo" />
+      <img src="/2023_logo.png" id="short-logo" />
       <!-- <br /> -->
       <!-- <h2 class="kenthackenough">Kent Hack Enough</h2> -->
     </div>
 
     <div id="landing-content-container">
-      <p id="date">October 15th - 16th</p>
-      <span v-if="$parent.$parent.showRegister">
+      <p id="date">Blasting off this October</p>
+      <!-- <span v-if="$parent.$parent.showRegister">
         <router-link tag="button" :to="{ name: 'register' }" id="apply-btn" class="register-now"
           v-if="$parent.$parent.user._id == ''">
           Register Now!
@@ -52,7 +52,7 @@
               text-decoration: none;
             ">MLH Code of Conduct</a>
         </div>
-      </span>
+      </span> -->
       <span v-if="!$parent.$parent.showRegister && $parent.$parent.registrationOpens">
         <p title="Registration has not yet opened!" style="
             font-size: 3vh;
@@ -125,12 +125,13 @@ export default {
 
 .landing .back {
   // background: linear-gradient(45deg, #ffecb8, #ffe499 95%);
-  @include bg-primary;
+  //@include bg-primary;
+  background-image: url('stars.png');
   height: 100%;
-  width: 100vw;
+  width: 110vw;
   position: absolute;
   top: 0px;
-  left: 0px;
+  left: -100px;
   z-index: -1;
   overflow: hidden;
 }
@@ -151,6 +152,7 @@ export default {
   max-width: 80vw;
   margin-left: auto;
   margin-right: auto;
+  color: #555555
 }
 
 #apply-btn {
