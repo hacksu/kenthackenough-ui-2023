@@ -1,6 +1,5 @@
 
 let ids = 0;
-let styling = '';
 class Sponsor {
   constructor(cfg) {
     Object.assign(this, {
@@ -17,11 +16,6 @@ class Sponsor {
       'display': 'inline-block',
       'transform': 'scale(' + this.scale + ')',
     })
-    styling += `
-#sponsorlogo-${this.id}:hover {
-  transform: scale(${this.scale * 1.1})!important;
-}
-`
   }
 }
 
@@ -175,5 +169,3 @@ export default [
   ]*/
 
 ]
-
-document.head.insertAdjacentHTML("beforeend", `<style>${styling}</style>`);

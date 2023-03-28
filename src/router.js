@@ -1,15 +1,13 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from './views/Home.vue'
-import Sponsor from './views/Sponsor.vue'
-import Contact from './views/Contact.vue'
+import Home from "./views/Home.vue";
+import Sponsor from "./views/Sponsor.vue";
+import Contact from "./views/Contact.vue";
 
-export const router = createRouter({
-  history: createWebHistory(),
+export const routerConfig = {
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: "/",
+      name: "home",
+      component: Home,
     },
     // {
     //   path: '/register',
@@ -27,19 +25,19 @@ export const router = createRouter({
     //   component: Apply
     // },
     {
-      path: '/sponsor',
-      name: 'sponsor',
-      component: Sponsor
+      path: "/sponsor",
+      name: "sponsor",
+      component: Sponsor,
     },
     {
-      path: '/contact',
-      name: 'contact',
-      component: Contact
+      path: "/contact",
+      name: "contact",
+      component: Contact,
     },
     // {
     //   path: '/schedule',
     //   name: 'schedule',
     //   component: Schedule
     // }
-  ]
-})
+  ],
+};
